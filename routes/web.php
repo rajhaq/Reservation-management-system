@@ -19,5 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::any('{slug}', [
-    'uses' => 'StatusController@index',
+    'uses' => 'HomeController@index',
  ])->where('slug', '([A-z\d-\/_.]+)?');

@@ -3,9 +3,10 @@ window.Vue = require('vue');
 
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
-
-import Vue from 'vue'
-Vue.use(iView);
+//iview
+import Vue from 'vue';
+import locale from 'iview/dist/locale/en-US';
+Vue.use(iView, {locale: locale});
 // common methods 
 
 /*custom common methods*/
