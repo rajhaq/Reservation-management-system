@@ -30,7 +30,7 @@
         </Col>
         <Col span="10" offset="1">
             <Card class="center">
-                
+
                     <Alert type="warning" >Day Shift
                         <span slot="desc"></span>
                     </Alert>
@@ -46,49 +46,28 @@
                     </Alert >
                 <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
                     <FormItem label="Name" prop="name">
-                        <Input v-model="formValidate.name" placeholder="Enter your name"></Input>
+                        <Input v-model="formValidate.name" placeholder="Enter name"></Input>
+                    </FormItem>
+                    <FormItem label="Number" prop="number">
+                        <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
                     </FormItem>
                     <FormItem label="E-mail" prop="mail">
-                        <Input v-model="formValidate.mail" placeholder="Enter your e-mail"></Input>
+                        <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
                     </FormItem>
-                    <FormItem label="City" prop="city">
-                        <Select v-model="formValidate.city" placeholder="Select your city">
-                            <Option value="beijing">New York</Option>
-                            <Option value="shanghai">London</Option>
-                            <Option value="shenzhen">Sydney</Option>
+                    <FormItem label="Hall" prop="hall">
+                        <Select v-model="formValidate.hall" placeholder="Select hall">
+                            <Option value="both">Both</Option>
+                            <Option value="small">Top (Small)</Option>
+                            <Option value="large">Ground (Small)</Option>
                         </Select>
                     </FormItem>
-                    <FormItem label="Date">
-                        <Row>
-                            <Col span="11">
-                                <FormItem prop="date">
-                                    <DatePicker type="date" placeholder="Select date" v-model="formValidate.date"></DatePicker>
-                                </FormItem>
-                            </Col>
-                            <Col span="2" style="text-align: center">-</Col>
-                            <Col span="11">
-                                <FormItem prop="time">
-                                    <TimePicker type="time" placeholder="Select time" v-model="formValidate.time"></TimePicker>
-                                </FormItem>
-                            </Col>
-                        </Row>
+                    <FormItem label="Event Type" prop="type">
+                        <Select v-model="formValidate.type" placeholder="Select type">
+                            <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                        </Select>
                     </FormItem>
-                    <FormItem label="Gender" prop="gender">
-                        <RadioGroup v-model="formValidate.gender">
-                            <Radio label="male">Male</Radio>
-                            <Radio label="female">Female</Radio>
-                        </RadioGroup>
-                    </FormItem>
-                    <FormItem label="Hobby" prop="interest">
-                        <CheckboxGroup v-model="formValidate.interest">
-                            <Checkbox label="Eat"></Checkbox>
-                            <Checkbox label="Sleep"></Checkbox>
-                            <Checkbox label="Run"></Checkbox>
-                            <Checkbox label="Movie"></Checkbox>
-                        </CheckboxGroup>
-                    </FormItem>
-                    <FormItem label="Desc" prop="desc">
-                        <Input v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
+                    <FormItem label="Address" prop="address">
+                        <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                     </FormItem>
                     <FormItem>
                         <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
@@ -117,41 +96,48 @@
                  formValidate: {
                     name: '',
                     mail: '',
-                    city: '',
-                    gender: '',
-                    interest: [],
-                    date: '',
-                    time: '',
-                    desc: ''
+                    number: '',
+                    hall: '',
+                    type: '',
+                    address: ''
                 },
+                type: [
+                    {
+                        value: 'wedding',
+                        label: 'Wedding'
+                    },
+                    {
+                        value: 'reciption',
+                        label: 'Reciption'
+                    },
+
+                    {
+                        value: 'holdu',
+                        label: 'Holdu'
+                    },
+                    {
+                        value: 'birthday',
+                        label: 'Birthday'
+                    },
+                    {
+                        value: 'corporate',
+                        label: 'Corporate'
+                    },
+                    {
+                        value: 'others',
+                        label: 'Others'
+                    }
+                ],
                 ruleValidate: {
                     name: [
                         { required: true, message: 'The name cannot be empty', trigger: 'blur' }
                     ],
-                    mail: [
-                        { required: true, message: 'Mailbox cannot be empty', trigger: 'blur' },
-                        { type: 'email', message: 'Incorrect email format', trigger: 'blur' }
+                    number: [
+                        { required: true, message: 'The number cannot be empty', trigger: 'blur' }
                     ],
-                    city: [
-                        { required: true, message: 'Please select the city', trigger: 'change' }
+                    hall: [
+                        { required: true, message: 'Please select the hall', trigger: 'change' }
                     ],
-                    gender: [
-                        { required: true, message: 'Please select gender', trigger: 'change' }
-                    ],
-                    interest: [
-                        { required: true, type: 'array', min: 1, message: 'Choose at least one hobby', trigger: 'change' },
-                        { type: 'array', max: 2, message: 'Choose two hobbies at best', trigger: 'change' }
-                    ],
-                    date: [
-                        { required: true, type: 'date', message: 'Please select the date', trigger: 'change' }
-                    ],
-                    time: [
-                        { required: true, type: 'string', message: 'Please select time', trigger: 'change' }
-                    ],
-                    desc: [
-                        { required: true, message: 'Please enter a personal introduction', trigger: 'blur' },
-                        { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' }
-                    ]
                 }
             }
         },
@@ -159,7 +145,7 @@
             handleSubmit (name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        this.$Message.success('Success!');
+                        this.$Message.success('Success!', 'Data Added');
                     } else {
                         this.$Message.error('Fail!');
                     }
