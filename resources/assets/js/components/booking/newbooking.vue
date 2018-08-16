@@ -25,7 +25,7 @@
     <Row>
         <Col span="22" offset="1"  class="marginB">
             <Card class="center">
-                <DatePicker type="date" :options="options3" placeholder="Select date"></DatePicker>
+                <DatePicker type="date" :options="options3" placeholder="Select date" @on-change="changeBooking"></DatePicker>
             </Card>
         </Col>
         <Col span="10" offset="1">
@@ -93,13 +93,15 @@
                         return disabledDay === 15;
                     }
                 },
+                bookingList:[],
                  formValidate: {
                     name: '',
                     mail: '',
                     number: '',
                     hall: '',
                     type: '',
-                    address: ''
+                    address: '',
+                    date:''
                 },
                 type: [
                     {
@@ -142,6 +144,21 @@
             }
         },
         methods: {
+            async changeBooking (key) {
+                this.ls();
+                try{
+                let {data} =await  axios({
+                    method: 'get',
+                    url:`/app/bookingFinder/${key}`
+                })
+                console.log(data)
+                this.bookingList=data
+                this.lf();
+                }catch(e){
+                    this.e('Oops!','Something went wrong, please try again!')
+                this.le();
+                }
+            },
             handleSubmit (name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {

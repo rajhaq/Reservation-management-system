@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/app/booking','BookingController');
+Route::get('/app/bookingFinder/{date}', 'BookingController@bookingFinder');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
