@@ -28,96 +28,98 @@
                 <DatePicker v-model="date" type="date" :options="options3" placeholder="Select date" @on-change="changeBooking"></DatePicker>
             </Card>
         </Col>
-        <Col span="10" offset="1" v-if="date">
-            <Card  class="center" v-if="day">
+        <Row :gutter="16"  v-if="date">
+            <Col span="12">
+                <Card  class="center" v-if="day">
+                        <Alert  class="center" type="warning">Day Shift
+                            <span slot="desc"></span>
+                        </Alert>
+                    <p ><Icon type="ios-checkmark-circle" /></p>
+                    <p >Already Booked </p>
+                    <p><Button type="primary">View Information</Button></p>
+                </Card>
+                <Card v-else>
                     <Alert  class="center" type="warning">Day Shift
-                        <span slot="desc"></span>
-                    </Alert>
-                <p ><Icon type="ios-checkmark-circle" /></p>
-                <p >Already Booked </p>
-                <p><Button type="primary">View Information</Button></p>
-            </Card>
-            <Card v-else>
-                <Alert  class="center" type="warning">Day Shift
-                <span slot="desc"></span>
-                </Alert >
-                <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
-                    <FormItem label="Name" prop="name">
-                        <Input v-model="formValidate.name" placeholder="Enter name"></Input>
-                    </FormItem>
-                    <FormItem label="Number" prop="number">
-                        <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
-                    </FormItem>
-                    <FormItem label="E-mail" >
-                        <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
-                    </FormItem>
-                    <FormItem label="Hall" prop="hall">
-                        <Select v-model="formValidate.hall" placeholder="Select hall">
-                            <Option value="both">Both</Option>
-                            <Option value="small">Top (Small)</Option>
-                            <Option value="large">Ground (Small)</Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Event Type" >
-                        <Select v-model="formValidate.type" placeholder="Select type">
-                            <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Address" >
-                        <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
-                        <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
-                    </FormItem>
-                </Form>
-            </Card>
-        </Col>
-        <Col span="10" offset="2" v-if="date">
-            <Card class="center" v-if="night">
-                    <Alert >Night Shift
-                        <span slot="desc"></span>
-                    </Alert>
-                <p ><Icon type="ios-checkmark-circle" /></p>
-                <p >Already Booked </p>
-                <p><Button type="primary">View Information</Button></p>
-            </Card>
-            <Card v-else>
-                <Alert  class="center">Night Shift
-                <span slot="desc"></span>
-                </Alert >
-                <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
-                    <FormItem label="Name" prop="name">
-                        <Input v-model="formValidate.name" placeholder="Enter name"></Input>
-                    </FormItem>
-                    <FormItem label="Number" prop="number">
-                        <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
-                    </FormItem>
-                    <FormItem label="E-mail">
-                        <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
-                    </FormItem>
-                    <FormItem label="Hall" prop="hall">
-                        <Select v-model="formValidate.hall" placeholder="Select hall">
-                            <Option value="both">Both</Option>
-                            <Option value="small">Top (Small)</Option>
-                            <Option value="large">Ground (Small)</Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Event Type">
-                        <Select v-model="formValidate.type" placeholder="Select type">
-                            <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Address">
-                        <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
-                        <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
-                    </FormItem>
-                </Form>
-            </Card>
-        </Col>
+                    <span slot="desc"></span>
+                    </Alert >
+                    <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
+                        <FormItem label="Name" prop="name">
+                            <Input v-model="formValidate.name" placeholder="Enter name"></Input>
+                        </FormItem>
+                        <FormItem label="Number" prop="number">
+                            <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
+                        </FormItem>
+                        <FormItem label="E-mail" >
+                            <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
+                        </FormItem>
+                        <FormItem label="Hall" prop="hall">
+                            <Select v-model="formValidate.hall" placeholder="Select hall">
+                                <Option value="both">Both</Option>
+                                <Option value="small">Top (Small)</Option>
+                                <Option value="large">Ground (Small)</Option>
+                            </Select>
+                        </FormItem>
+                        <FormItem label="Event Type" >
+                            <Select v-model="formValidate.type" placeholder="Select type">
+                                <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                            </Select>
+                        </FormItem>
+                        <FormItem label="Address" >
+                            <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
+                        </FormItem>
+                        <FormItem>
+                            <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
+                            <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+                        </FormItem>
+                    </Form>
+                </Card>
+            </Col>
+            <Col span="12"v-if="date">
+                <Card class="center" v-if="night">
+                        <Alert >Night Shift
+                            <span slot="desc"></span>
+                        </Alert>
+                    <p ><Icon type="ios-checkmark-circle" /></p>
+                    <p >Already Booked </p>
+                    <p><Button type="primary">View Information</Button></p>
+                </Card>
+                <Card v-else>
+                    <Alert  class="center">Night Shift
+                    <span slot="desc"></span>
+                    </Alert >
+                    <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
+                        <FormItem label="Name" prop="name">
+                            <Input v-model="formValidate.name" placeholder="Enter name"></Input>
+                        </FormItem>
+                        <FormItem label="Number" prop="number">
+                            <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
+                        </FormItem>
+                        <FormItem label="E-mail">
+                            <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
+                        </FormItem>
+                        <FormItem label="Hall" prop="hall">
+                            <Select v-model="formValidate.hall" placeholder="Select hall">
+                                <Option value="both">Both</Option>
+                                <Option value="small">Top (Small)</Option>
+                                <Option value="large">Ground (Small)</Option>
+                            </Select>
+                        </FormItem>
+                        <FormItem label="Event Type">
+                            <Select v-model="formValidate.type" placeholder="Select type">
+                                <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                            </Select>
+                        </FormItem>
+                        <FormItem label="Address">
+                            <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
+                        </FormItem>
+                        <FormItem>
+                            <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
+                            <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+                        </FormItem>
+                    </Form>
+                </Card>
+            </Col>
+        </Row>
     </Row>
 </template>
 <script>

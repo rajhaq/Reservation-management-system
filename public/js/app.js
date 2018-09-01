@@ -92133,6 +92133,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -93141,239 +93143,282 @@ var render = function() {
       _vm._v(" "),
       _vm.date
         ? _c(
-            "Col",
-            { attrs: { span: "10", offset: "1" } },
+            "Row",
+            { attrs: { gutter: 16 } },
             [
-              _vm.day
-                ? _c(
-                    "Card",
-                    { staticClass: "center" },
-                    [
-                      _c(
-                        "Alert",
-                        { staticClass: "center", attrs: { type: "warning" } },
+              _c(
+                "Col",
+                { attrs: { span: "12" } },
+                [
+                  _vm.day
+                    ? _c(
+                        "Card",
+                        { staticClass: "center" },
                         [
-                          _vm._v("Day Shift\n                    "),
-                          _c("span", { attrs: { slot: "desc" }, slot: "desc" })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _c("Icon", {
-                            attrs: { type: "ios-checkmark-circle" }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Already Booked ")]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _c("Button", { attrs: { type: "primary" } }, [
-                            _vm._v("View Information")
-                          ])
+                          _c(
+                            "Alert",
+                            {
+                              staticClass: "center",
+                              attrs: { type: "warning" }
+                            },
+                            [
+                              _vm._v("Day Shift\n                        "),
+                              _c("span", {
+                                attrs: { slot: "desc" },
+                                slot: "desc"
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            [
+                              _c("Icon", {
+                                attrs: { type: "ios-checkmark-circle" }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Already Booked ")]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            [
+                              _c("Button", { attrs: { type: "primary" } }, [
+                                _vm._v("View Information")
+                              ])
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
-                    ],
-                    1
-                  )
-                : _c(
-                    "Card",
-                    [
-                      _c(
-                        "Alert",
-                        { staticClass: "center", attrs: { type: "warning" } },
-                        [
-                          _vm._v("Day Shift\n            "),
-                          _c("span", { attrs: { slot: "desc" }, slot: "desc" })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "Form",
-                        {
-                          ref: "formValidate",
-                          attrs: {
-                            model: _vm.formValidate,
-                            rules: _vm.ruleValidate,
-                            "label-position": "top"
-                          }
-                        },
+                    : _c(
+                        "Card",
                         [
                           _c(
-                            "FormItem",
-                            { attrs: { label: "Name", prop: "name" } },
+                            "Alert",
+                            {
+                              staticClass: "center",
+                              attrs: { type: "warning" }
+                            },
                             [
-                              _c("Input", {
-                                attrs: { placeholder: "Enter name" },
-                                model: {
-                                  value: _vm.formValidate.name,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "name", $$v)
-                                  },
-                                  expression: "formValidate.name"
-                                }
+                              _vm._v("Day Shift\n                "),
+                              _c("span", {
+                                attrs: { slot: "desc" },
+                                slot: "desc"
                               })
-                            ],
-                            1
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
-                            "FormItem",
-                            { attrs: { label: "Number", prop: "number" } },
-                            [
-                              _c("Input", {
-                                attrs: { placeholder: "Enter phone number" },
-                                model: {
-                                  value: _vm.formValidate.number,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "number", $$v)
-                                  },
-                                  expression: "formValidate.number"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "E-mail" } },
-                            [
-                              _c("Input", {
-                                attrs: { placeholder: "Enter e-mail" },
-                                model: {
-                                  value: _vm.formValidate.mail,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "mail", $$v)
-                                  },
-                                  expression: "formValidate.mail"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Hall", prop: "hall" } },
+                            "Form",
+                            {
+                              ref: "formValidate",
+                              attrs: {
+                                model: _vm.formValidate,
+                                rules: _vm.ruleValidate,
+                                "label-position": "top"
+                              }
+                            },
                             [
                               _c(
-                                "Select",
-                                {
-                                  attrs: { placeholder: "Select hall" },
-                                  model: {
-                                    value: _vm.formValidate.hall,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.formValidate, "hall", $$v)
-                                    },
-                                    expression: "formValidate.hall"
-                                  }
-                                },
+                                "FormItem",
+                                { attrs: { label: "Name", prop: "name" } },
                                 [
-                                  _c("Option", { attrs: { value: "both" } }, [
-                                    _vm._v("Both")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("Option", { attrs: { value: "small" } }, [
-                                    _vm._v("Top (Small)")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("Option", { attrs: { value: "large" } }, [
-                                    _vm._v("Ground (Small)")
-                                  ])
+                                  _c("Input", {
+                                    attrs: { placeholder: "Enter name" },
+                                    model: {
+                                      value: _vm.formValidate.name,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.formValidate, "name", $$v)
+                                      },
+                                      expression: "formValidate.name"
+                                    }
+                                  })
                                 ],
                                 1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Event Type" } },
-                            [
-                              _c(
-                                "Select",
-                                {
-                                  attrs: { placeholder: "Select type" },
-                                  model: {
-                                    value: _vm.formValidate.type,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.formValidate, "type", $$v)
-                                    },
-                                    expression: "formValidate.type"
-                                  }
-                                },
-                                _vm._l(_vm.type, function(item) {
-                                  return _c(
-                                    "Option",
-                                    {
-                                      key: item.value,
-                                      attrs: { value: item.value }
-                                    },
-                                    [_vm._v(_vm._s(item.label))]
-                                  )
-                                })
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Address" } },
-                            [
-                              _c("Input", {
-                                attrs: {
-                                  type: "textarea",
-                                  autosize: { minRows: 2, maxRows: 5 },
-                                  placeholder: "Enter address..."
-                                },
-                                model: {
-                                  value: _vm.formValidate.address,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "address", $$v)
-                                  },
-                                  expression: "formValidate.address"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            [
-                              _c(
-                                "Button",
-                                {
-                                  attrs: { type: "primary" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.handleSubmit("formValidate")
-                                    }
-                                  }
-                                },
-                                [_vm._v("Submit")]
                               ),
                               _vm._v(" "),
                               _c(
-                                "Button",
-                                {
-                                  staticStyle: { "margin-left": "8px" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.handleReset("formValidate")
+                                "FormItem",
+                                { attrs: { label: "Number", prop: "number" } },
+                                [
+                                  _c("Input", {
+                                    attrs: {
+                                      placeholder: "Enter phone number"
+                                    },
+                                    model: {
+                                      value: _vm.formValidate.number,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.formValidate,
+                                          "number",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "formValidate.number"
                                     }
-                                  }
-                                },
-                                [_vm._v("Reset")]
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "FormItem",
+                                { attrs: { label: "E-mail" } },
+                                [
+                                  _c("Input", {
+                                    attrs: { placeholder: "Enter e-mail" },
+                                    model: {
+                                      value: _vm.formValidate.mail,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.formValidate, "mail", $$v)
+                                      },
+                                      expression: "formValidate.mail"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "FormItem",
+                                { attrs: { label: "Hall", prop: "hall" } },
+                                [
+                                  _c(
+                                    "Select",
+                                    {
+                                      attrs: { placeholder: "Select hall" },
+                                      model: {
+                                        value: _vm.formValidate.hall,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.formValidate,
+                                            "hall",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "formValidate.hall"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "Option",
+                                        { attrs: { value: "both" } },
+                                        [_vm._v("Both")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "Option",
+                                        { attrs: { value: "small" } },
+                                        [_vm._v("Top (Small)")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "Option",
+                                        { attrs: { value: "large" } },
+                                        [_vm._v("Ground (Small)")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "FormItem",
+                                { attrs: { label: "Event Type" } },
+                                [
+                                  _c(
+                                    "Select",
+                                    {
+                                      attrs: { placeholder: "Select type" },
+                                      model: {
+                                        value: _vm.formValidate.type,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.formValidate,
+                                            "type",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "formValidate.type"
+                                      }
+                                    },
+                                    _vm._l(_vm.type, function(item) {
+                                      return _c(
+                                        "Option",
+                                        {
+                                          key: item.value,
+                                          attrs: { value: item.value }
+                                        },
+                                        [_vm._v(_vm._s(item.label))]
+                                      )
+                                    })
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "FormItem",
+                                { attrs: { label: "Address" } },
+                                [
+                                  _c("Input", {
+                                    attrs: {
+                                      type: "textarea",
+                                      autosize: { minRows: 2, maxRows: 5 },
+                                      placeholder: "Enter address..."
+                                    },
+                                    model: {
+                                      value: _vm.formValidate.address,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.formValidate,
+                                          "address",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "formValidate.address"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "FormItem",
+                                [
+                                  _c(
+                                    "Button",
+                                    {
+                                      attrs: { type: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.handleSubmit("formValidate")
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Submit")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "Button",
+                                    {
+                                      staticStyle: { "margin-left": "8px" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.handleReset("formValidate")
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Reset")]
+                                  )
+                                ],
+                                1
                               )
                             ],
                             1
@@ -93381,251 +93426,291 @@ var render = function() {
                         ],
                         1
                       )
-                    ],
-                    1
-                  )
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.date
-        ? _c(
-            "Col",
-            { attrs: { span: "10", offset: "2" } },
-            [
-              _vm.night
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.date
                 ? _c(
-                    "Card",
-                    { staticClass: "center" },
+                    "Col",
+                    { attrs: { span: "12" } },
                     [
-                      _c("Alert", [
-                        _vm._v("Night Shift\n                    "),
-                        _c("span", { attrs: { slot: "desc" }, slot: "desc" })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _c("Icon", {
-                            attrs: { type: "ios-checkmark-circle" }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Already Booked ")]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _c("Button", { attrs: { type: "primary" } }, [
-                            _vm._v("View Information")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                : _c(
-                    "Card",
-                    [
-                      _c("Alert", { staticClass: "center" }, [
-                        _vm._v("Night Shift\n            "),
-                        _c("span", { attrs: { slot: "desc" }, slot: "desc" })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "Form",
-                        {
-                          ref: "formValidate",
-                          attrs: {
-                            model: _vm.formValidate,
-                            rules: _vm.ruleValidate,
-                            "label-position": "top"
-                          }
-                        },
-                        [
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Name", prop: "name" } },
+                      _vm.night
+                        ? _c(
+                            "Card",
+                            { staticClass: "center" },
                             [
-                              _c("Input", {
-                                attrs: { placeholder: "Enter name" },
-                                model: {
-                                  value: _vm.formValidate.name,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "name", $$v)
-                                  },
-                                  expression: "formValidate.name"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Number", prop: "number" } },
-                            [
-                              _c("Input", {
-                                attrs: { placeholder: "Enter phone number" },
-                                model: {
-                                  value: _vm.formValidate.number,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "number", $$v)
-                                  },
-                                  expression: "formValidate.number"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "E-mail" } },
-                            [
-                              _c("Input", {
-                                attrs: { placeholder: "Enter e-mail" },
-                                model: {
-                                  value: _vm.formValidate.mail,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "mail", $$v)
-                                  },
-                                  expression: "formValidate.mail"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Hall", prop: "hall" } },
-                            [
+                              _c("Alert", [
+                                _vm._v("Night Shift\n                        "),
+                                _c("span", {
+                                  attrs: { slot: "desc" },
+                                  slot: "desc"
+                                })
+                              ]),
+                              _vm._v(" "),
                               _c(
-                                "Select",
-                                {
-                                  attrs: { placeholder: "Select hall" },
-                                  model: {
-                                    value: _vm.formValidate.hall,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.formValidate, "hall", $$v)
-                                    },
-                                    expression: "formValidate.hall"
-                                  }
-                                },
+                                "p",
                                 [
-                                  _c("Option", { attrs: { value: "both" } }, [
-                                    _vm._v("Both")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("Option", { attrs: { value: "small" } }, [
-                                    _vm._v("Top (Small)")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("Option", { attrs: { value: "large" } }, [
-                                    _vm._v("Ground (Small)")
+                                  _c("Icon", {
+                                    attrs: { type: "ios-checkmark-circle" }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("Already Booked ")]),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                [
+                                  _c("Button", { attrs: { type: "primary" } }, [
+                                    _vm._v("View Information")
                                   ])
                                 ],
                                 1
                               )
                             ],
                             1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Event Type" } },
+                          )
+                        : _c(
+                            "Card",
                             [
-                              _c(
-                                "Select",
-                                {
-                                  attrs: { placeholder: "Select type" },
-                                  model: {
-                                    value: _vm.formValidate.type,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.formValidate, "type", $$v)
-                                    },
-                                    expression: "formValidate.type"
-                                  }
-                                },
-                                _vm._l(_vm.type, function(item) {
-                                  return _c(
-                                    "Option",
-                                    {
-                                      key: item.value,
-                                      attrs: { value: item.value }
-                                    },
-                                    [_vm._v(_vm._s(item.label))]
-                                  )
+                              _c("Alert", { staticClass: "center" }, [
+                                _vm._v("Night Shift\n                "),
+                                _c("span", {
+                                  attrs: { slot: "desc" },
+                                  slot: "desc"
                                 })
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            { attrs: { label: "Address" } },
-                            [
-                              _c("Input", {
-                                attrs: {
-                                  type: "textarea",
-                                  autosize: { minRows: 2, maxRows: 5 },
-                                  placeholder: "Enter address..."
-                                },
-                                model: {
-                                  value: _vm.formValidate.address,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.formValidate, "address", $$v)
-                                  },
-                                  expression: "formValidate.address"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "FormItem",
-                            [
-                              _c(
-                                "Button",
-                                {
-                                  attrs: { type: "primary" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.handleSubmit("formValidate")
-                                    }
-                                  }
-                                },
-                                [_vm._v("Submit")]
-                              ),
+                              ]),
                               _vm._v(" "),
                               _c(
-                                "Button",
+                                "Form",
                                 {
-                                  staticStyle: { "margin-left": "8px" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.handleReset("formValidate")
-                                    }
+                                  ref: "formValidate",
+                                  attrs: {
+                                    model: _vm.formValidate,
+                                    rules: _vm.ruleValidate,
+                                    "label-position": "top"
                                   }
                                 },
-                                [_vm._v("Reset")]
+                                [
+                                  _c(
+                                    "FormItem",
+                                    { attrs: { label: "Name", prop: "name" } },
+                                    [
+                                      _c("Input", {
+                                        attrs: { placeholder: "Enter name" },
+                                        model: {
+                                          value: _vm.formValidate.name,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.formValidate,
+                                              "name",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "formValidate.name"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "FormItem",
+                                    {
+                                      attrs: { label: "Number", prop: "number" }
+                                    },
+                                    [
+                                      _c("Input", {
+                                        attrs: {
+                                          placeholder: "Enter phone number"
+                                        },
+                                        model: {
+                                          value: _vm.formValidate.number,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.formValidate,
+                                              "number",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "formValidate.number"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "FormItem",
+                                    { attrs: { label: "E-mail" } },
+                                    [
+                                      _c("Input", {
+                                        attrs: { placeholder: "Enter e-mail" },
+                                        model: {
+                                          value: _vm.formValidate.mail,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.formValidate,
+                                              "mail",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "formValidate.mail"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "FormItem",
+                                    { attrs: { label: "Hall", prop: "hall" } },
+                                    [
+                                      _c(
+                                        "Select",
+                                        {
+                                          attrs: { placeholder: "Select hall" },
+                                          model: {
+                                            value: _vm.formValidate.hall,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.formValidate,
+                                                "hall",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "formValidate.hall"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "Option",
+                                            { attrs: { value: "both" } },
+                                            [_vm._v("Both")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "Option",
+                                            { attrs: { value: "small" } },
+                                            [_vm._v("Top (Small)")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "Option",
+                                            { attrs: { value: "large" } },
+                                            [_vm._v("Ground (Small)")]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "FormItem",
+                                    { attrs: { label: "Event Type" } },
+                                    [
+                                      _c(
+                                        "Select",
+                                        {
+                                          attrs: { placeholder: "Select type" },
+                                          model: {
+                                            value: _vm.formValidate.type,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.formValidate,
+                                                "type",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "formValidate.type"
+                                          }
+                                        },
+                                        _vm._l(_vm.type, function(item) {
+                                          return _c(
+                                            "Option",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [_vm._v(_vm._s(item.label))]
+                                          )
+                                        })
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "FormItem",
+                                    { attrs: { label: "Address" } },
+                                    [
+                                      _c("Input", {
+                                        attrs: {
+                                          type: "textarea",
+                                          autosize: { minRows: 2, maxRows: 5 },
+                                          placeholder: "Enter address..."
+                                        },
+                                        model: {
+                                          value: _vm.formValidate.address,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.formValidate,
+                                              "address",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "formValidate.address"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "FormItem",
+                                    [
+                                      _c(
+                                        "Button",
+                                        {
+                                          attrs: { type: "primary" },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.handleSubmit("formValidate")
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Submit")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "Button",
+                                        {
+                                          staticStyle: { "margin-left": "8px" },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.handleReset("formValidate")
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Reset")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
                               )
                             ],
                             1
                           )
-                        ],
-                        1
-                      )
                     ],
                     1
                   )
+                : _vm._e()
             ],
             1
           )
