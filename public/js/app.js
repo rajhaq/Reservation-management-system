@@ -92197,18 +92197,31 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                if (!key) {
+                                    _context.next = 4;
+                                    break;
+                                }
+
                                 this.bookingList.splice(0, this.bookingList.length);
+                                _context.next = 5;
+                                break;
+
+                            case 4:
+                                return _context.abrupt('return');
+
+                            case 5:
+                                console.log(key);
                                 this.day = false;
                                 this.night = false;
                                 this.ls();
-                                _context.prev = 4;
-                                _context.next = 7;
+                                _context.prev = 9;
+                                _context.next = 12;
                                 return axios({
                                     method: 'get',
                                     url: '/app/bookingFinder/' + key
                                 });
 
-                            case 7:
+                            case 12:
                                 _ref2 = _context.sent;
                                 data = _ref2.data;
 
@@ -92216,7 +92229,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 _iteratorNormalCompletion = true;
                                 _didIteratorError = false;
                                 _iteratorError = undefined;
-                                _context.prev = 13;
+                                _context.prev = 18;
                                 for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                                     d = _step.value;
 
@@ -92227,58 +92240,58 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     }
                                 }
 
-                                _context.next = 21;
+                                _context.next = 26;
                                 break;
 
-                            case 17:
-                                _context.prev = 17;
-                                _context.t0 = _context['catch'](13);
+                            case 22:
+                                _context.prev = 22;
+                                _context.t0 = _context['catch'](18);
                                 _didIteratorError = true;
                                 _iteratorError = _context.t0;
 
-                            case 21:
-                                _context.prev = 21;
-                                _context.prev = 22;
+                            case 26:
+                                _context.prev = 26;
+                                _context.prev = 27;
 
                                 if (!_iteratorNormalCompletion && _iterator.return) {
                                     _iterator.return();
                                 }
 
-                            case 24:
-                                _context.prev = 24;
+                            case 29:
+                                _context.prev = 29;
 
                                 if (!_didIteratorError) {
-                                    _context.next = 27;
+                                    _context.next = 32;
                                     break;
                                 }
 
                                 throw _iteratorError;
 
-                            case 27:
-                                return _context.finish(24);
-
-                            case 28:
-                                return _context.finish(21);
-
-                            case 29:
-                                this.bookingList = data;
-                                this.lf();
-                                _context.next = 37;
-                                break;
+                            case 32:
+                                return _context.finish(29);
 
                             case 33:
-                                _context.prev = 33;
-                                _context.t1 = _context['catch'](4);
+                                return _context.finish(26);
+
+                            case 34:
+                                this.bookingList = data;
+                                this.lf();
+                                _context.next = 42;
+                                break;
+
+                            case 38:
+                                _context.prev = 38;
+                                _context.t1 = _context['catch'](9);
 
                                 this.e('Oops!', 'Something went wrong, please try again!');
                                 this.le();
 
-                            case 37:
+                            case 42:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[4, 33], [13, 17, 21, 29], [22,, 24, 28]]);
+                }, _callee, this, [[9, 38], [18, 22, 26, 34], [27,, 29, 33]]);
             }));
 
             function changeBooking(_x) {
@@ -93136,10 +93149,14 @@ var render = function() {
                     "Card",
                     { staticClass: "center" },
                     [
-                      _c("Alert", { attrs: { type: "warning" } }, [
-                        _vm._v("Day Shift\n                    "),
-                        _c("span", { attrs: { slot: "desc" }, slot: "desc" })
-                      ]),
+                      _c(
+                        "Alert",
+                        { staticClass: "center", attrs: { type: "warning" } },
+                        [
+                          _vm._v("Day Shift\n                    "),
+                          _c("span", { attrs: { slot: "desc" }, slot: "desc" })
+                        ]
+                      ),
                       _vm._v(" "),
                       _c(
                         "p",
@@ -93167,12 +93184,15 @@ var render = function() {
                   )
                 : _c(
                     "Card",
-                    { staticClass: "center" },
                     [
-                      _c("Alert", { attrs: { type: "warning" } }, [
-                        _vm._v("Day Shift\n            "),
-                        _c("span", { attrs: { slot: "desc" }, slot: "desc" })
-                      ]),
+                      _c(
+                        "Alert",
+                        { staticClass: "center", attrs: { type: "warning" } },
+                        [
+                          _vm._v("Day Shift\n            "),
+                          _c("span", { attrs: { slot: "desc" }, slot: "desc" })
+                        ]
+                      ),
                       _vm._v(" "),
                       _c(
                         "Form",
@@ -93410,9 +93430,8 @@ var render = function() {
                   )
                 : _c(
                     "Card",
-                    { staticClass: "center" },
                     [
-                      _c("Alert", [
+                      _c("Alert", { staticClass: "center" }, [
                         _vm._v("Night Shift\n            "),
                         _c("span", { attrs: { slot: "desc" }, slot: "desc" })
                       ]),

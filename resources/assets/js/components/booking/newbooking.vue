@@ -29,16 +29,16 @@
             </Card>
         </Col>
         <Col span="10" offset="1" v-if="date">
-            <Card class="center" v-if="day">
-                    <Alert type="warning">Day Shift
+            <Card  class="center" v-if="day">
+                    <Alert  class="center" type="warning">Day Shift
                         <span slot="desc"></span>
                     </Alert>
                 <p ><Icon type="ios-checkmark-circle" /></p>
                 <p >Already Booked </p>
                 <p><Button type="primary">View Information</Button></p>
             </Card>
-            <Card class="center" v-else>
-                <Alert type="warning">Day Shift
+            <Card v-else>
+                <Alert  class="center" type="warning">Day Shift
                 <span slot="desc"></span>
                 </Alert >
                 <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
@@ -82,8 +82,8 @@
                 <p >Already Booked </p>
                 <p><Button type="primary">View Information</Button></p>
             </Card>
-            <Card class="center" v-else>
-                <Alert>Night Shift
+            <Card v-else>
+                <Alert  class="center">Night Shift
                 <span slot="desc"></span>
                 </Alert >
                 <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
@@ -190,7 +190,14 @@
         },
         methods: {
             async changeBooking (key) {
-                this.bookingList.splice(0, this.bookingList.length)
+                if(key)
+                {
+                    this.bookingList.splice(0, this.bookingList.length)
+                }
+                else{
+                    return
+                }
+                console.log(key)
                 this.day=false
                 this.night=false
                 this.ls();
