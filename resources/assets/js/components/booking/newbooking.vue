@@ -68,7 +68,7 @@
                             <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                         </FormItem>
                         <FormItem>
-                            <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
+                            <Button type="primary" @click="handleSubmit('formValidate',1)">Submit</Button>
                             <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
                         </FormItem>
                     </Form>
@@ -113,7 +113,7 @@
                             <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                         </FormItem>
                         <FormItem>
-                            <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
+                            <Button type="primary" @click="handleSubmit('formValidate',2)">Submit</Button>
                             <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
                         </FormItem>
                     </Form>
@@ -229,9 +229,10 @@
                 this.le();
                 }
             },
-            handleSubmit (name) {
+            handleSubmit (name,shift) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
+                        this.formValidate.shift=shift
                         this.$Message.success('Success!', 'Data Added');
                     } else {
                         this.$Message.error('Fail!');
@@ -240,7 +241,25 @@
             },
             handleReset (name) {
                 this.$refs[name].resetFields();
-            }
+            },
+            async add(){
+                this.loading=true
+                console.log(this.formValidate)
+                try{
+                    let {data} =await  axios({
+                        method: 'post',
+                        url:'/app/booking/',
+                        data: this.formValidate
+                    })
+                    this.s('Great!','Booking has been added successfully!')
+                    this.loading=false
+                    this.addProductModal=false
+                    // this.formValue=null
+                }catch(e){
+                    this.loading=false
+                    this.e('Oops!','Something went wrong, please try again!')
+                }
+            },
         }
     }
 </script>
