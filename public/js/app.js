@@ -92154,7 +92154,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 }
             },
             bookingList: [],
-            formValidate: {
+            formValueDay: {
+                name: '',
+                mail: '',
+                number: '',
+                hall: '',
+                type: '',
+                address: '',
+                date: ''
+            },
+            formValueNight: {
                 name: '',
                 mail: '',
                 number: '',
@@ -92184,6 +92193,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             }],
             ruleValidate: {
                 name: [{ required: true, message: 'The name cannot be empty', trigger: 'blur' }],
+                mail: [{ required: false }],
+                address: [{ required: false }],
+                type: [{ required: false }],
                 number: [{ required: true, message: 'The number cannot be empty', trigger: 'blur' }],
                 hall: [{ required: true, message: 'Please select the hall', trigger: 'change' }]
             }
@@ -92199,31 +92211,34 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                this.formValueDay.date = key;
+                                this.formValueNight.date = key;
+
                                 if (!key) {
-                                    _context.next = 4;
+                                    _context.next = 6;
                                     break;
                                 }
 
                                 this.bookingList.splice(0, this.bookingList.length);
-                                _context.next = 5;
+                                _context.next = 7;
                                 break;
 
-                            case 4:
+                            case 6:
                                 return _context.abrupt('return');
 
-                            case 5:
+                            case 7:
                                 console.log(key);
                                 this.day = false;
                                 this.night = false;
                                 this.ls();
-                                _context.prev = 9;
-                                _context.next = 12;
+                                _context.prev = 11;
+                                _context.next = 14;
                                 return axios({
                                     method: 'get',
                                     url: '/app/bookingFinder/' + key
                                 });
 
-                            case 12:
+                            case 14:
                                 _ref2 = _context.sent;
                                 data = _ref2.data;
 
@@ -92231,7 +92246,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 _iteratorNormalCompletion = true;
                                 _didIteratorError = false;
                                 _iteratorError = undefined;
-                                _context.prev = 18;
+                                _context.prev = 20;
                                 for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                                     d = _step.value;
 
@@ -92242,58 +92257,58 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     }
                                 }
 
-                                _context.next = 26;
+                                _context.next = 28;
                                 break;
 
-                            case 22:
-                                _context.prev = 22;
-                                _context.t0 = _context['catch'](18);
+                            case 24:
+                                _context.prev = 24;
+                                _context.t0 = _context['catch'](20);
                                 _didIteratorError = true;
                                 _iteratorError = _context.t0;
 
-                            case 26:
-                                _context.prev = 26;
-                                _context.prev = 27;
+                            case 28:
+                                _context.prev = 28;
+                                _context.prev = 29;
 
                                 if (!_iteratorNormalCompletion && _iterator.return) {
                                     _iterator.return();
                                 }
 
-                            case 29:
-                                _context.prev = 29;
+                            case 31:
+                                _context.prev = 31;
 
                                 if (!_didIteratorError) {
-                                    _context.next = 32;
+                                    _context.next = 34;
                                     break;
                                 }
 
                                 throw _iteratorError;
 
-                            case 32:
-                                return _context.finish(29);
-
-                            case 33:
-                                return _context.finish(26);
-
                             case 34:
+                                return _context.finish(31);
+
+                            case 35:
+                                return _context.finish(28);
+
+                            case 36:
                                 this.bookingList = data;
                                 this.lf();
-                                _context.next = 42;
+                                _context.next = 44;
                                 break;
 
-                            case 38:
-                                _context.prev = 38;
-                                _context.t1 = _context['catch'](9);
+                            case 40:
+                                _context.prev = 40;
+                                _context.t1 = _context['catch'](11);
 
                                 this.e('Oops!', 'Something went wrong, please try again!');
                                 this.le();
 
-                            case 42:
+                            case 44:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[9, 38], [18, 22, 26, 34], [27,, 29, 33]]);
+                }, _callee, this, [[11, 40], [20, 24, 28, 36], [29,, 31, 35]]);
             }));
 
             function changeBooking(_x) {
@@ -92302,20 +92317,78 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             return changeBooking;
         }(),
-        handleSubmit: function handleSubmit(name) {
+        handleSubmit: function handleSubmit(name, index) {
             var _this = this;
 
             this.$refs[name].validate(function (valid) {
                 if (valid) {
                     _this.$Message.success('Success!', 'Data Added');
+                    _this.add(index);
                 } else {
                     _this.$Message.error('Fail!');
                 }
             });
         },
         handleReset: function handleReset(name) {
+
             this.$refs[name].resetFields();
-        }
+        },
+        add: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(index) {
+                var _ref4, data;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                this.loading = true;
+                                console.log(this.formValidate[index]);
+                                _context2.prev = 2;
+                                _context2.next = 5;
+                                return axios({
+                                    method: 'post',
+                                    url: '/app/booking/',
+                                    data: this.formValidate[index]
+                                });
+
+                            case 5:
+                                _ref4 = _context2.sent;
+                                data = _ref4.data;
+
+                                this.s('Great!', 'Booking has been added successfully!');
+                                this.bookingList.push(this.formValidate[index]);
+                                if (this.formValidate[index].shift == 1) {
+                                    this.day = true;
+                                } else if (this.formValidate[index].shift == 2) {
+                                    this.night = true;
+                                }
+                                this.loading = false;
+                                this.addProductModal = false;
+                                // this.formValue=null
+                                _context2.next = 18;
+                                break;
+
+                            case 14:
+                                _context2.prev = 14;
+                                _context2.t0 = _context2['catch'](2);
+
+                                this.loading = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 18:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[2, 14]]);
+            }));
+
+            function add(_x2) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return add;
+        }()
     }
 });
 
@@ -93215,9 +93288,9 @@ var render = function() {
                           _c(
                             "Form",
                             {
-                              ref: "formValidate",
+                              ref: "formValueDay",
                               attrs: {
-                                model: _vm.formValidate,
+                                model: _vm.formValueDay,
                                 rules: _vm.ruleValidate,
                                 "label-position": "top"
                               }
@@ -93230,11 +93303,11 @@ var render = function() {
                                   _c("Input", {
                                     attrs: { placeholder: "Enter name" },
                                     model: {
-                                      value: _vm.formValidate.name,
+                                      value: _vm.formValueDay.name,
                                       callback: function($$v) {
-                                        _vm.$set(_vm.formValidate, "name", $$v)
+                                        _vm.$set(_vm.formValueDay, "name", $$v)
                                       },
-                                      expression: "formValidate.name"
+                                      expression: "formValueDay.name"
                                     }
                                   })
                                 ],
@@ -93250,15 +93323,15 @@ var render = function() {
                                       placeholder: "Enter phone number"
                                     },
                                     model: {
-                                      value: _vm.formValidate.number,
+                                      value: _vm.formValueDay.number,
                                       callback: function($$v) {
                                         _vm.$set(
-                                          _vm.formValidate,
+                                          _vm.formValueDay,
                                           "number",
                                           $$v
                                         )
                                       },
-                                      expression: "formValidate.number"
+                                      expression: "formValueDay.number"
                                     }
                                   })
                                 ],
@@ -93267,16 +93340,16 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "FormItem",
-                                { attrs: { label: "E-mail" } },
+                                { attrs: { label: "E-mail", prop: "mail" } },
                                 [
                                   _c("Input", {
                                     attrs: { placeholder: "Enter e-mail" },
                                     model: {
-                                      value: _vm.formValidate.mail,
+                                      value: _vm.formValueDay.mail,
                                       callback: function($$v) {
-                                        _vm.$set(_vm.formValidate, "mail", $$v)
+                                        _vm.$set(_vm.formValueDay, "mail", $$v)
                                       },
-                                      expression: "formValidate.mail"
+                                      expression: "formValueDay.mail"
                                     }
                                   })
                                 ],
@@ -93292,15 +93365,15 @@ var render = function() {
                                     {
                                       attrs: { placeholder: "Select hall" },
                                       model: {
-                                        value: _vm.formValidate.hall,
+                                        value: _vm.formValueDay.hall,
                                         callback: function($$v) {
                                           _vm.$set(
-                                            _vm.formValidate,
+                                            _vm.formValueDay,
                                             "hall",
                                             $$v
                                           )
                                         },
-                                        expression: "formValidate.hall"
+                                        expression: "formValueDay.hall"
                                       }
                                     },
                                     [
@@ -93330,22 +93403,24 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "FormItem",
-                                { attrs: { label: "Event Type" } },
+                                {
+                                  attrs: { label: "Event Type", prop: "type" }
+                                },
                                 [
                                   _c(
                                     "Select",
                                     {
                                       attrs: { placeholder: "Select type" },
                                       model: {
-                                        value: _vm.formValidate.type,
+                                        value: _vm.formValueDay.type,
                                         callback: function($$v) {
                                           _vm.$set(
-                                            _vm.formValidate,
+                                            _vm.formValueDay,
                                             "type",
                                             $$v
                                           )
                                         },
-                                        expression: "formValidate.type"
+                                        expression: "formValueDay.type"
                                       }
                                     },
                                     _vm._l(_vm.type, function(item) {
@@ -93365,7 +93440,9 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "FormItem",
-                                { attrs: { label: "Address" } },
+                                {
+                                  attrs: { label: "Address", prop: "address" }
+                                },
                                 [
                                   _c("Input", {
                                     attrs: {
@@ -93374,15 +93451,15 @@ var render = function() {
                                       placeholder: "Enter address..."
                                     },
                                     model: {
-                                      value: _vm.formValidate.address,
+                                      value: _vm.formValueDay.address,
                                       callback: function($$v) {
                                         _vm.$set(
-                                          _vm.formValidate,
+                                          _vm.formValueDay,
                                           "address",
                                           $$v
                                         )
                                       },
-                                      expression: "formValidate.address"
+                                      expression: "formValueDay.address"
                                     }
                                   })
                                 ],
@@ -93398,7 +93475,7 @@ var render = function() {
                                       attrs: { type: "primary" },
                                       on: {
                                         click: function($event) {
-                                          _vm.handleSubmit("formValidate")
+                                          _vm.handleSubmit("formValueDay", 0)
                                         }
                                       }
                                     },
@@ -93411,7 +93488,7 @@ var render = function() {
                                       staticStyle: { "margin-left": "8px" },
                                       on: {
                                         click: function($event) {
-                                          _vm.handleReset("formValidate")
+                                          _vm.handleReset("formValueDay")
                                         }
                                       }
                                     },
@@ -93486,9 +93563,9 @@ var render = function() {
                               _c(
                                 "Form",
                                 {
-                                  ref: "formValidate",
+                                  ref: "formValueNight",
                                   attrs: {
-                                    model: _vm.formValidate,
+                                    model: _vm.formValueNight,
                                     rules: _vm.ruleValidate,
                                     "label-position": "top"
                                   }
@@ -93501,15 +93578,15 @@ var render = function() {
                                       _c("Input", {
                                         attrs: { placeholder: "Enter name" },
                                         model: {
-                                          value: _vm.formValidate.name,
+                                          value: _vm.formValueNight.name,
                                           callback: function($$v) {
                                             _vm.$set(
-                                              _vm.formValidate,
+                                              _vm.formValueNight,
                                               "name",
                                               $$v
                                             )
                                           },
-                                          expression: "formValidate.name"
+                                          expression: "formValueNight.name"
                                         }
                                       })
                                     ],
@@ -93527,15 +93604,15 @@ var render = function() {
                                           placeholder: "Enter phone number"
                                         },
                                         model: {
-                                          value: _vm.formValidate.number,
+                                          value: _vm.formValueNight.number,
                                           callback: function($$v) {
                                             _vm.$set(
-                                              _vm.formValidate,
+                                              _vm.formValueNight,
                                               "number",
                                               $$v
                                             )
                                           },
-                                          expression: "formValidate.number"
+                                          expression: "formValueNight.number"
                                         }
                                       })
                                     ],
@@ -93544,20 +93621,22 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "FormItem",
-                                    { attrs: { label: "E-mail" } },
+                                    {
+                                      attrs: { label: "E-mail", prop: "mail" }
+                                    },
                                     [
                                       _c("Input", {
                                         attrs: { placeholder: "Enter e-mail" },
                                         model: {
-                                          value: _vm.formValidate.mail,
+                                          value: _vm.formValueNight.mail,
                                           callback: function($$v) {
                                             _vm.$set(
-                                              _vm.formValidate,
+                                              _vm.formValueNight,
                                               "mail",
                                               $$v
                                             )
                                           },
-                                          expression: "formValidate.mail"
+                                          expression: "formValueNight.mail"
                                         }
                                       })
                                     ],
@@ -93573,15 +93652,15 @@ var render = function() {
                                         {
                                           attrs: { placeholder: "Select hall" },
                                           model: {
-                                            value: _vm.formValidate.hall,
+                                            value: _vm.formValueNight.hall,
                                             callback: function($$v) {
                                               _vm.$set(
-                                                _vm.formValidate,
+                                                _vm.formValueNight,
                                                 "hall",
                                                 $$v
                                               )
                                             },
-                                            expression: "formValidate.hall"
+                                            expression: "formValueNight.hall"
                                           }
                                         },
                                         [
@@ -93611,22 +93690,27 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "FormItem",
-                                    { attrs: { label: "Event Type" } },
+                                    {
+                                      attrs: {
+                                        label: "Event Type",
+                                        prop: "type"
+                                      }
+                                    },
                                     [
                                       _c(
                                         "Select",
                                         {
                                           attrs: { placeholder: "Select type" },
                                           model: {
-                                            value: _vm.formValidate.type,
+                                            value: _vm.formValueNight.type,
                                             callback: function($$v) {
                                               _vm.$set(
-                                                _vm.formValidate,
+                                                _vm.formValueNight,
                                                 "type",
                                                 $$v
                                               )
                                             },
-                                            expression: "formValidate.type"
+                                            expression: "formValueNight.type"
                                           }
                                         },
                                         _vm._l(_vm.type, function(item) {
@@ -93646,7 +93730,12 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "FormItem",
-                                    { attrs: { label: "Address" } },
+                                    {
+                                      attrs: {
+                                        label: "Address",
+                                        prop: "address"
+                                      }
+                                    },
                                     [
                                       _c("Input", {
                                         attrs: {
@@ -93655,15 +93744,15 @@ var render = function() {
                                           placeholder: "Enter address..."
                                         },
                                         model: {
-                                          value: _vm.formValidate.address,
+                                          value: _vm.formValueNight.address,
                                           callback: function($$v) {
                                             _vm.$set(
-                                              _vm.formValidate,
+                                              _vm.formValueNight,
                                               "address",
                                               $$v
                                             )
                                           },
-                                          expression: "formValidate.address"
+                                          expression: "formValueNight.address"
                                         }
                                       })
                                     ],
@@ -93679,7 +93768,10 @@ var render = function() {
                                           attrs: { type: "primary" },
                                           on: {
                                             click: function($event) {
-                                              _vm.handleSubmit("formValidate")
+                                              _vm.handleSubmit(
+                                                "formValueNight",
+                                                1
+                                              )
                                             }
                                           }
                                         },
@@ -93692,7 +93784,7 @@ var render = function() {
                                           staticStyle: { "margin-left": "8px" },
                                           on: {
                                             click: function($event) {
-                                              _vm.handleReset("formValidate")
+                                              _vm.handleReset("formValueNight")
                                             }
                                           }
                                         },

@@ -42,34 +42,34 @@
                     <Alert  class="center" type="warning">Day Shift
                     <span slot="desc"></span>
                     </Alert >
-                    <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
+                    <Form ref="formValueDay" :model="formValueDay" :rules="ruleValidate" label-position="top">
                         <FormItem label="Name" prop="name">
-                            <Input v-model="formValidate.name" placeholder="Enter name"></Input>
+                            <Input v-model="formValueDay.name" placeholder="Enter name"></Input>
                         </FormItem>
                         <FormItem label="Number" prop="number">
-                            <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
+                            <Input v-model="formValueDay.number" placeholder="Enter phone number"></Input>
                         </FormItem>
-                        <FormItem label="E-mail" >
-                            <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
+                        <FormItem label="E-mail" prop="mail">
+                            <Input v-model="formValueDay.mail" placeholder="Enter e-mail"></Input>
                         </FormItem>
                         <FormItem label="Hall" prop="hall">
-                            <Select v-model="formValidate.hall" placeholder="Select hall">
+                            <Select v-model="formValueDay.hall" placeholder="Select hall">
                                 <Option value="both">Both</Option>
                                 <Option value="small">Top (Small)</Option>
                                 <Option value="large">Ground (Small)</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="Event Type" >
-                            <Select v-model="formValidate.type" placeholder="Select type">
+                        <FormItem label="Event Type" prop="type">
+                            <Select v-model="formValueDay.type" placeholder="Select type">
                                 <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="Address" >
-                            <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
+                        <FormItem label="Address" prop="address" >
+                            <Input v-model="formValueDay.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                         </FormItem>
                         <FormItem>
-                            <Button type="primary" @click="handleSubmit('formValidate',1)">Submit</Button>
-                            <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+                            <Button type="primary" @click="handleSubmit('formValueDay',0)">Submit</Button>
+                            <Button @click="handleReset('formValueDay')" style="margin-left: 8px">Reset</Button>
                         </FormItem>
                     </Form>
                 </Card>
@@ -87,34 +87,34 @@
                     <Alert  class="center">Night Shift
                     <span slot="desc"></span>
                     </Alert >
-                    <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
+                    <Form ref="formValueNight" :model="formValueNight" :rules="ruleValidate" label-position="top">
                         <FormItem label="Name" prop="name">
-                            <Input v-model="formValidate.name" placeholder="Enter name"></Input>
+                            <Input v-model="formValueNight.name" placeholder="Enter name"></Input>
                         </FormItem>
                         <FormItem label="Number" prop="number">
-                            <Input v-model="formValidate.number" placeholder="Enter phone number"></Input>
+                            <Input v-model="formValueNight.number" placeholder="Enter phone number"></Input>
                         </FormItem>
-                        <FormItem label="E-mail">
-                            <Input v-model="formValidate.mail" placeholder="Enter e-mail"></Input>
+                        <FormItem label="E-mail"  prop="mail">
+                            <Input v-model="formValueNight.mail" placeholder="Enter e-mail"></Input>
                         </FormItem>
                         <FormItem label="Hall" prop="hall">
-                            <Select v-model="formValidate.hall" placeholder="Select hall">
+                            <Select v-model="formValueNight.hall" placeholder="Select hall">
                                 <Option value="both">Both</Option>
                                 <Option value="small">Top (Small)</Option>
                                 <Option value="large">Ground (Small)</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="Event Type">
-                            <Select v-model="formValidate.type" placeholder="Select type">
+                        <FormItem label="Event Type"  prop="type">
+                            <Select v-model="formValueNight.type" placeholder="Select type">
                                 <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
                             </Select>
                         </FormItem>
-                        <FormItem label="Address">
-                            <Input v-model="formValidate.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
+                        <FormItem label="Address"  prop="address">
+                            <Input v-model="formValueNight.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                         </FormItem>
                         <FormItem>
-                            <Button type="primary" @click="handleSubmit('formValidate',2)">Submit</Button>
-                            <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+                            <Button type="primary" @click="handleSubmit('formValueNight',1)">Submit</Button>
+                            <Button @click="handleReset('formValueNight')" style="margin-left: 8px">Reset</Button>
                         </FormItem>
                     </Form>
                 </Card>
@@ -130,7 +130,7 @@
                 night:false,
                 date:'',
                 options3: {
-                    disabledDate (date) {
+                disabledDate (date) {
                         return date && date.valueOf() < Date.now() - 86400000;
                     }
                 },
@@ -141,7 +141,8 @@
                     }
                 },
                 bookingList:[],
-                 formValidate: {
+                formValueDay:
+                    {
                     name: '',
                     mail: '',
                     number: '',
@@ -149,7 +150,17 @@
                     type: '',
                     address: '',
                     date:''
-                },
+                    },
+                formValueNight:
+                    {
+                    name: '',
+                    mail: '',
+                    number: '',
+                    hall: '',
+                    type: '',
+                    address: '',
+                    date:''
+                    },
                 type: [
                     {
                         value: 'wedding',
@@ -181,6 +192,15 @@
                     name: [
                         { required: true, message: 'The name cannot be empty', trigger: 'blur' }
                     ],
+                    mail: [
+                        { required: false}
+                    ],
+                    address: [
+                        { required: false}
+                    ],
+                    type: [
+                        { required: false }
+                    ],
                     number: [
                         { required: true, message: 'The number cannot be empty', trigger: 'blur' }
                     ],
@@ -192,6 +212,8 @@
         },
         methods: {
             async changeBooking (key) {
+                this.formValueDay.date=key
+                this.formValueNight.date=key
                 if(key)
                 {
                     this.bookingList.splice(0, this.bookingList.length)
@@ -229,29 +251,39 @@
                 this.le();
                 }
             },
-            handleSubmit (name,shift) {
+            handleSubmit (name,index) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        this.formValidate.shift=shift
                         this.$Message.success('Success!', 'Data Added');
+                        this.add(index);
                     } else {
                         this.$Message.error('Fail!');
                     }
                 })
             },
             handleReset (name) {
+
                 this.$refs[name].resetFields();
             },
-            async add(){
+            async add(index){
                 this.loading=true
-                console.log(this.formValidate)
+                console.log(this.formValidate[index])
                 try{
                     let {data} =await  axios({
                         method: 'post',
                         url:'/app/booking/',
-                        data: this.formValidate
+                        data: this.formValidate[index]
                     })
                     this.s('Great!','Booking has been added successfully!')
+                    this.bookingList.push(this.formValidate[index]);
+                    if(this.formValidate[index].shift==1)
+                    {
+                        this.day=true
+                    }
+                    else if(this.formValidate[index].shift==2)
+                    {
+                        this.night=true
+                    }
                     this.loading=false
                     this.addProductModal=false
                     // this.formValue=null
