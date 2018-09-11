@@ -74,7 +74,7 @@
                     </Form>
                 </Card>
             </Col>
-            <Col span="12"v-if="date">
+            <Col span="12" v-if="date">
                 <Card class="center" v-if="night">
                         <Alert >Night Shift
                             <span slot="desc"></span>
@@ -149,7 +149,8 @@
                     hall: '',
                     type: '',
                     address: '',
-                    date:''
+                    date:'',
+                    shift:1,
                     },
                 formValueNight:
                     {
@@ -159,7 +160,8 @@
                     hall: '',
                     type: '',
                     address: '',
-                    date:''
+                    date:'',
+                    shift:2,
                     },
                 type: [
                     {
@@ -267,29 +269,44 @@
             },
             async add(index){
                 this.loading=true
-                console.log(this.formValidate[index])
-                try{
-                    let {data} =await  axios({
-                        method: 'post',
-                        url:'/app/booking/',
-                        data: this.formValidate[index]
-                    })
-                    this.s('Great!','Booking has been added successfully!')
-                    this.bookingList.push(this.formValidate[index]);
-                    if(this.formValidate[index].shift==1)
-                    {
+                console.log(index)
+                if(index==0)
+                {
+                    try{
+                        let {data} =await  axios({
+                            method: 'post',
+                            url:'/app/booking/',
+                            data: this.formValueDay
+                        })
+                        this.s('Great!','Booking has been added successfully!')
+                        this.bookingList.push(this.formValueDay);
                         this.day=true
+                        this.loading=false
+                        this.addProductModal=false
+                        // this.formValue=null
+                    }catch(e){
+                        this.loading=false
+                        this.e('Oops!','Something went wrong, please try again!')
                     }
-                    else if(this.formValidate[index].shift==2)
-                    {
+                }
+                else if(index==1)
+                {
+                    try{
+                        let {data} =await  axios({
+                            method: 'post',
+                            url:'/app/booking/',
+                            data: this.formValueNight
+                        })
+                        this.s('Great!','Booking has been added successfully!')
+                        this.bookingList.push(this.formValueNight);
                         this.night=true
+                        this.loading=false
+                        this.addProductModal=false
+                        // this.formValue=null
+                    }catch(e){
+                        this.loading=false
+                        this.e('Oops!','Something went wrong, please try again!')
                     }
-                    this.loading=false
-                    this.addProductModal=false
-                    // this.formValue=null
-                }catch(e){
-                    this.loading=false
-                    this.e('Oops!','Something went wrong, please try again!')
                 }
             },
         }

@@ -92161,7 +92161,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 hall: '',
                 type: '',
                 address: '',
-                date: ''
+                date: '',
+                shift: 1
             },
             formValueNight: {
                 name: '',
@@ -92170,7 +92171,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 hall: '',
                 type: '',
                 address: '',
-                date: ''
+                date: '',
+                shift: 2
             },
             type: [{
                 value: 'wedding',
@@ -92335,52 +92337,92 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         },
         add: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(index) {
-                var _ref4, data;
+                var _ref4, data, _ref5, _data;
 
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 this.loading = true;
-                                console.log(this.formValidate[index]);
-                                _context2.prev = 2;
-                                _context2.next = 5;
+                                console.log(index);
+
+                                if (!(index == 0)) {
+                                    _context2.next = 21;
+                                    break;
+                                }
+
+                                _context2.prev = 3;
+                                _context2.next = 6;
                                 return axios({
                                     method: 'post',
                                     url: '/app/booking/',
-                                    data: this.formValidate[index]
+                                    data: this.formValueDay
                                 });
 
-                            case 5:
+                            case 6:
                                 _ref4 = _context2.sent;
                                 data = _ref4.data;
 
                                 this.s('Great!', 'Booking has been added successfully!');
-                                this.bookingList.push(this.formValidate[index]);
-                                if (this.formValidate[index].shift == 1) {
-                                    this.day = true;
-                                } else if (this.formValidate[index].shift == 2) {
-                                    this.night = true;
-                                }
+                                this.bookingList.push(this.formValueDay);
+                                this.day = true;
                                 this.loading = false;
                                 this.addProductModal = false;
                                 // this.formValue=null
-                                _context2.next = 18;
+                                _context2.next = 19;
                                 break;
 
-                            case 14:
-                                _context2.prev = 14;
-                                _context2.t0 = _context2['catch'](2);
+                            case 15:
+                                _context2.prev = 15;
+                                _context2.t0 = _context2['catch'](3);
 
                                 this.loading = false;
                                 this.e('Oops!', 'Something went wrong, please try again!');
 
-                            case 18:
+                            case 19:
+                                _context2.next = 38;
+                                break;
+
+                            case 21:
+                                if (!(index == 1)) {
+                                    _context2.next = 38;
+                                    break;
+                                }
+
+                                _context2.prev = 22;
+                                _context2.next = 25;
+                                return axios({
+                                    method: 'post',
+                                    url: '/app/booking/',
+                                    data: this.formValueNight
+                                });
+
+                            case 25:
+                                _ref5 = _context2.sent;
+                                _data = _ref5.data;
+
+                                this.s('Great!', 'Booking has been added successfully!');
+                                this.bookingList.push(this.formValueNight);
+                                this.night = true;
+                                this.loading = false;
+                                this.addProductModal = false;
+                                // this.formValue=null
+                                _context2.next = 38;
+                                break;
+
+                            case 34:
+                                _context2.prev = 34;
+                                _context2.t1 = _context2['catch'](22);
+
+                                this.loading = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 38:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[2, 14]]);
+                }, _callee2, this, [[3, 15], [22, 34]]);
             }));
 
             function add(_x2) {
