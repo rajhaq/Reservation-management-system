@@ -19,8 +19,50 @@
     width: 420px;
     margin: 0 auto;
     margin-right: 10px;
-    
+
 }
+    .layout-header-bar{
+        background: #fff;
+        box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    }
+    .layout-logo-left{
+        width: 90%;
+        height: 30px;
+        background: #5b6270;
+        border-radius: 3px;
+        margin: 15px auto;
+    }
+    .menu-icon{
+        transition: all .3s;
+    }
+    .rotate-icon{
+        transform: rotate(-90deg);
+    }
+    .menu-item span{
+        display: inline-block;
+        overflow: hidden;
+        width: 69px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: bottom;
+        transition: width .2s ease .2s;
+    }
+    .menu-item i{
+        transform: translateX(0px);
+        transition: font-size .2s ease, transform .2s ease;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+    .collapsed-menu span{
+        width: 0px;
+        transition: width .2s ease;
+    }
+    .collapsed-menu i{
+        transform: translateX(5px);
+        transition: font-size .2s ease .2s, transform .2s ease .2s;
+        vertical-align: middle;
+        font-size: 22px;
+    }
 </style>
 <template>
     <div class="layout">
@@ -47,9 +89,10 @@
                                 Booking
                             </template>
                             <MenuItem name="1-1" :to="handleGoToMenu('/newbooking')">New Booking</MenuItem>
-                            <MenuItem name="1-2">Booking List</MenuItem>
-                            <MenuItem name="1-3">Up Coming Events</MenuItem>
-                            <MenuItem name="1-3">Compleated Events</MenuItem>
+                            <MenuItem name="1-2" :to="handleGoToMenu('/bookinglist')">Booking List</MenuItem>
+                            <MenuItem name="1-3" :to="handleGoToMenu('/calender')" >Calender</MenuItem>
+                            <MenuItem name="1-4">Up Coming Events</MenuItem>
+                            <MenuItem name="1-5">Compleated Events</MenuItem>
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
@@ -83,7 +126,7 @@
             },
             logout() {
                 console.log(10);
-                
+
 
             }
         },

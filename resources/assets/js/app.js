@@ -7,8 +7,11 @@ import 'iview/dist/styles/iview.css';
 import Vue from 'vue';
 import locale from 'iview/dist/locale/en-US';
 Vue.use(iView, {locale: locale});
-// common methods 
+// common methods
+// full calender https://github.com/Wanderxx/vue-fullcalendar
+import fullCalendar from 'vue-fullcalendar'
 
+Vue.component('full-calendar', fullCalendar)
 /*custom common methods*/
 import common from './common';
 Vue.mixin(common);

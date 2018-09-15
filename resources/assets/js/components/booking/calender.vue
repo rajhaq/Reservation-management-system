@@ -2,7 +2,7 @@
     <div>
         <Row>
             <Col class="dream-input-main" span="24">
-                <<Form ref="formInline" inline>
+                <Form ref="formInline" inline>
                     <FormItem label="Search">
                         <Input type="text" v-model="search" placeholder="Search">
                             <Icon type="ios-search" slot="prepend"></Icon>
@@ -13,7 +13,12 @@
                     </FormItem>
 
                 </Form>
-                <Table :columns="columns1" :data="searchData"></Table>
+                <full-calendar :events="fcEvents" locale="en"
+                 @changeMonth="changeMonth"
+                @eventClick="eventClick"
+                @dayClick="dayClick"
+                @moreClick="moreClick">
+                </full-calendar>
             </Col>
         </Row>
 
@@ -95,6 +100,19 @@
                     id:null,
 
                 },
+                fcEvents : [
+                    {
+                    title : 'Sunny Out of Office',
+                    start : '2018-09-25',
+                    end : '2018-10-27'
+                    },
+                      {
+                        title     : 'event2',
+                        start     : '2018-09-02',
+                        end       : '2018-09-03',
+                        cssClass  : ['family', 'career']
+                    }
+                ],
                 editObj:
                 {
                     id:null,
@@ -307,7 +325,7 @@
                     this.e('Oops!','Something went wrong, please try again!')
                 }
             },
-             showEdit (index) {
+            showEdit (index) {
 
                 this.editObj.id=this.data1[index].id
                 this.editObj.name=this.data1[index].name
@@ -383,6 +401,19 @@
 
                 this.$refs[name].resetFields();
             },
+
+    'eventClick' (event, jsEvent, pos) {
+       console.log('eventClick', event, jsEvent, pos)
+    },
+    'dayClick' (day, jsEvent) {
+      console.log('dayClick', day, jsEvent)
+    },
+    'moreClick' (day, events, jsEvent) {
+      console.log('moreCLick', day, events, jsEvent)
+    }
+        },
+         components : {
+            'full-calendar': require('vue-fullcalendar')
         },
 
         async created()

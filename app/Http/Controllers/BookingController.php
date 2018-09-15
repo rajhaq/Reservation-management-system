@@ -82,7 +82,7 @@ public function bookingFinder($date)
      */
     public function update(Request $request, $id)
     {
-        Booking::where('id',$request->id)->update($request->all());
+        Booking::where('id',$id)->update($request->all());
         $update=Booking::where('id',$request->id)->with('admin')->first();
         return $update;
     }
