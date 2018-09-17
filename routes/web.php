@@ -20,6 +20,7 @@ Route::get('/app/bookingFinder/{date}', 'BookingController@bookingFinder');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('app/calender', 'BookingController@calender')->name('calender');
 Route::any('{slug}', [
     'uses' => 'HomeController@index',
  ])->where('slug', '([A-z\d-\/_.]+)?');

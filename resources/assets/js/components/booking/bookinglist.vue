@@ -2,7 +2,7 @@
     <div>
         <Row>
             <Col class="dream-input-main" span="24">
-                <<Form ref="formInline" inline>
+                <Form ref="formInline" inline>
                     <FormItem label="Search">
                         <Input type="text" v-model="search" placeholder="Search">
                             <Icon type="ios-search" slot="prepend"></Icon>

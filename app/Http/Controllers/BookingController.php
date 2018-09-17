@@ -19,6 +19,15 @@ class BookingController extends Controller
 
         return $data;
     }
+    public function calender()
+    {
+        $data=Booking::with('admin')
+        ->orderBy('date', 'desc')
+        ->select('date AS start','name as title')
+        ->get();
+
+        return $data;
+    }
 public function bookingFinder($date)
     {
         $data=Booking::where('date', $date)

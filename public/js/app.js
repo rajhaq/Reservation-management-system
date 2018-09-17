@@ -95946,7 +95946,6 @@ var render = function() {
             "Col",
             { staticClass: "dream-input-main", attrs: { span: "24" } },
             [
-              _vm._v("\n            <"),
               _c(
                 "Form",
                 { ref: "formInline", attrs: { inline: "" } },
@@ -96821,7 +96820,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             _context4.next = 4;
                             return axios({
                                 method: 'get',
-                                url: '/app/booking'
+                                url: '/app/calender'
                             });
 
                         case 4:
@@ -96929,7 +96928,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("full-calendar", {
-                attrs: { events: _vm.fcEvents, locale: "en" },
+                attrs: { events: _vm.data1, locale: "en" },
                 on: {
                   changeMonth: _vm.changeMonth,
                   eventClick: _vm.eventClick,

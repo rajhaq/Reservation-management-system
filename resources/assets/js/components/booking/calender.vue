@@ -13,7 +13,7 @@
                     </FormItem>
 
                 </Form>
-                <full-calendar :events="fcEvents" locale="en"
+                <full-calendar :events="data1" locale="en"
                  @changeMonth="changeMonth"
                 @eventClick="eventClick"
                 @dayClick="dayClick"
@@ -422,7 +422,7 @@
             try{
                 let {data} =await  axios({
                     method: 'get',
-                    url:'/app/booking'
+                    url:'/app/calender'
                 })
                 this.data1=data;
 
