@@ -14,7 +14,7 @@
 
                 </Form>
                 <full-calendar :events="data1" locale="en"
-                 @changeMonth="changeMonth"
+
                 @eventClick="eventClick"
                 @dayClick="dayClick"
                 @moreClick="moreClick">
@@ -23,11 +23,11 @@
         </Row>
 
         <Modal v-model="editModal" width="360">
-            <p slot="header" style="color:#369;text-align:center">
+            <!-- <p slot="header" style="color:#369;text-align:center">
                 <Icon type="edit"></Icon>
                 <span> Edit {{UpdateValue.zoneName}}</span>
-            </p>
-            <div >
+            </p> -->
+            <div>
                 <Form ref="editObj" :model="editObj" :rules="ruleValidate" label-position="top">
                         <FormItem label="Name" prop="name">
                             <Input v-model="editObj.name" placeholder="Enter name"></Input>
@@ -57,12 +57,12 @@
                     </Form>
 
             </div>
-            <div slot="footer">
+            <!-- <div slot="footer">
                 <Button type="primary" size="large" long :loading="sending" @click="edit">
                     <span v-if="!loading">Update</span>
                     <span v-else>Updating...</span>
                 </Button>
-            </div>
+            </div> -->
         </Modal>
         <Modal v-model="deleteModal" width="360">
             <p slot="header" style="color:#f60;text-align:center">
@@ -345,6 +345,19 @@
                 this.UpdateValue.indexNumber=index
                 this.deleteModal=true
             },
+            showEditCal (data) {
+
+                this.editObj.id=data.id
+                this.editObj.name=data.name
+                this.editObj.mail=data.mail
+                this.editObj.number=data.number
+                this.editObj.hall=data.hall
+                this.editObj.type=data.type
+                this.editObj.address=data.address
+                this.editObj.date=data.date
+                this.UpdateValue.name=data.name
+                this.editModal=true
+            },
             async edit(){
                 this.sending=true
                 try{
@@ -403,6 +416,7 @@
             },
 
     'eventClick' (event, jsEvent, pos) {
+        this.showEditCal(event)
        console.log('eventClick', event, jsEvent, pos)
     },
     'dayClick' (day, jsEvent) {

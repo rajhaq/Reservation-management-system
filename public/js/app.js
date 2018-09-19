@@ -95749,7 +95749,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.editModal = true;
         },
         showRemove: function showRemove(index) {
-            this.UpdateValue.zoneName = this.data1[index].zoneName;
             this.UpdateValue.id = this.data1[index].id;
             this.UpdateValue.indexNumber = index;
             this.deleteModal = true;
@@ -95767,7 +95766,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 _context2.next = 4;
                                 return axios({
                                     method: 'put',
-                                    url: '/app/booking',
+                                    url: '/app/booking/' + this.editObj.id,
                                     data: this.editObj
                                 });
 
@@ -95823,7 +95822,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 _context3.next = 4;
                                 return axios({
                                     method: 'delete',
-                                    url: '/app/zone/' + this.UpdateValue.id
+                                    url: '/app/booking/' + this.UpdateValue.id
                                 });
 
                             case 4:
@@ -95831,7 +95830,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 data = _ref6.data;
 
                                 this.data1.splice(this.UpdateValue.indexNumber, 1);
-                                this.s('Great!', 'Zone information has been removed successfully!');
+                                this.s('Great!', 'information has been removed successfully!');
 
                                 this.sending = false;
                                 this.deleteModal = false;
@@ -96671,6 +96670,19 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.UpdateValue.indexNumber = index;
             this.deleteModal = true;
         },
+        showEditCal: function showEditCal(data) {
+
+            this.editObj.id = data.id;
+            this.editObj.name = data.name;
+            this.editObj.mail = data.mail;
+            this.editObj.number = data.number;
+            this.editObj.hall = data.hall;
+            this.editObj.type = data.type;
+            this.editObj.address = data.address;
+            this.editObj.date = data.date;
+            this.UpdateValue.name = data.name;
+            this.editModal = true;
+        },
         edit: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
                 var _ref4, data;
@@ -96794,6 +96806,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.$refs[name].resetFields();
         },
         'eventClick': function eventClick(event, jsEvent, pos) {
+            this.showEditCal(event);
             console.log('eventClick', event, jsEvent, pos);
         },
         'dayClick': function dayClick(day, jsEvent) {
@@ -96930,7 +96943,6 @@ var render = function() {
               _c("full-calendar", {
                 attrs: { events: _vm.data1, locale: "en" },
                 on: {
-                  changeMonth: _vm.changeMonth,
                   eventClick: _vm.eventClick,
                   dayClick: _vm.dayClick,
                   moreClick: _vm.moreClick
@@ -96956,21 +96968,6 @@ var render = function() {
           }
         },
         [
-          _c(
-            "p",
-            {
-              staticStyle: { color: "#369", "text-align": "center" },
-              attrs: { slot: "header" },
-              slot: "header"
-            },
-            [
-              _c("Icon", { attrs: { type: "edit" } }),
-              _vm._v(" "),
-              _c("span", [_vm._v(" Edit " + _vm._s(_vm.UpdateValue.zoneName))])
-            ],
-            1
-          ),
-          _vm._v(" "),
           _c(
             "div",
             [
@@ -97125,31 +97122,6 @@ var render = function() {
                   )
                 ],
                 1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { attrs: { slot: "footer" }, slot: "footer" },
-            [
-              _c(
-                "Button",
-                {
-                  attrs: {
-                    type: "primary",
-                    size: "large",
-                    long: "",
-                    loading: _vm.sending
-                  },
-                  on: { click: _vm.edit }
-                },
-                [
-                  !_vm.loading
-                    ? _c("span", [_vm._v("Update")])
-                    : _c("span", [_vm._v("Updating...")])
-                ]
               )
             ],
             1

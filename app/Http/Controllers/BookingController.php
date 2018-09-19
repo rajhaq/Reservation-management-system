@@ -23,7 +23,7 @@ class BookingController extends Controller
     {
         $data=Booking::with('admin')
         ->orderBy('date', 'desc')
-        ->select('date AS start','name as title')
+        ->select('*','date AS start','name as title')
         ->get();
 
         return $data;

@@ -322,7 +322,6 @@
                 this.editModal=true
             },
             showRemove (index) {
-                this.UpdateValue.zoneName=this.data1[index].zoneName
                 this.UpdateValue.id=this.data1[index].id
                 this.UpdateValue.indexNumber=index
                 this.deleteModal=true
@@ -332,7 +331,7 @@
                 try{
                     let {data} =await  axios({
                         method: 'put',
-                        url:'/app/booking',
+                        url:`/app/booking/${this.editObj.id}`,
                         data: this.editObj
                     })
                     this.data1[this.UpdateValue.indexNumber].name=this.editObj.name
@@ -356,10 +355,10 @@
                 try{
                     let {data} =await  axios({
                         method: 'delete',
-                        url:`/app/zone/${this.UpdateValue.id}`,
+                        url:`/app/booking/${this.UpdateValue.id}`,
                     })
                     this.data1.splice( this.UpdateValue.indexNumber, 1)
-                    this.s('Great!','Zone information has been removed successfully!')
+                    this.s('Great!','information has been removed successfully!')
 
                     this.sending=false
                     this.deleteModal=false
