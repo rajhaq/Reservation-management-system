@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
+use Auth;
 class BookingController extends Controller
 {
     /**
@@ -55,7 +56,21 @@ public function bookingFinder($date)
      */
     public function store(Request $request)
     {
-        $created=Booking::create($request->all());
+        $admin_id=Auth::user()->id;
+        $input=$request->all();
+        $created=Booking::create(
+            [
+                'admin_id' => $admin_id,
+                'date' => $input['date'],
+                'shift' => $input['shift'],
+                'name' => $input['name'],
+                'mail' => $input['mail'],
+                'number' => $input['number'],
+                'hall' => $input['hall'],
+                'type' => $input['type'],
+                'address' => $input['address'],
+            ]
+        );
         $settings=Booking::where('id', $created->id)->with('admin')->first();
         return $settings;
     }

@@ -19,10 +19,10 @@ class CreateBookingsTable extends Migration
             $table->date('date');
             $table->integer('shift');
             $table->string('name');
-            $table->string('mail');
+            $table->string('mail')->nullable();
             $table->string('number');
             $table->string('hall');
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->text('address');
             $table->timestamps();
         });

@@ -95662,11 +95662,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             if (this.dateRange[0] && this.dateRange[1]) {
                 return this.data1.filter(function (data) {
-                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.type.toUpperCase().match(_this2.search.toUpperCase()) || data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
+                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
                 });
             } else {
                 return this.data1.filter(function (data) {
-                    return data.type.toUpperCase().match(_this2.search.toUpperCase()) || data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase());
+                    return data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase());
                 });
             }
         },
