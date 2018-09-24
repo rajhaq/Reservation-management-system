@@ -95537,6 +95537,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -95550,12 +95553,18 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             loading: false,
             sending: false,
             isCollapsed: false,
+            options3: {
+                disabledDate: function disabledDate(date) {
+                    return date && date.valueOf() < Date.now() - 86400000;
+                }
+            },
             UpdateValue: {
                 indexNumber: null,
                 zoneName: '',
                 id: null
 
             },
+
             editObj: {
                 id: null,
                 name: '',
@@ -95678,6 +95687,121 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }
     },
     methods: {
+        changeBooking: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(key) {
+                var _ref2, data, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, d;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                this.editObj.date = key;
+                                this.ls();
+
+                                if (!key) {
+                                    _context.next = 41;
+                                    break;
+                                }
+
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return axios({
+                                    method: 'get',
+                                    url: '/app/bookingFinder/' + key
+                                });
+
+                            case 6:
+                                _ref2 = _context.sent;
+                                data = _ref2.data;
+
+                                console.log(data);
+
+                                if (!(data.length == 0)) {
+                                    _context.next = 14;
+                                    break;
+                                }
+
+                                console.log('no data');
+                                this.s('Great!', 'You can choose this date!');
+                                _context.next = 34;
+                                break;
+
+                            case 14:
+                                console.log('Data');
+                                _iteratorNormalCompletion = true;
+                                _didIteratorError = false;
+                                _iteratorError = undefined;
+                                _context.prev = 18;
+                                for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                                    d = _step.value;
+
+                                    if (editObj.shift == data.date) {
+                                        this.e('Oops!', 'Already Taken, Please choose another date and shift');
+                                        this.le();
+                                    } else {
+                                        this.s('Great!', 'New date has been added successfully!');
+                                    }
+                                }
+
+                                _context.next = 26;
+                                break;
+
+                            case 22:
+                                _context.prev = 22;
+                                _context.t0 = _context['catch'](18);
+                                _didIteratorError = true;
+                                _iteratorError = _context.t0;
+
+                            case 26:
+                                _context.prev = 26;
+                                _context.prev = 27;
+
+                                if (!_iteratorNormalCompletion && _iterator.return) {
+                                    _iterator.return();
+                                }
+
+                            case 29:
+                                _context.prev = 29;
+
+                                if (!_didIteratorError) {
+                                    _context.next = 32;
+                                    break;
+                                }
+
+                                throw _iteratorError;
+
+                            case 32:
+                                return _context.finish(29);
+
+                            case 33:
+                                return _context.finish(26);
+
+                            case 34:
+                                this.lf();
+                                _context.next = 41;
+                                break;
+
+                            case 37:
+                                _context.prev = 37;
+                                _context.t1 = _context['catch'](3);
+
+                                this.e('Oops!', 'Something went wrong, please try again!');
+                                this.le();
+
+                            case 41:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 37], [18, 22, 26, 34], [27,, 29, 33]]);
+            }));
+
+            function changeBooking(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return changeBooking;
+        }(),
         dateRangeConverter: function dateRangeConverter(key) {
             this.dateRange = key;
         },
@@ -95685,16 +95809,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.$refs.side1.toggleCollapse();
         },
         zoneAdd: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-                var _ref2, data;
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var _ref4, data;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
-                        switch (_context.prev = _context.next) {
+                        switch (_context2.prev = _context2.next) {
                             case 0:
                                 this.loading = true;
-                                _context.prev = 1;
-                                _context.next = 4;
+                                _context2.prev = 1;
+                                _context2.next = 4;
                                 return axios({
                                     method: 'post',
                                     url: '/app/zone',
@@ -95702,34 +95826,34 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 4:
-                                _ref2 = _context.sent;
-                                data = _ref2.data;
+                                _ref4 = _context2.sent;
+                                data = _ref4.data;
 
                                 this.data1.unshift(data.status);
                                 this.formValue.zoneName = '';
                                 this.s('Great!', 'Zone has been added successfully!');
 
                                 this.loading = false;
-                                _context.next = 16;
+                                _context2.next = 16;
                                 break;
 
                             case 12:
-                                _context.prev = 12;
-                                _context.t0 = _context['catch'](1);
+                                _context2.prev = 12;
+                                _context2.t0 = _context2['catch'](1);
 
                                 this.loading = false;
                                 this.e('Oops!', 'Something went wrong, please try again!');
 
                             case 16:
                             case 'end':
-                                return _context.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee, this, [[1, 12]]);
+                }, _callee2, this, [[1, 12]]);
             }));
 
             function zoneAdd() {
-                return _ref.apply(this, arguments);
+                return _ref3.apply(this, arguments);
             }
 
             return zoneAdd;
@@ -95754,62 +95878,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.deleteModal = true;
         },
         edit: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var _ref4, data;
-
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                this.sending = true;
-                                _context2.prev = 1;
-                                _context2.next = 4;
-                                return axios({
-                                    method: 'put',
-                                    url: '/app/booking/' + this.editObj.id,
-                                    data: this.editObj
-                                });
-
-                            case 4:
-                                _ref4 = _context2.sent;
-                                data = _ref4.data;
-
-                                this.data1[this.UpdateValue.indexNumber].name = this.editObj.name;
-                                this.data1[this.UpdateValue.indexNumber].mail = this.editObj.mail;
-                                this.data1[this.UpdateValue.indexNumber].number = this.editObj.number;
-                                this.data1[this.UpdateValue.indexNumber].hall = this.editObj.hall;
-                                this.data1[this.UpdateValue.indexNumber].type = this.editObj.type;
-                                this.data1[this.UpdateValue.indexNumber].address = this.editObj.address;
-                                this.s('Great!', 'information has been updated successfully!');
-
-                                this.sending = false;
-                                this.editModal = false;
-                                _context2.next = 22;
-                                break;
-
-                            case 17:
-                                _context2.prev = 17;
-                                _context2.t0 = _context2['catch'](1);
-
-                                this.sending = false;
-                                this.editModal = false;
-                                this.e('Oops!', 'Something went wrong, please try again!');
-
-                            case 22:
-                            case 'end':
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this, [[1, 17]]);
-            }));
-
-            function edit() {
-                return _ref3.apply(this, arguments);
-            }
-
-            return edit;
-        }(),
-        remove: function () {
             var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
                 var _ref6, data;
 
@@ -95821,25 +95889,81 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 _context3.prev = 1;
                                 _context3.next = 4;
                                 return axios({
-                                    method: 'delete',
-                                    url: '/app/booking/' + this.UpdateValue.id
+                                    method: 'put',
+                                    url: '/app/booking/' + this.editObj.id,
+                                    data: this.editObj
                                 });
 
                             case 4:
                                 _ref6 = _context3.sent;
                                 data = _ref6.data;
 
+                                this.data1[this.UpdateValue.indexNumber].name = this.editObj.name;
+                                this.data1[this.UpdateValue.indexNumber].mail = this.editObj.mail;
+                                this.data1[this.UpdateValue.indexNumber].number = this.editObj.number;
+                                this.data1[this.UpdateValue.indexNumber].hall = this.editObj.hall;
+                                this.data1[this.UpdateValue.indexNumber].type = this.editObj.type;
+                                this.data1[this.UpdateValue.indexNumber].address = this.editObj.address;
+                                this.s('Great!', 'information has been updated successfully!');
+
+                                this.sending = false;
+                                this.editModal = false;
+                                _context3.next = 22;
+                                break;
+
+                            case 17:
+                                _context3.prev = 17;
+                                _context3.t0 = _context3['catch'](1);
+
+                                this.sending = false;
+                                this.editModal = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 22:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this, [[1, 17]]);
+            }));
+
+            function edit() {
+                return _ref5.apply(this, arguments);
+            }
+
+            return edit;
+        }(),
+        remove: function () {
+            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+                var _ref8, data;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                    while (1) {
+                        switch (_context4.prev = _context4.next) {
+                            case 0:
+                                this.sending = true;
+                                _context4.prev = 1;
+                                _context4.next = 4;
+                                return axios({
+                                    method: 'delete',
+                                    url: '/app/booking/' + this.UpdateValue.id
+                                });
+
+                            case 4:
+                                _ref8 = _context4.sent;
+                                data = _ref8.data;
+
                                 this.data1.splice(this.UpdateValue.indexNumber, 1);
                                 this.s('Great!', 'information has been removed successfully!');
 
                                 this.sending = false;
                                 this.deleteModal = false;
-                                _context3.next = 17;
+                                _context4.next = 17;
                                 break;
 
                             case 12:
-                                _context3.prev = 12;
-                                _context3.t0 = _context3['catch'](1);
+                                _context4.prev = 12;
+                                _context4.t0 = _context4['catch'](1);
 
                                 this.sending = false;
                                 this.deleteModal = false;
@@ -95847,14 +95971,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 17:
                             case 'end':
-                                return _context3.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee3, this, [[1, 12]]);
+                }, _callee4, this, [[1, 12]]);
             }));
 
             function remove() {
-                return _ref5.apply(this, arguments);
+                return _ref7.apply(this, arguments);
             }
 
             return remove;
@@ -95878,49 +96002,49 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
 
     created: function () {
-        var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
-            var _ref8, data;
+        var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
+            var _ref10, data;
 
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                 while (1) {
-                    switch (_context4.prev = _context4.next) {
+                    switch (_context5.prev = _context5.next) {
                         case 0:
                             this.ls();
-                            _context4.prev = 1;
-                            _context4.next = 4;
+                            _context5.prev = 1;
+                            _context5.next = 4;
                             return axios({
                                 method: 'get',
                                 url: '/app/booking'
                             });
 
                         case 4:
-                            _ref8 = _context4.sent;
-                            data = _ref8.data;
+                            _ref10 = _context5.sent;
+                            data = _ref10.data;
 
                             this.data1 = data;
 
                             this.lf();
 
-                            _context4.next = 14;
+                            _context5.next = 14;
                             break;
 
                         case 10:
-                            _context4.prev = 10;
-                            _context4.t0 = _context4['catch'](1);
+                            _context5.prev = 10;
+                            _context5.t0 = _context5['catch'](1);
 
                             this.e('Oops!', 'Something went wrong, please try again!');
                             this.le();
 
                         case 14:
                         case 'end':
-                            return _context4.stop();
+                            return _context5.stop();
                     }
                 }
-            }, _callee4, this, [[1, 10]]);
+            }, _callee5, this, [[1, 10]]);
         }));
 
         function created() {
-            return _ref7.apply(this, arguments);
+            return _ref9.apply(this, arguments);
         }
 
         return created;
@@ -96182,6 +96306,29 @@ var render = function() {
                             _vm.$set(_vm.editObj, "address", $$v)
                           },
                           expression: "editObj.address"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "FormItem",
+                    { attrs: { label: "Date", prop: "date" } },
+                    [
+                      _c("DatePicker", {
+                        attrs: {
+                          type: "date",
+                          options: _vm.options3,
+                          placeholder: "Select date"
+                        },
+                        on: { "on-change": _vm.changeBooking },
+                        model: {
+                          value: _vm.editObj.date,
+                          callback: function($$v) {
+                            _vm.$set(_vm.editObj, "date", $$v)
+                          },
+                          expression: "editObj.date"
                         }
                       })
                     ],

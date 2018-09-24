@@ -48,6 +48,9 @@
                         <FormItem label="Address" prop="address" >
                             <Input v-model="editObj.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                         </FormItem>
+                        <FormItem label="Date" prop="date" >
+                            <DatePicker v-model="editObj.date" type="date" :options="options3" placeholder="Select date" @on-change="changeBooking"></DatePicker>
+                        </FormItem>
 
                     </Form>
 
@@ -89,12 +92,18 @@
                 loading:false,
                 sending:false,
                 isCollapsed: false,
+                options3: {
+                disabledDate (date) {
+                        return date && date.valueOf() < Date.now() - 86400000;
+                    }
+                },
                 UpdateValue: {
                     indexNumber:null,
                     zoneName:'',
                     id:null,
 
                 },
+
                 editObj:
                 {
                     id:null,
@@ -278,6 +287,52 @@
             }
         },
         methods: {
+            async changeBooking (key) {
+                this.editObj.date=key
+                this.ls();
+                if(key)
+                {
+                    try{
+                    let {data} =await  axios({
+                        method: 'get',
+                        url:`/app/bookingFinder/${key}`
+                    })
+                    console.log(data)
+                    if(data.length==0)
+                    {
+                        console.log('no data')
+                        this.s('Great!','You can choose this date!')
+                    }
+                    else
+                    {
+                        console.log('Data')
+                    for(let d of data)
+                    {
+                        if(editObj.shift==data.date)
+                        {
+                            this.e('Oops!','Already Taken, Please choose another date and shift')
+                            this.le();
+                        }
+                        else
+                        {
+                        this.s('Great!','New date has been added successfully!')
+
+                        }
+
+
+                    }
+
+
+                    }
+                    this.lf();
+                    }catch(e){
+                        this.e('Oops!','Something went wrong, please try again!')
+                    this.le();
+                    }
+
+                }
+
+            },
             dateRangeConverter(key)
             {
                 this.dateRange=key
