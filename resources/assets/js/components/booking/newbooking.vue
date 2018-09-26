@@ -54,9 +54,9 @@
                         </FormItem>
                         <FormItem label="Hall" prop="hall">
                             <Select v-model="formValueDay.hall" placeholder="Select hall">
-                                <Option value="both">Both</Option>
-                                <Option value="small">Top (Small)</Option>
-                                <Option value="large">Ground (Small)</Option>
+                                <Option value="both" v-if="hall[0].both && (hall[0].small && hall[0].large)">Both</Option>
+                                <Option value="small" v-if="hall[0].small && hall[0].both">Top (Small)</Option>
+                                <Option value="large" v-if="hall[0].large && hall[0].both">Ground (Large)</Option>
                             </Select>
                         </FormItem>
                         <FormItem label="Event Type" prop="type">
@@ -99,9 +99,9 @@
                         </FormItem>
                         <FormItem label="Hall" prop="hall">
                             <Select v-model="formValueNight.hall" placeholder="Select hall">
-                                <Option value="both">Both</Option>
-                                <Option value="small">Top (Small)</Option>
-                                <Option value="large">Ground (Small)</Option>
+                                <Option value="both" v-if="hall[1].both || hall[1].small || hall[1].large">Both</Option>
+                                <Option value="small" v-if="hall[1].small || hall[1].both">Top (Small)</Option>
+                                <Option value="large" v-if="hall[1].large || hall[1].both">Ground (Large)</Option>
                             </Select>
                         </FormItem>
                         <FormItem label="Event Type"  prop="type">
@@ -140,7 +140,23 @@
                         return disabledDay === 15;
                     }
                 },
-                bookingList:[],
+                hall:[
+                    {
+                        both:true,
+                        large:true,
+                        small:true,
+
+                    },
+                    {
+                        both:true,
+                        large:true,
+                        small:true,
+                    }
+
+                ],
+                bookingList:[
+
+                ],
                 formValueDay:
                     {
                     name: '',
@@ -212,6 +228,11 @@
                 }
             }
         },
+        computer:
+        {
+
+
+        },
         methods: {
             async changeBooking (key) {
                 this.formValueDay.date=key
@@ -235,13 +256,25 @@
                 console.log(data)
                 for(let d of data)
                 {
-                    if(d.shift==1)
+                    if((d.shift==1 && d.hall=="both") || (d.shift==1 && (d.hall=="small" && d.hall=="large") ) )
                     {
                         this.day=true
                     }
-                    else if(d.shift==2)
+                    else if((d.shift==2 && d.hall=="both") || (d.shift==2 && (d.hall=="small" && d.hall=="large") ) )
                     {
                         this.night=true
+                    }
+                    else{
+                        if(data)
+                        {
+                            if(d.hall=="both")
+                                this.hall[d.shift-1].both=false
+                            else if(d.hall=="small")
+                                this.hall[d.shift-1].small=false
+                            else if(d.hall=="large")
+                                this.hall[d.shift-1].large=false
+                        }
+
                     }
 
                 }

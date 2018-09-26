@@ -93695,6 +93695,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     return disabledDay === 15;
                 }
             },
+            hall: [{
+                both: true,
+                large: true,
+                small: true
+
+            }, {
+                both: true,
+                large: true,
+                small: true
+            }],
             bookingList: [],
             formValueDay: {
                 name: '',
@@ -93746,6 +93756,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         };
     },
 
+    computer: {},
     methods: {
         changeBooking: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(key) {
@@ -93794,10 +93805,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                                     d = _step.value;
 
-                                    if (d.shift == 1) {
+                                    if (d.shift == 1 && d.hall == "both" || d.shift == 1 && d.hall == "small" && d.hall == "large") {
                                         this.day = true;
-                                    } else if (d.shift == 2) {
+                                    } else if (d.shift == 2 && d.hall == "both" || d.shift == 2 && d.hall == "small" && d.hall == "large") {
                                         this.night = true;
+                                    } else {
+                                        if (data) {
+                                            if (d.hall == "both") this.hall[d.shift - 1].both = false;else if (d.hall == "small") this.hall[d.shift - 1].small = false;else if (d.hall == "large") this.hall[d.shift - 1].large = false;
+                                        }
                                     }
                                 }
 
@@ -94954,23 +94969,30 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _c(
-                                        "Option",
-                                        { attrs: { value: "both" } },
-                                        [_vm._v("Both")]
-                                      ),
+                                      _vm.hall[0].both &&
+                                      (_vm.hall[0].small && _vm.hall[0].large)
+                                        ? _c(
+                                            "Option",
+                                            { attrs: { value: "both" } },
+                                            [_vm._v("Both")]
+                                          )
+                                        : _vm._e(),
                                       _vm._v(" "),
-                                      _c(
-                                        "Option",
-                                        { attrs: { value: "small" } },
-                                        [_vm._v("Top (Small)")]
-                                      ),
+                                      _vm.hall[0].small && _vm.hall[0].both
+                                        ? _c(
+                                            "Option",
+                                            { attrs: { value: "small" } },
+                                            [_vm._v("Top (Small)")]
+                                          )
+                                        : _vm._e(),
                                       _vm._v(" "),
-                                      _c(
-                                        "Option",
-                                        { attrs: { value: "large" } },
-                                        [_vm._v("Ground (Small)")]
-                                      )
+                                      _vm.hall[0].large && _vm.hall[0].both
+                                        ? _c(
+                                            "Option",
+                                            { attrs: { value: "large" } },
+                                            [_vm._v("Ground (Large)")]
+                                          )
+                                        : _vm._e()
                                     ],
                                     1
                                   )
@@ -95241,23 +95263,31 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _c(
-                                            "Option",
-                                            { attrs: { value: "both" } },
-                                            [_vm._v("Both")]
-                                          ),
+                                          _vm.hall[1].both ||
+                                          _vm.hall[1].small ||
+                                          _vm.hall[1].large
+                                            ? _c(
+                                                "Option",
+                                                { attrs: { value: "both" } },
+                                                [_vm._v("Both")]
+                                              )
+                                            : _vm._e(),
                                           _vm._v(" "),
-                                          _c(
-                                            "Option",
-                                            { attrs: { value: "small" } },
-                                            [_vm._v("Top (Small)")]
-                                          ),
+                                          _vm.hall[1].small || _vm.hall[1].both
+                                            ? _c(
+                                                "Option",
+                                                { attrs: { value: "small" } },
+                                                [_vm._v("Top (Small)")]
+                                              )
+                                            : _vm._e(),
                                           _vm._v(" "),
-                                          _c(
-                                            "Option",
-                                            { attrs: { value: "large" } },
-                                            [_vm._v("Ground (Small)")]
-                                          )
+                                          _vm.hall[1].large || _vm.hall[1].both
+                                            ? _c(
+                                                "Option",
+                                                { attrs: { value: "large" } },
+                                                [_vm._v("Ground (Large)")]
+                                              )
+                                            : _vm._e()
                                         ],
                                         1
                                       )
