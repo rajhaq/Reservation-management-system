@@ -95263,9 +95263,9 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _vm.hall[1].both ||
-                                          _vm.hall[1].small ||
-                                          _vm.hall[1].large
+                                          _vm.hall[1].both &&
+                                          (_vm.hall[1].small &&
+                                            _vm.hall[1].large)
                                             ? _c(
                                                 "Option",
                                                 { attrs: { value: "both" } },
@@ -95273,7 +95273,7 @@ var render = function() {
                                               )
                                             : _vm._e(),
                                           _vm._v(" "),
-                                          _vm.hall[1].small || _vm.hall[1].both
+                                          _vm.hall[1].small && _vm.hall[1].both
                                             ? _c(
                                                 "Option",
                                                 { attrs: { value: "small" } },
@@ -95281,7 +95281,7 @@ var render = function() {
                                               )
                                             : _vm._e(),
                                           _vm._v(" "),
-                                          _vm.hall[1].large || _vm.hall[1].both
+                                          _vm.hall[1].large && _vm.hall[1].both
                                             ? _c(
                                                 "Option",
                                                 { attrs: { value: "large" } },
@@ -95591,7 +95591,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             UpdateValue: {
                 indexNumber: null,
                 zoneName: '',
-                id: null
+                id: null,
+                date: ''
 
             },
 
@@ -95726,42 +95727,43 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context.prev = _context.next) {
                             case 0:
                                 this.editObj.date = key;
+                                this.UpdateValue.date = key;
                                 this.ls();
 
                                 if (!key) {
-                                    _context.next = 41;
+                                    _context.next = 42;
                                     break;
                                 }
 
-                                _context.prev = 3;
-                                _context.next = 6;
+                                _context.prev = 4;
+                                _context.next = 7;
                                 return axios({
                                     method: 'get',
                                     url: '/app/bookingFinder/' + key
                                 });
 
-                            case 6:
+                            case 7:
                                 _ref2 = _context.sent;
                                 data = _ref2.data;
 
                                 console.log(data);
 
                                 if (!(data.length == 0)) {
-                                    _context.next = 14;
+                                    _context.next = 15;
                                     break;
                                 }
 
                                 console.log('no data');
                                 this.s('Great!', 'You can choose this date!');
-                                _context.next = 34;
+                                _context.next = 35;
                                 break;
 
-                            case 14:
+                            case 15:
                                 console.log('Data');
                                 _iteratorNormalCompletion = true;
                                 _didIteratorError = false;
                                 _iteratorError = undefined;
-                                _context.prev = 18;
+                                _context.prev = 19;
                                 for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                                     d = _step.value;
 
@@ -95773,57 +95775,57 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     }
                                 }
 
-                                _context.next = 26;
+                                _context.next = 27;
                                 break;
 
-                            case 22:
-                                _context.prev = 22;
-                                _context.t0 = _context['catch'](18);
+                            case 23:
+                                _context.prev = 23;
+                                _context.t0 = _context['catch'](19);
                                 _didIteratorError = true;
                                 _iteratorError = _context.t0;
 
-                            case 26:
-                                _context.prev = 26;
+                            case 27:
                                 _context.prev = 27;
+                                _context.prev = 28;
 
                                 if (!_iteratorNormalCompletion && _iterator.return) {
                                     _iterator.return();
                                 }
 
-                            case 29:
-                                _context.prev = 29;
+                            case 30:
+                                _context.prev = 30;
 
                                 if (!_didIteratorError) {
-                                    _context.next = 32;
+                                    _context.next = 33;
                                     break;
                                 }
 
                                 throw _iteratorError;
 
-                            case 32:
-                                return _context.finish(29);
-
                             case 33:
-                                return _context.finish(26);
+                                return _context.finish(30);
 
                             case 34:
+                                return _context.finish(27);
+
+                            case 35:
                                 this.lf();
-                                _context.next = 41;
+                                _context.next = 42;
                                 break;
 
-                            case 37:
-                                _context.prev = 37;
-                                _context.t1 = _context['catch'](3);
+                            case 38:
+                                _context.prev = 38;
+                                _context.t1 = _context['catch'](4);
 
                                 this.e('Oops!', 'Something went wrong, please try again!');
                                 this.le();
 
-                            case 41:
+                            case 42:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 37], [18, 22, 26, 34], [27,, 29, 33]]);
+                }, _callee, this, [[4, 38], [19, 23, 27, 35], [28,, 30, 34]]);
             }));
 
             function changeBooking(_x) {
@@ -95898,6 +95900,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.editObj.type = this.data1[index].type;
             this.editObj.address = this.data1[index].address;
             this.editObj.date = this.data1[index].date;
+            this.UpdateValue.date = this.data1[index].date;
             this.UpdateValue.name = this.data1[index].name;
             this.UpdateValue.indexNumber = index;
             this.editModal = true;
@@ -96354,11 +96357,11 @@ var render = function() {
                         },
                         on: { "on-change": _vm.changeBooking },
                         model: {
-                          value: _vm.editObj.date,
+                          value: _vm.UpdateValue.date,
                           callback: function($$v) {
-                            _vm.$set(_vm.editObj, "date", $$v)
+                            _vm.$set(_vm.UpdateValue, "date", $$v)
                           },
-                          expression: "editObj.date"
+                          expression: "UpdateValue.date"
                         }
                       })
                     ],

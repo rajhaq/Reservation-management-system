@@ -49,7 +49,7 @@
                             <Input v-model="editObj.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
                         </FormItem>
                         <FormItem label="Date" prop="date" >
-                            <DatePicker v-model="editObj.date" type="date" :options="options3" placeholder="Select date" @on-change="changeBooking"></DatePicker>
+                            <DatePicker v-model="UpdateValue.date" type="date" :options="options3" placeholder="Select date" @on-change="changeBooking"></DatePicker>
                         </FormItem>
 
                     </Form>
@@ -101,6 +101,7 @@
                     indexNumber:null,
                     zoneName:'',
                     id:null,
+                    date:'',
 
                 },
 
@@ -289,6 +290,7 @@
         methods: {
             async changeBooking (key) {
                 this.editObj.date=key
+                this.UpdateValue.date=key
                 this.ls();
                 if(key)
                 {
@@ -369,6 +371,7 @@
                 this.editObj.type=this.data1[index].type
                 this.editObj.address=this.data1[index].address
                 this.editObj.date=this.data1[index].date
+                this.UpdateValue.date=this.data1[index].date
                 this.UpdateValue.name=this.data1[index].name
                 this.UpdateValue.indexNumber=index
                 this.editModal=true

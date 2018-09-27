@@ -99,9 +99,9 @@
                         </FormItem>
                         <FormItem label="Hall" prop="hall">
                             <Select v-model="formValueNight.hall" placeholder="Select hall">
-                                <Option value="both" v-if="hall[1].both || hall[1].small || hall[1].large">Both</Option>
-                                <Option value="small" v-if="hall[1].small || hall[1].both">Top (Small)</Option>
-                                <Option value="large" v-if="hall[1].large || hall[1].both">Ground (Large)</Option>
+                                <Option value="both" v-if="hall[1].both && (hall[1].small && hall[1].large)">Both</Option>
+                                <Option value="small" v-if="hall[1].small && hall[1].both">Top (Small)</Option>
+                                <Option value="large" v-if="hall[1].large && hall[1].both">Ground (Large)</Option>
                             </Select>
                         </FormItem>
                         <FormItem label="Event Type"  prop="type">
