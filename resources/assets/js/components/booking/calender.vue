@@ -2,17 +2,6 @@
     <div>
         <Row>
             <Col class="dream-input-main" span="24">
-                <Form ref="formInline" inline>
-                    <FormItem label="Search">
-                        <Input type="text" v-model="search" placeholder="Search">
-                            <Icon type="ios-search" slot="prepend"></Icon>
-                        </Input>
-                    </FormItem>
-                    <FormItem label="Choose Dates">
-                        <DatePicker type="daterange" placement="bottom-end" @on-change="dateRangeConverter" placeholder="Select date" style="width: 200px"></DatePicker>
-                    </FormItem>
-
-                </Form>
                 <full-calendar :events="data1" locale="en"
 
                 @eventClick="eventClick"
@@ -37,6 +26,9 @@
                         </FormItem>
                         <FormItem label="E-mail" prop="mail">
                             <Input v-model="editObj.mail" placeholder="Enter e-mail"></Input>
+                        </FormItem>
+                        <FormItem label="Shift">
+                            <Input v-model="editObj.shift" ></Input>
                         </FormItem>
                         <FormItem label="Hall" prop="hall">
                             <Select v-model="editObj.hall" placeholder="Select hall">
@@ -67,15 +59,15 @@
         <Modal v-model="deleteModal" width="360">
             <p slot="header" style="color:#f60;text-align:center">
                 <Icon type="close"></Icon>
-                <span> Delete {{UpdateValue.zoneName}}</span>
+                <span> Start Booking</span>
             </p>
             <div style="text-align:center">
-                Are you sure you want delete {{UpdateValue.zoneName}}
+                This date is open for booking, Want to Start new booking
 
             </div>
             <div slot="footer">
-                <Button type="error" size="large" long :loading="sending" @click="remove">
-                    <span v-if="!loading">Delete</span>
+                <Button type="error" size="large" long :loading="sending" @click="goDate">
+                    <span v-if="!loading">Go</span>
                     <span v-else>Deleting...</span>
                 </Button>
             </div>
@@ -123,7 +115,7 @@
                     type: '',
                     address: '',
                     date:'',
-                    shift:1,
+                    shift:null,
                     },
                 columns1: [
                     {
@@ -326,7 +318,6 @@
                 }
             },
             showEdit (index) {
-
                 this.editObj.id=this.data1[index].id
                 this.editObj.name=this.data1[index].name
                 this.editObj.mail=this.data1[index].mail
@@ -345,6 +336,10 @@
                 this.UpdateValue.indexNumber=index
                 this.deleteModal=true
             },
+            goDate()
+            {
+
+            },
             showEditCal (data) {
 
                 this.editObj.id=data.id
@@ -355,6 +350,7 @@
                 this.editObj.type=data.type
                 this.editObj.address=data.address
                 this.editObj.date=data.date
+                this.editObj.shift=data.shift
                 this.UpdateValue.name=data.name
                 this.editModal=true
             },
@@ -415,20 +411,21 @@
                 this.$refs[name].resetFields();
             },
 
-    'eventClick' (event, jsEvent, pos) {
-        this.showEditCal(event)
-       console.log('eventClick', event, jsEvent, pos)
-    },
-    'dayClick' (day, jsEvent) {
-      console.log('dayClick', day, jsEvent)
-    },
-    'moreClick' (day, events, jsEvent) {
-      console.log('moreCLick', day, events, jsEvent)
-    }
-        },
-         components : {
-            'full-calendar': require('vue-fullcalendar')
-        },
+            'eventClick' (event, jsEvent, pos) {
+                this.showEditCal(event)
+            //console.log('eventClick', event, jsEvent, pos)
+            },
+            'dayClick' (day, jsEvent) {
+            //console.log('dayClick', day, jsEvent)
+                        this.deleteModal=true
+                },
+            'moreClick' (day, events, jsEvent) {
+            //console.log('moreCLick', day, events, jsEvent)
+            }
+                },
+                components : {
+                    'full-calendar': require('vue-fullcalendar')
+                },
 
         async created()
         {

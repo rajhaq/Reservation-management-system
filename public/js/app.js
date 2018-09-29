@@ -96615,14 +96615,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -96661,7 +96653,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 type: '',
                 address: '',
                 date: '',
-                shift: 1
+                shift: null
             },
             columns1: [{
                 title: 'Client Name',
@@ -96831,7 +96823,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             return zoneAdd;
         }(),
         showEdit: function showEdit(index) {
-
             this.editObj.id = this.data1[index].id;
             this.editObj.name = this.data1[index].name;
             this.editObj.mail = this.data1[index].mail;
@@ -96850,6 +96841,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.UpdateValue.indexNumber = index;
             this.deleteModal = true;
         },
+        goDate: function goDate() {},
         showEditCal: function showEditCal(data) {
 
             this.editObj.id = data.id;
@@ -96860,6 +96852,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.editObj.type = data.type;
             this.editObj.address = data.address;
             this.editObj.date = data.date;
+            this.editObj.shift = data.shift;
             this.UpdateValue.name = data.name;
             this.editModal = true;
         },
@@ -96987,13 +96980,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         },
         'eventClick': function eventClick(event, jsEvent, pos) {
             this.showEditCal(event);
-            console.log('eventClick', event, jsEvent, pos);
+            //console.log('eventClick', event, jsEvent, pos)
         },
         'dayClick': function dayClick(day, jsEvent) {
-            console.log('dayClick', day, jsEvent);
+            //console.log('dayClick', day, jsEvent)
+            this.deleteModal = true;
         },
         'moreClick': function moreClick(day, events, jsEvent) {
-            console.log('moreCLick', day, events, jsEvent);
+            //console.log('moreCLick', day, events, jsEvent)
         }
     },
     components: {
@@ -97068,58 +97062,6 @@ var render = function() {
             "Col",
             { staticClass: "dream-input-main", attrs: { span: "24" } },
             [
-              _c(
-                "Form",
-                { ref: "formInline", attrs: { inline: "" } },
-                [
-                  _c(
-                    "FormItem",
-                    { attrs: { label: "Search" } },
-                    [
-                      _c(
-                        "Input",
-                        {
-                          attrs: { type: "text", placeholder: "Search" },
-                          model: {
-                            value: _vm.search,
-                            callback: function($$v) {
-                              _vm.search = $$v
-                            },
-                            expression: "search"
-                          }
-                        },
-                        [
-                          _c("Icon", {
-                            attrs: { slot: "prepend", type: "ios-search" },
-                            slot: "prepend"
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "FormItem",
-                    { attrs: { label: "Choose Dates" } },
-                    [
-                      _c("DatePicker", {
-                        staticStyle: { width: "200px" },
-                        attrs: {
-                          type: "daterange",
-                          placement: "bottom-end",
-                          placeholder: "Select date"
-                        },
-                        on: { "on-change": _vm.dateRangeConverter }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
               _c("full-calendar", {
                 attrs: { events: _vm.data1, locale: "en" },
                 on: {
@@ -97210,6 +97152,23 @@ var render = function() {
                             _vm.$set(_vm.editObj, "mail", $$v)
                           },
                           expression: "editObj.mail"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "FormItem",
+                    { attrs: { label: "Shift" } },
+                    [
+                      _c("Input", {
+                        model: {
+                          value: _vm.editObj.shift,
+                          callback: function($$v) {
+                            _vm.$set(_vm.editObj, "shift", $$v)
+                          },
+                          expression: "editObj.shift"
                         }
                       })
                     ],
@@ -97332,18 +97291,14 @@ var render = function() {
             [
               _c("Icon", { attrs: { type: "close" } }),
               _vm._v(" "),
-              _c("span", [
-                _vm._v(" Delete " + _vm._s(_vm.UpdateValue.zoneName))
-              ])
+              _c("span", [_vm._v(" Start Booking")])
             ],
             1
           ),
           _vm._v(" "),
           _c("div", { staticStyle: { "text-align": "center" } }, [
             _vm._v(
-              "\n            Are you sure you want delete " +
-                _vm._s(_vm.UpdateValue.zoneName) +
-                "\n\n        "
+              "\n            This date is open for booking, Want to Start new booking\n\n        "
             )
           ]),
           _vm._v(" "),
@@ -97360,11 +97315,11 @@ var render = function() {
                     long: "",
                     loading: _vm.sending
                   },
-                  on: { click: _vm.remove }
+                  on: { click: _vm.goDate }
                 },
                 [
                   !_vm.loading
-                    ? _c("span", [_vm._v("Delete")])
+                    ? _c("span", [_vm._v("Go")])
                     : _c("span", [_vm._v("Deleting...")])
                 ]
               )
