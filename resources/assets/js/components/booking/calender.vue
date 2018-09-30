@@ -49,12 +49,7 @@
                     </Form>
 
             </div>
-            <!-- <div slot="footer">
-                <Button type="primary" size="large" long :loading="sending" @click="edit">
-                    <span v-if="!loading">Update</span>
-                    <span v-else>Updating...</span>
-                </Button>
-            </div> -->
+
         </Modal>
         <Modal v-model="deleteModal" width="360">
             <p slot="header" style="color:#f60;text-align:center">
@@ -354,48 +349,8 @@
                 this.UpdateValue.name=data.name
                 this.editModal=true
             },
-            async edit(){
-                this.sending=true
-                try{
-                    let {data} =await  axios({
-                        method: 'put',
-                        url:'/app/booking',
-                        data: this.editObj
-                    })
-                    this.data1[this.UpdateValue.indexNumber].name=this.editObj.name
-                    this.data1[this.UpdateValue.indexNumber].mail=this.editObj.mail
-                    this.data1[this.UpdateValue.indexNumber].number=this.editObj.number
-                    this.data1[this.UpdateValue.indexNumber].hall=this.editObj.hall
-                    this.data1[this.UpdateValue.indexNumber].type=this.editObj.type
-                    this.data1[this.UpdateValue.indexNumber].address=this.editObj.address
-                    this.s('Great!','information has been updated successfully!')
 
-                    this.sending=false
-                    this.editModal=false
-                }catch(e){
-                    this.sending=false
-                    this.editModal=false
-                    this.e('Oops!','Something went wrong, please try again!')
-                }
-            },
-            async remove(){
-                this.sending=true
-                try{
-                    let {data} =await  axios({
-                        method: 'delete',
-                        url:`/app/zone/${this.UpdateValue.id}`,
-                    })
-                    this.data1.splice( this.UpdateValue.indexNumber, 1)
-                    this.s('Great!','Zone information has been removed successfully!')
 
-                    this.sending=false
-                    this.deleteModal=false
-                }catch(e){
-                    this.sending=false
-                    this.deleteModal=false
-                    this.e('Oops!','Something went wrong, please try again!')
-                }
-            },
             handleSubmit (name,index) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
