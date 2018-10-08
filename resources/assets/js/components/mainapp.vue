@@ -91,7 +91,6 @@
                             <MenuItem name="1-1" :to="handleGoToMenu('/newbooking')">New Booking</MenuItem>
                             <MenuItem name="1-2" :to="handleGoToMenu('/bookinglist')">Booking List</MenuItem>
                             <MenuItem name="1-3" :to="handleGoToMenu('/calender')" >Calender</MenuItem>
-                            <MenuItem name="1-4">Up Coming Events</MenuItem>
                             <MenuItem name="1-5">Compleated Events</MenuItem>
                         </Submenu>
                         <Submenu name="2">
@@ -100,7 +99,6 @@
                                 Settings
                             </template>
                             <MenuItem name="2-1">Booking Off Day</MenuItem>
-                            <MenuItem name="2-2">Option 2</MenuItem>
                         </Submenu>
                     </Menu>
                 </Sider>
