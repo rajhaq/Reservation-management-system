@@ -202,6 +202,10 @@
                         label: 'Corporate'
                     },
                     {
+                        value: 'anniversary',
+                        label: 'Anniversary'
+                    },
+                    {
                         value: 'others',
                         label: 'Others'
                     }
