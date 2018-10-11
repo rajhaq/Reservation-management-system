@@ -91,7 +91,7 @@
                             <MenuItem name="1-1" :to="handleGoToMenu('/newbooking')">New Booking</MenuItem>
                             <MenuItem name="1-2" :to="handleGoToMenu('/bookinglist')">Booking List</MenuItem>
                             <MenuItem name="1-3" :to="handleGoToMenu('/calender')" >Calender</MenuItem>
-                            <MenuItem name="1-5">Compleated Events</MenuItem>
+                            <MenuItem name="1-4">Compleated Events</MenuItem>
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
@@ -105,7 +105,7 @@
                 <Layout :style="{padding: '0 24px 24px'}">
                     <Breadcrumb :style="{margin: '24px 0'}">
                         <BreadcrumbItem>Home</BreadcrumbItem>
-                        <BreadcrumbItem>Home</BreadcrumbItem>
+                        <BreadcrumbItem>Item</BreadcrumbItem>
                     </Breadcrumb>
                     <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
                         <router-view></router-view>
