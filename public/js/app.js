@@ -90413,8 +90413,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'app-header',
@@ -90557,10 +90555,6 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c("MenuItem", { attrs: { name: "1-4" } }, [
-                            _vm._v("Up Coming Events")
-                          ]),
-                          _vm._v(" "),
-                          _c("MenuItem", { attrs: { name: "1-5" } }, [
                             _vm._v("Compleated Events")
                           ])
                         ],
@@ -90585,10 +90579,6 @@ var render = function() {
                           _vm._v(" "),
                           _c("MenuItem", { attrs: { name: "2-1" } }, [
                             _vm._v("Booking Off Day")
-                          ]),
-                          _vm._v(" "),
-                          _c("MenuItem", { attrs: { name: "2-2" } }, [
-                            _vm._v("Option 2")
                           ])
                         ],
                         2
@@ -90610,7 +90600,7 @@ var render = function() {
                     [
                       _c("BreadcrumbItem", [_vm._v("Home")]),
                       _vm._v(" "),
-                      _c("BreadcrumbItem", [_vm._v("Home")])
+                      _c("BreadcrumbItem", [_vm._v("Item")])
                     ],
                     1
                   ),
@@ -93742,6 +93732,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 value: 'corporate',
                 label: 'Corporate'
             }, {
+                value: 'anniversary',
+                label: 'Anniversary'
+            }, {
                 value: 'others',
                 label: 'Others'
             }],
@@ -96610,11 +96603,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -96856,112 +96844,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.UpdateValue.name = data.name;
             this.editModal = true;
         },
-        edit: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var _ref4, data;
-
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                this.sending = true;
-                                _context2.prev = 1;
-                                _context2.next = 4;
-                                return axios({
-                                    method: 'put',
-                                    url: '/app/booking',
-                                    data: this.editObj
-                                });
-
-                            case 4:
-                                _ref4 = _context2.sent;
-                                data = _ref4.data;
-
-                                this.data1[this.UpdateValue.indexNumber].name = this.editObj.name;
-                                this.data1[this.UpdateValue.indexNumber].mail = this.editObj.mail;
-                                this.data1[this.UpdateValue.indexNumber].number = this.editObj.number;
-                                this.data1[this.UpdateValue.indexNumber].hall = this.editObj.hall;
-                                this.data1[this.UpdateValue.indexNumber].type = this.editObj.type;
-                                this.data1[this.UpdateValue.indexNumber].address = this.editObj.address;
-                                this.s('Great!', 'information has been updated successfully!');
-
-                                this.sending = false;
-                                this.editModal = false;
-                                _context2.next = 22;
-                                break;
-
-                            case 17:
-                                _context2.prev = 17;
-                                _context2.t0 = _context2['catch'](1);
-
-                                this.sending = false;
-                                this.editModal = false;
-                                this.e('Oops!', 'Something went wrong, please try again!');
-
-                            case 22:
-                            case 'end':
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this, [[1, 17]]);
-            }));
-
-            function edit() {
-                return _ref3.apply(this, arguments);
-            }
-
-            return edit;
-        }(),
-        remove: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-                var _ref6, data;
-
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-                    while (1) {
-                        switch (_context3.prev = _context3.next) {
-                            case 0:
-                                this.sending = true;
-                                _context3.prev = 1;
-                                _context3.next = 4;
-                                return axios({
-                                    method: 'delete',
-                                    url: '/app/zone/' + this.UpdateValue.id
-                                });
-
-                            case 4:
-                                _ref6 = _context3.sent;
-                                data = _ref6.data;
-
-                                this.data1.splice(this.UpdateValue.indexNumber, 1);
-                                this.s('Great!', 'Zone information has been removed successfully!');
-
-                                this.sending = false;
-                                this.deleteModal = false;
-                                _context3.next = 17;
-                                break;
-
-                            case 12:
-                                _context3.prev = 12;
-                                _context3.t0 = _context3['catch'](1);
-
-                                this.sending = false;
-                                this.deleteModal = false;
-                                this.e('Oops!', 'Something went wrong, please try again!');
-
-                            case 17:
-                            case 'end':
-                                return _context3.stop();
-                        }
-                    }
-                }, _callee3, this, [[1, 12]]);
-            }));
-
-            function remove() {
-                return _ref5.apply(this, arguments);
-            }
-
-            return remove;
-        }(),
         handleSubmit: function handleSubmit(name, index) {
             var _this3 = this;
 
@@ -96995,49 +96877,49 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
 
     created: function () {
-        var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
-            var _ref8, data;
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+            var _ref4, data;
 
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                 while (1) {
-                    switch (_context4.prev = _context4.next) {
+                    switch (_context2.prev = _context2.next) {
                         case 0:
                             this.ls();
-                            _context4.prev = 1;
-                            _context4.next = 4;
+                            _context2.prev = 1;
+                            _context2.next = 4;
                             return axios({
                                 method: 'get',
                                 url: '/app/calender'
                             });
 
                         case 4:
-                            _ref8 = _context4.sent;
-                            data = _ref8.data;
+                            _ref4 = _context2.sent;
+                            data = _ref4.data;
 
                             this.data1 = data;
 
                             this.lf();
 
-                            _context4.next = 14;
+                            _context2.next = 14;
                             break;
 
                         case 10:
-                            _context4.prev = 10;
-                            _context4.t0 = _context4['catch'](1);
+                            _context2.prev = 10;
+                            _context2.t0 = _context2['catch'](1);
 
                             this.e('Oops!', 'Something went wrong, please try again!');
                             this.le();
 
                         case 14:
                         case 'end':
-                            return _context4.stop();
+                            return _context2.stop();
                     }
                 }
-            }, _callee4, this, [[1, 10]]);
+            }, _callee2, this, [[1, 10]]);
         }));
 
         function created() {
-            return _ref7.apply(this, arguments);
+            return _ref3.apply(this, arguments);
         }
 
         return created;
