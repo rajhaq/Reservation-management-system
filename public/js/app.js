@@ -95614,7 +95614,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 key: 'hall'
             }, {
                 title: 'Shift',
-                key: 'shift'
+                key: 'shiftName'
             }, {
                 title: 'Program Type',
                 key: 'type'
@@ -96029,7 +96029,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     created: function () {
         var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-            var _ref10, data;
+            var _ref10, data, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, d;
 
             return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                 while (1) {
@@ -96046,27 +96046,70 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         case 4:
                             _ref10 = _context5.sent;
                             data = _ref10.data;
+                            _iteratorNormalCompletion2 = true;
+                            _didIteratorError2 = false;
+                            _iteratorError2 = undefined;
+                            _context5.prev = 9;
 
+                            for (_iterator2 = data[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                                d = _step2.value;
+
+                                if (d.shift == 1) d.shiftName = 'Day';else if (d.shift == 2) d.shiftName = 'Night';else d.shiftName = 'NO SHIFT';
+                            }
+                            _context5.next = 17;
+                            break;
+
+                        case 13:
+                            _context5.prev = 13;
+                            _context5.t0 = _context5['catch'](9);
+                            _didIteratorError2 = true;
+                            _iteratorError2 = _context5.t0;
+
+                        case 17:
+                            _context5.prev = 17;
+                            _context5.prev = 18;
+
+                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                                _iterator2.return();
+                            }
+
+                        case 20:
+                            _context5.prev = 20;
+
+                            if (!_didIteratorError2) {
+                                _context5.next = 23;
+                                break;
+                            }
+
+                            throw _iteratorError2;
+
+                        case 23:
+                            return _context5.finish(20);
+
+                        case 24:
+                            return _context5.finish(17);
+
+                        case 25:
                             this.data1 = data;
 
                             this.lf();
 
-                            _context5.next = 14;
+                            _context5.next = 33;
                             break;
 
-                        case 10:
-                            _context5.prev = 10;
-                            _context5.t0 = _context5['catch'](1);
+                        case 29:
+                            _context5.prev = 29;
+                            _context5.t1 = _context5['catch'](1);
 
                             this.e('Oops!', 'Something went wrong, please try again!');
                             this.le();
 
-                        case 14:
+                        case 33:
                         case 'end':
                             return _context5.stop();
                     }
                 }
-            }, _callee5, this, [[1, 10]]);
+            }, _callee5, this, [[1, 29], [9, 13, 17, 25], [18,, 20, 24]]);
         }));
 
         function created() {

@@ -15,7 +15,7 @@ class BookingController extends Controller
     public function index()
     {
         $data=Booking::with('admin')
-        ->orderBy('date', 'desc')
+        ->orderBy('date', 'asc')
         ->get();
 
         return $data;

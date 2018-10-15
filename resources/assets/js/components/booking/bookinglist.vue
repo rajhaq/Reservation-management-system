@@ -136,7 +136,7 @@
                     },
                     {
                         title: 'Shift',
-                        key: 'shift'
+                        key: 'shiftName'
                     },
                     {
                         title: 'Program Type',
@@ -447,6 +447,15 @@
                     method: 'get',
                     url:'/app/booking'
                 })
+                for(let d of data){
+                    if(d.shift==1)
+                    d.shiftName='Day'
+                    else if(d.shift==2)
+                    d.shiftName='Night'
+                    else
+                    d.shiftName='NO SHIFT'
+
+                }
                 this.data1=data;
 
             this.lf();
