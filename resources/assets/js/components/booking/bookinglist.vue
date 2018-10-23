@@ -249,13 +249,12 @@
                 if(this.dateRange[0] && this.dateRange[1])
                 {
                     return this.data1.filter((data)=>{
-                    return ((data.date>= this.dateRange[0] && data.date<=this.dateRange[1])
-                        && (data.name.toUpperCase().match(this.search.toUpperCase())
-                        || data.mail.toString().match(this.search.toString())
-                        || data.number.toUpperCase().match(this.search.toUpperCase())
-                        || data.hall.toUpperCase().match(this.search.toUpperCase())
-                        || data.address.toUpperCase().match(this.search.toUpperCase())
-                    )
+                        return ((data.date>= this.dateRange[0] && data.date<=this.dateRange[1])
+                            && (data.name.toUpperCase().match(this.search.toUpperCase())
+                            || data.number.toUpperCase().match(this.search.toUpperCase())
+                            || data.hall.toUpperCase().match(this.search.toUpperCase())
+                            || data.address.toUpperCase().match(this.search.toUpperCase())
+                        )
 
                     );
                         }
@@ -264,10 +263,10 @@
                 else
                 {
                     return this.data1.filter((data)=>{
-                        return data.name.toUpperCase().match(this.search.toUpperCase())
-                        || data.mail.toString().match(this.search.toString())
+                        return (data.name.toUpperCase().match(this.search.toUpperCase())
                         || data.hall.toUpperCase().match(this.search.toUpperCase())
                         || data.address.toUpperCase().match(this.search.toUpperCase())
+                        )
                         });
                 }
 

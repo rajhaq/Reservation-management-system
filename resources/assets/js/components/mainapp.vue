@@ -75,7 +75,7 @@
                     <div class="layout-nav">
                         <MenuItem name="1">
                             <Icon type="ios-power"></Icon>
-                            Logout
+                            <a href="logout">Logout</a>
                         </MenuItem>
                     </div>
                 </Menu>

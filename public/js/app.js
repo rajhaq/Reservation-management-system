@@ -90468,9 +90468,10 @@ var render = function() {
                         { attrs: { name: "1" } },
                         [
                           _c("Icon", { attrs: { type: "ios-power" } }),
-                          _vm._v(
-                            "\n                        Logout\n                    "
-                          )
+                          _vm._v(" "),
+                          _c("a", { attrs: { href: "logout" } }, [
+                            _vm._v("Logout")
+                          ])
                         ],
                         1
                       )
@@ -95695,11 +95696,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             if (this.dateRange[0] && this.dateRange[1]) {
                 return this.data1.filter(function (data) {
-                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
+                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
                 });
             } else {
                 return this.data1.filter(function (data) {
-                    return data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase());
+                    return data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase());
                 });
             }
         },
