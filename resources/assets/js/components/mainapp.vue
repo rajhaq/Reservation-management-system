@@ -82,7 +82,7 @@
             </Header>
             <Layout style="min-height: 780px;">
                 <Sider hide-trigger :style="{background: '#fff',}">
-                    <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
+                    <Menu active-name="1-1" theme="light" width="auto" :open-names="['1']">
                         <Submenu name="1">
                             <template slot="title">
                                 <Icon type="ios-paper"></Icon>
@@ -91,14 +91,14 @@
                             <MenuItem name="1-1" :to="handleGoToMenu('/newbooking')">New Booking</MenuItem>
                             <MenuItem name="1-2" :to="handleGoToMenu('/bookinglist')">Booking List</MenuItem>
                             <MenuItem name="1-3" :to="handleGoToMenu('/calender')" >Calender</MenuItem>
-                            <MenuItem name="1-4">Compleated Events</MenuItem>
+                            <!-- <MenuItem name="1-4">Compleated Events</MenuItem> -->
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
                                 <Icon type="ios-cog"></Icon>
                                 Settings
                             </template>
-                            <MenuItem name="2-1">Booking Off Day</MenuItem>
+                            <!-- <MenuItem name="2-1">Booking Off Day</MenuItem> -->
                         </Submenu>
                     </Menu>
                 </Sider>
