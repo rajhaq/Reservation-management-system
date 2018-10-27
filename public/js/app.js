@@ -90499,7 +90499,7 @@ var render = function() {
                     "Menu",
                     {
                       attrs: {
-                        "active-name": "1-2",
+                        "active-name": "1-1",
                         theme: "light",
                         width: "auto",
                         "open-names": ["1"]
@@ -90553,11 +90553,7 @@ var render = function() {
                               }
                             },
                             [_vm._v("Calender")]
-                          ),
-                          _vm._v(" "),
-                          _c("MenuItem", { attrs: { name: "1-4" } }, [
-                            _vm._v("Compleated Events")
-                          ])
+                          )
                         ],
                         2
                       ),
@@ -90576,11 +90572,7 @@ var render = function() {
                               )
                             ],
                             1
-                          ),
-                          _vm._v(" "),
-                          _c("MenuItem", { attrs: { name: "2-1" } }, [
-                            _vm._v("Booking Off Day")
-                          ])
+                          )
                         ],
                         2
                       )

@@ -90,7 +90,7 @@
                             </template>
                             <MenuItem name="1-1" :to="handleGoToMenu('/newbooking')">New Booking</MenuItem>
                             <MenuItem name="1-2" :to="handleGoToMenu('/bookinglist')">Booking List</MenuItem>
-                            <MenuItem name="1-3" :to="handleGoToMenu('/calender')" >Calender</MenuItem>
+                            <MenuItem name="1-3" :to="handleGoToMenu('/calender')" >Calender View</MenuItem>
                             <!-- <MenuItem name="1-4">Compleated Events</MenuItem> -->
                         </Submenu>
                         <Submenu name="2">
