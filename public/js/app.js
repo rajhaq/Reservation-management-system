@@ -90552,7 +90552,7 @@ var render = function() {
                                 to: _vm.handleGoToMenu("/calender")
                               }
                             },
-                            [_vm._v("Calender")]
+                            [_vm._v("Calender View")]
                           )
                         ],
                         2
