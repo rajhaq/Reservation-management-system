@@ -23,7 +23,7 @@ class CreateBookingsTable extends Migration
             $table->string('number');
             $table->string('hall');
             $table->string('type')->nullable();
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }
