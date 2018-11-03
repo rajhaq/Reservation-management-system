@@ -63,6 +63,23 @@
         vertical-align: middle;
         font-size: 22px;
     }
+    @media print {
+    body * {
+        
+        visibility: hidden;
+    }
+    .print, .print * {
+        visibility: visible;
+    }
+    .print {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    }
+    .hidden {
+display: none;
+}
 </style>
 <template>
     <div class="layout">

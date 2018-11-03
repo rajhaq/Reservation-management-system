@@ -13,10 +13,21 @@
                     </FormItem>
 
                 </Form>
+                <Button  align="left" @click="showPrint">Print</Button>
                 <Table :columns="columns1" :data="searchData"></Table>
             </Col>
         </Row>
+        <Modal v-model="printModel" width="740" style="margin-top:20px;" >
+        <div  class="print">
+            <h2 style="text-align:center">Dreams Gallery</h2>
+            <h3>Sale List: Item Wise</h3>
+            <h3>Date: {{ filterDate[0] }} to {{ filterDate[1] }}</h3>
+            <Table :columns="columns1" :data="searchData"></Table>
+        </div>
+        <div slot="footer">
+        </div>
 
+    </Modal>
         <Modal v-model="editModal" width="360">
             <p slot="header" style="color:#369;text-align:center">
                 <Icon type="edit"></Icon>
@@ -89,6 +100,7 @@
                 dateRange:[],
                 editModal:false,
                 deleteModal:false,
+                printModel:false,
                 loading:false,
                 sending:false,
                 isCollapsed: false,
@@ -287,6 +299,12 @@
             }
         },
         methods: {
+            async showPrint (index) {
+                this.printModel=true
+                await new Promise(resolve => setTimeout(resolve, 500));
+                console.log("Print")
+                window.print();
+            },
             async changeBooking (key) {
                 this.editObj.date=key
                 this.UpdateValue.date=key
