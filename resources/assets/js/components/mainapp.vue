@@ -65,7 +65,7 @@
     }
     @media print {
     body * {
-        
+
         visibility: hidden;
     }
     .print, .print * {
@@ -111,6 +111,16 @@ display: none;
                             <!-- <MenuItem name="1-4">Compleated Events</MenuItem> -->
                         </Submenu>
                         <Submenu name="2">
+                            <template slot="title">
+                                <Icon type="ios-paper"></Icon>
+                                Service
+                            </template>
+                            <MenuItem name="2-1" :to="handleGoToMenu('/newbooking')">Payment</MenuItem>
+                            <MenuItem name="2-2" :to="handleGoToMenu('/bookinglist')">Product Rent</MenuItem>
+                            <MenuItem name="2-3" :to="handleGoToMenu('/calender')" >Products</MenuItem>
+                            <!-- <MenuItem name="1-4">Compleated Events</MenuItem> -->
+                        </Submenu>
+                        <Submenu name="3">
                             <template slot="title">
                                 <Icon type="ios-cog"></Icon>
                                 Settings
