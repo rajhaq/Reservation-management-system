@@ -17,11 +17,8 @@
                 <Table :columns="columns1" :data="searchData"></Table>
             </Col>
         </Row>
-        <Modal v-model="printModel" width="740" style="margin-top:20px;" >
+        <Modal v-model="printModel" width="705" style="margin-top:20px;" >
         <div  class="print">
-            <h2 style="text-align:center">Dreams Gallery</h2>
-            <h3>Sale List: Item Wise</h3>
-            <h3>Date: {{ filterDate[0] }} to {{ filterDate[1] }}</h3>
             <Table :columns="columns1" :data="searchData"></Table>
         </div>
         <div slot="footer">
@@ -98,6 +95,7 @@
             return {
                 search:'',
                 dateRange:[],
+                filterDate:[],
                 editModal:false,
                 deleteModal:false,
                 printModel:false,
@@ -134,10 +132,10 @@
                         title: 'Client Name',
                         key: 'name'
                     },
-                    {
-                        title: 'Email',
-                        key: 'mail'
-                    },
+                    // {
+                    //     title: 'Email',
+                    //     key: 'mail'
+                    // },
                     {
                         title: 'Contact',
                         key: 'number'
@@ -150,10 +148,10 @@
                         title: 'Shift',
                         key: 'shiftName'
                     },
-                    {
-                        title: 'Program Type',
-                        key: 'type'
-                    },
+                    // {
+                    //     title: 'Program Type',
+                    //     key: 'type'
+                    // },
                     {
                         title: 'Address',
                         key: 'address'
@@ -162,41 +160,41 @@
                         title: 'Date',
                         key: 'date'
                     },
-                    {
-                        title: 'Action',
-                        key: 'action',
-                        width: 150,
-                        align: 'center',
-                        render: (h, params) => {
-                            return h('div', [
-                                h('Button', {
-                                    props: {
-                                        type: 'primary',
-                                        size: 'small'
-                                    },
-                                    style: {
-                                        marginRight: '5px'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.showEdit(params.index)
-                                        }
-                                    }
-                                }, 'Edit'),
-                                h('Button', {
-                                    props: {
-                                        type: 'error',
-                                        size: 'small'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.showRemove(params.index)
-                                        }
-                                    }
-                                }, 'Delete')
-                            ]);
-                        }
-                    }
+                    // {
+                    //     title: 'Action',
+                    //     key: 'action',
+                    //     width: 150,
+                    //     align: 'center',
+                    //     render: (h, params) => {
+                    //         return h('div', [
+                    //             h('Button', {
+                    //                 props: {
+                    //                     type: 'primary',
+                    //                     size: 'small'
+                    //                 },
+                    //                 style: {
+                    //                     marginRight: '5px'
+                    //                 },
+                    //                 on: {
+                    //                     click: () => {
+                    //                         this.showEdit(params.index)
+                    //                     }
+                    //                 }
+                    //             }, 'Edit'),
+                    //             h('Button', {
+                    //                 props: {
+                    //                     type: 'error',
+                    //                     size: 'small'
+                    //                 },
+                    //                 on: {
+                    //                     click: () => {
+                    //                         this.showRemove(params.index)
+                    //                     }
+                    //                 }
+                    //             }, 'Delete')
+                    //         ]);
+                    //     }
+                    // }
                 ],
                 data1: [
 
@@ -263,7 +261,7 @@
                     return this.data1.filter((data)=>{
                         return ((data.date>= this.dateRange[0] && data.date<=this.dateRange[1])
                             && (data.name.toUpperCase().match(this.search.toUpperCase())
-                            || data.number.toUpperCase().match(this.search.toUpperCase())
+                            || data.number.match(this.search)
                             || data.hall.toUpperCase().match(this.search.toUpperCase())
                             || data.address.toUpperCase().match(this.search.toUpperCase())
                         )
@@ -278,6 +276,7 @@
                         return (data.name.toUpperCase().match(this.search.toUpperCase())
                         || data.hall.toUpperCase().match(this.search.toUpperCase())
                         || data.address.toUpperCase().match(this.search.toUpperCase())
+                            || data.number.match(this.search)
                         )
                         });
                 }

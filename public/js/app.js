@@ -90252,7 +90252,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.layout[data-v-24bb2e7e]{\n    border: 1px solid #d7dde4;\n    background: #f5f7f9;\n    position: relative;\n    border-radius: 4px;\n    overflow: hidden;\n}\n.layout-logo[data-v-24bb2e7e]{\n    width: 100px;\n    height: 30px;\n    border-radius: 3px;\n    float: left;\n    position: relative;\n    top: 15px;\n    left: 20px;\n}\n.layout-nav[data-v-24bb2e7e]{\n    width: 420px;\n    margin: 0 auto;\n    margin-right: 10px;\n}\n.layout-header-bar[data-v-24bb2e7e]{\n        background: #fff;\n        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);\n                box-shadow: 0 1px 1px rgba(0,0,0,.1);\n}\n.layout-logo-left[data-v-24bb2e7e]{\n        width: 90%;\n        height: 30px;\n        background: #5b6270;\n        border-radius: 3px;\n        margin: 15px auto;\n}\n.menu-icon[data-v-24bb2e7e]{\n        -webkit-transition: all .3s;\n        transition: all .3s;\n}\n.rotate-icon[data-v-24bb2e7e]{\n        -webkit-transform: rotate(-90deg);\n                transform: rotate(-90deg);\n}\n.menu-item span[data-v-24bb2e7e]{\n        display: inline-block;\n        overflow: hidden;\n        width: 69px;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        vertical-align: bottom;\n        -webkit-transition: width .2s ease .2s;\n        transition: width .2s ease .2s;\n}\n.menu-item i[data-v-24bb2e7e]{\n        -webkit-transform: translateX(0px);\n                transform: translateX(0px);\n        -webkit-transition: font-size .2s ease, -webkit-transform .2s ease;\n        transition: font-size .2s ease, -webkit-transform .2s ease;\n        transition: font-size .2s ease, transform .2s ease;\n        transition: font-size .2s ease, transform .2s ease, -webkit-transform .2s ease;\n        vertical-align: middle;\n        font-size: 16px;\n}\n.collapsed-menu span[data-v-24bb2e7e]{\n        width: 0px;\n        -webkit-transition: width .2s ease;\n        transition: width .2s ease;\n}\n.collapsed-menu i[data-v-24bb2e7e]{\n        -webkit-transform: translateX(5px);\n                transform: translateX(5px);\n        -webkit-transition: font-size .2s ease .2s, -webkit-transform .2s ease .2s;\n        transition: font-size .2s ease .2s, -webkit-transform .2s ease .2s;\n        transition: font-size .2s ease .2s, transform .2s ease .2s;\n        transition: font-size .2s ease .2s, transform .2s ease .2s, -webkit-transform .2s ease .2s;\n        vertical-align: middle;\n        font-size: 22px;\n}\n", ""]);
+exports.push([module.i, "\n.layout[data-v-24bb2e7e]{\n    border: 1px solid #d7dde4;\n    background: #f5f7f9;\n    position: relative;\n    border-radius: 4px;\n    overflow: hidden;\n}\n.layout-logo[data-v-24bb2e7e]{\n    width: 100px;\n    height: 30px;\n    border-radius: 3px;\n    float: left;\n    position: relative;\n    top: 15px;\n    left: 20px;\n}\n.layout-nav[data-v-24bb2e7e]{\n    width: 420px;\n    margin: 0 auto;\n    margin-right: 10px;\n}\n.layout-header-bar[data-v-24bb2e7e]{\n        background: #fff;\n        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);\n                box-shadow: 0 1px 1px rgba(0,0,0,.1);\n}\n.layout-logo-left[data-v-24bb2e7e]{\n        width: 90%;\n        height: 30px;\n        background: #5b6270;\n        border-radius: 3px;\n        margin: 15px auto;\n}\n.menu-icon[data-v-24bb2e7e]{\n        -webkit-transition: all .3s;\n        transition: all .3s;\n}\n.rotate-icon[data-v-24bb2e7e]{\n        -webkit-transform: rotate(-90deg);\n                transform: rotate(-90deg);\n}\n.menu-item span[data-v-24bb2e7e]{\n        display: inline-block;\n        overflow: hidden;\n        width: 69px;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        vertical-align: bottom;\n        -webkit-transition: width .2s ease .2s;\n        transition: width .2s ease .2s;\n}\n.menu-item i[data-v-24bb2e7e]{\n        -webkit-transform: translateX(0px);\n                transform: translateX(0px);\n        -webkit-transition: font-size .2s ease, -webkit-transform .2s ease;\n        transition: font-size .2s ease, -webkit-transform .2s ease;\n        transition: font-size .2s ease, transform .2s ease;\n        transition: font-size .2s ease, transform .2s ease, -webkit-transform .2s ease;\n        vertical-align: middle;\n        font-size: 16px;\n}\n.collapsed-menu span[data-v-24bb2e7e]{\n        width: 0px;\n        -webkit-transition: width .2s ease;\n        transition: width .2s ease;\n}\n.collapsed-menu i[data-v-24bb2e7e]{\n        -webkit-transform: translateX(5px);\n                transform: translateX(5px);\n        -webkit-transition: font-size .2s ease .2s, -webkit-transform .2s ease .2s;\n        transition: font-size .2s ease .2s, -webkit-transform .2s ease .2s;\n        transition: font-size .2s ease .2s, transform .2s ease .2s;\n        transition: font-size .2s ease .2s, transform .2s ease .2s, -webkit-transform .2s ease .2s;\n        vertical-align: middle;\n        font-size: 22px;\n}\n@media print {\nbody *[data-v-24bb2e7e] {\n\n        visibility: hidden;\n}\n.print[data-v-24bb2e7e], .print *[data-v-24bb2e7e] {\n        visibility: visible;\n}\n.print[data-v-24bb2e7e] {\n        position: absolute;\n        left: 0;\n        top: 0;\n}\n}\n.hidden[data-v-24bb2e7e] {\ndisplay: none;\n}\n", ""]);
 
 // exports
 
@@ -90296,6 +90296,33 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -90561,6 +90588,58 @@ var render = function() {
                       _c(
                         "Submenu",
                         { attrs: { name: "2" } },
+                        [
+                          _c(
+                            "template",
+                            { slot: "title" },
+                            [
+                              _c("Icon", { attrs: { type: "ios-paper" } }),
+                              _vm._v(
+                                "\n                            Service\n                        "
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "MenuItem",
+                            {
+                              attrs: {
+                                name: "2-1",
+                                to: _vm.handleGoToMenu("/newbooking")
+                              }
+                            },
+                            [_vm._v("Payment")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "MenuItem",
+                            {
+                              attrs: {
+                                name: "2-2",
+                                to: _vm.handleGoToMenu("/bookinglist")
+                              }
+                            },
+                            [_vm._v("Product Rent")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "MenuItem",
+                            {
+                              attrs: {
+                                name: "2-3",
+                                to: _vm.handleGoToMenu("/calender")
+                              }
+                            },
+                            [_vm._v("Products")]
+                          )
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "Submenu",
+                        { attrs: { name: "3" } },
                         [
                           _c(
                             "template",
@@ -95556,16 +95635,24 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        var _this = this;
-
         return {
             search: '',
             dateRange: [],
+            filterDate: [],
             editModal: false,
             deleteModal: false,
+            printModel: false,
             loading: false,
             sending: false,
             isCollapsed: false,
@@ -95596,10 +95683,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             columns1: [{
                 title: 'Client Name',
                 key: 'name'
-            }, {
-                title: 'Email',
-                key: 'mail'
-            }, {
+            },
+            // {
+            //     title: 'Email',
+            //     key: 'mail'
+            // },
+            {
                 title: 'Contact',
                 key: 'number'
             }, {
@@ -95608,46 +95697,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             }, {
                 title: 'Shift',
                 key: 'shiftName'
-            }, {
-                title: 'Program Type',
-                key: 'type'
-            }, {
+            },
+            // {
+            //     title: 'Program Type',
+            //     key: 'type'
+            // },
+            {
                 title: 'Address',
                 key: 'address'
             }, {
                 title: 'Date',
                 key: 'date'
-            }, {
-                title: 'Action',
-                key: 'action',
-                width: 150,
-                align: 'center',
-                render: function render(h, params) {
-                    return h('div', [h('Button', {
-                        props: {
-                            type: 'primary',
-                            size: 'small'
-                        },
-                        style: {
-                            marginRight: '5px'
-                        },
-                        on: {
-                            click: function click() {
-                                _this.showEdit(params.index);
-                            }
-                        }
-                    }, 'Edit'), h('Button', {
-                        props: {
-                            type: 'error',
-                            size: 'small'
-                        },
-                        on: {
-                            click: function click() {
-                                _this.showRemove(params.index);
-                            }
-                        }
-                    }, 'Delete')]);
-                }
             }],
             data1: [],
 
@@ -95684,15 +95744,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     computed: {
         searchData: function searchData() {
-            var _this2 = this;
+            var _this = this;
 
             if (this.dateRange[0] && this.dateRange[1]) {
                 return this.data1.filter(function (data) {
-                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
+                    return data.date >= _this.dateRange[0] && data.date <= _this.dateRange[1] && (data.name.toUpperCase().match(_this.search.toUpperCase()) || data.number.match(_this.search) || data.hall.toUpperCase().match(_this.search.toUpperCase()) || data.address.toUpperCase().match(_this.search.toUpperCase()));
                 });
             } else {
                 return this.data1.filter(function (data) {
-                    return data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase());
+                    return data.name.toUpperCase().match(_this.search.toUpperCase()) || data.hall.toUpperCase().match(_this.search.toUpperCase()) || data.address.toUpperCase().match(_this.search.toUpperCase()) || data.number.match(_this.search);
                 });
             }
         },
@@ -95704,44 +95764,74 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }
     },
     methods: {
-        changeBooking: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(key) {
-                var _ref2, data, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, d;
-
+        showPrint: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(index) {
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
+                            case 0:
+                                this.printModel = true;
+                                _context.next = 3;
+                                return new Promise(function (resolve) {
+                                    return setTimeout(resolve, 500);
+                                });
+
+                            case 3:
+                                console.log("Print");
+                                window.print();
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function showPrint(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return showPrint;
+        }(),
+        changeBooking: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(key) {
+                var _ref3, data, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, d;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
                             case 0:
                                 this.editObj.date = key;
                                 this.UpdateValue.date = key;
                                 this.ls();
 
                                 if (!key) {
-                                    _context.next = 42;
+                                    _context2.next = 42;
                                     break;
                                 }
 
-                                _context.prev = 4;
-                                _context.next = 7;
+                                _context2.prev = 4;
+                                _context2.next = 7;
                                 return axios({
                                     method: 'get',
                                     url: '/app/bookingFinder/' + key
                                 });
 
                             case 7:
-                                _ref2 = _context.sent;
-                                data = _ref2.data;
+                                _ref3 = _context2.sent;
+                                data = _ref3.data;
 
                                 console.log(data);
 
                                 if (!(data.length == 0)) {
-                                    _context.next = 15;
+                                    _context2.next = 15;
                                     break;
                                 }
 
                                 console.log('no data');
                                 this.s('Great!', 'You can choose this date!');
-                                _context.next = 35;
+                                _context2.next = 35;
                                 break;
 
                             case 15:
@@ -95749,7 +95839,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 _iteratorNormalCompletion = true;
                                 _didIteratorError = false;
                                 _iteratorError = undefined;
-                                _context.prev = 19;
+                                _context2.prev = 19;
                                 for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                                     d = _step.value;
 
@@ -95761,61 +95851,61 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     }
                                 }
 
-                                _context.next = 27;
+                                _context2.next = 27;
                                 break;
 
                             case 23:
-                                _context.prev = 23;
-                                _context.t0 = _context['catch'](19);
+                                _context2.prev = 23;
+                                _context2.t0 = _context2['catch'](19);
                                 _didIteratorError = true;
-                                _iteratorError = _context.t0;
+                                _iteratorError = _context2.t0;
 
                             case 27:
-                                _context.prev = 27;
-                                _context.prev = 28;
+                                _context2.prev = 27;
+                                _context2.prev = 28;
 
                                 if (!_iteratorNormalCompletion && _iterator.return) {
                                     _iterator.return();
                                 }
 
                             case 30:
-                                _context.prev = 30;
+                                _context2.prev = 30;
 
                                 if (!_didIteratorError) {
-                                    _context.next = 33;
+                                    _context2.next = 33;
                                     break;
                                 }
 
                                 throw _iteratorError;
 
                             case 33:
-                                return _context.finish(30);
+                                return _context2.finish(30);
 
                             case 34:
-                                return _context.finish(27);
+                                return _context2.finish(27);
 
                             case 35:
                                 this.lf();
-                                _context.next = 42;
+                                _context2.next = 42;
                                 break;
 
                             case 38:
-                                _context.prev = 38;
-                                _context.t1 = _context['catch'](4);
+                                _context2.prev = 38;
+                                _context2.t1 = _context2['catch'](4);
 
                                 this.e('Oops!', 'Something went wrong, please try again!');
                                 this.le();
 
                             case 42:
                             case 'end':
-                                return _context.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee, this, [[4, 38], [19, 23, 27, 35], [28,, 30, 34]]);
+                }, _callee2, this, [[4, 38], [19, 23, 27, 35], [28,, 30, 34]]);
             }));
 
-            function changeBooking(_x) {
-                return _ref.apply(this, arguments);
+            function changeBooking(_x2) {
+                return _ref2.apply(this, arguments);
             }
 
             return changeBooking;
@@ -95827,16 +95917,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.$refs.side1.toggleCollapse();
         },
         zoneAdd: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var _ref4, data;
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+                var _ref5, data;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 this.loading = true;
-                                _context2.prev = 1;
-                                _context2.next = 4;
+                                _context3.prev = 1;
+                                _context3.next = 4;
                                 return axios({
                                     method: 'post',
                                     url: '/app/zone',
@@ -95844,34 +95934,34 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 4:
-                                _ref4 = _context2.sent;
-                                data = _ref4.data;
+                                _ref5 = _context3.sent;
+                                data = _ref5.data;
 
                                 this.data1.unshift(data.status);
                                 this.formValue.zoneName = '';
                                 this.s('Great!', 'Zone has been added successfully!');
 
                                 this.loading = false;
-                                _context2.next = 16;
+                                _context3.next = 16;
                                 break;
 
                             case 12:
-                                _context2.prev = 12;
-                                _context2.t0 = _context2['catch'](1);
+                                _context3.prev = 12;
+                                _context3.t0 = _context3['catch'](1);
 
                                 this.loading = false;
                                 this.e('Oops!', 'Something went wrong, please try again!');
 
                             case 16:
                             case 'end':
-                                return _context2.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee2, this, [[1, 12]]);
+                }, _callee3, this, [[1, 12]]);
             }));
 
             function zoneAdd() {
-                return _ref3.apply(this, arguments);
+                return _ref4.apply(this, arguments);
             }
 
             return zoneAdd;
@@ -95897,16 +95987,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             this.deleteModal = true;
         },
         edit: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-                var _ref6, data;
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+                var _ref7, data;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context4.prev = _context4.next) {
                             case 0:
                                 this.sending = true;
-                                _context3.prev = 1;
-                                _context3.next = 4;
+                                _context4.prev = 1;
+                                _context4.next = 4;
                                 return axios({
                                     method: 'put',
                                     url: '/app/booking/' + this.editObj.id,
@@ -95914,8 +96004,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 4:
-                                _ref6 = _context3.sent;
-                                data = _ref6.data;
+                                _ref7 = _context4.sent;
+                                data = _ref7.data;
 
                                 this.data1[this.UpdateValue.indexNumber].name = this.editObj.name;
                                 this.data1[this.UpdateValue.indexNumber].mail = this.editObj.mail;
@@ -95927,12 +96017,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 this.sending = false;
                                 this.editModal = false;
-                                _context3.next = 22;
+                                _context4.next = 22;
                                 break;
 
                             case 17:
-                                _context3.prev = 17;
-                                _context3.t0 = _context3['catch'](1);
+                                _context4.prev = 17;
+                                _context4.t0 = _context4['catch'](1);
 
                                 this.sending = false;
                                 this.editModal = false;
@@ -95940,49 +96030,49 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 22:
                             case 'end':
-                                return _context3.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee3, this, [[1, 17]]);
+                }, _callee4, this, [[1, 17]]);
             }));
 
             function edit() {
-                return _ref5.apply(this, arguments);
+                return _ref6.apply(this, arguments);
             }
 
             return edit;
         }(),
         remove: function () {
-            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
-                var _ref8, data;
+            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
+                var _ref9, data;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context5.prev = _context5.next) {
                             case 0:
                                 this.sending = true;
-                                _context4.prev = 1;
-                                _context4.next = 4;
+                                _context5.prev = 1;
+                                _context5.next = 4;
                                 return axios({
                                     method: 'delete',
                                     url: '/app/booking/' + this.UpdateValue.id
                                 });
 
                             case 4:
-                                _ref8 = _context4.sent;
-                                data = _ref8.data;
+                                _ref9 = _context5.sent;
+                                data = _ref9.data;
 
                                 this.data1.splice(this.UpdateValue.indexNumber, 1);
                                 this.s('Great!', 'information has been removed successfully!');
 
                                 this.sending = false;
                                 this.deleteModal = false;
-                                _context4.next = 17;
+                                _context5.next = 17;
                                 break;
 
                             case 12:
-                                _context4.prev = 12;
-                                _context4.t0 = _context4['catch'](1);
+                                _context5.prev = 12;
+                                _context5.t0 = _context5['catch'](1);
 
                                 this.sending = false;
                                 this.deleteModal = false;
@@ -95990,27 +96080,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 17:
                             case 'end':
-                                return _context4.stop();
+                                return _context5.stop();
                         }
                     }
-                }, _callee4, this, [[1, 12]]);
+                }, _callee5, this, [[1, 12]]);
             }));
 
             function remove() {
-                return _ref7.apply(this, arguments);
+                return _ref8.apply(this, arguments);
             }
 
             return remove;
         }(),
         handleSubmit: function handleSubmit(name, index) {
-            var _this3 = this;
+            var _this2 = this;
 
             this.$refs[name].validate(function (valid) {
                 if (valid) {
-                    _this3.$Message.success('Success!', 'Data Added');
-                    _this3.add(index);
+                    _this2.$Message.success('Success!', 'Data Added');
+                    _this2.add(index);
                 } else {
-                    _this3.$Message.error('Fail!');
+                    _this2.$Message.error('Fail!');
                 }
             });
         },
@@ -96021,92 +96111,92 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
 
     created: function () {
-        var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-            var _ref10, data, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, d;
+        var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
+            var _ref11, data, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, d;
 
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
                 while (1) {
-                    switch (_context5.prev = _context5.next) {
+                    switch (_context6.prev = _context6.next) {
                         case 0:
                             this.ls();
-                            _context5.prev = 1;
-                            _context5.next = 4;
+                            _context6.prev = 1;
+                            _context6.next = 4;
                             return axios({
                                 method: 'get',
                                 url: '/app/booking'
                             });
 
                         case 4:
-                            _ref10 = _context5.sent;
-                            data = _ref10.data;
+                            _ref11 = _context6.sent;
+                            data = _ref11.data;
                             _iteratorNormalCompletion2 = true;
                             _didIteratorError2 = false;
                             _iteratorError2 = undefined;
-                            _context5.prev = 9;
+                            _context6.prev = 9;
 
                             for (_iterator2 = data[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                                 d = _step2.value;
 
                                 if (d.shift == 1) d.shiftName = 'Day';else if (d.shift == 2) d.shiftName = 'Night';else d.shiftName = 'NO SHIFT';
                             }
-                            _context5.next = 17;
+                            _context6.next = 17;
                             break;
 
                         case 13:
-                            _context5.prev = 13;
-                            _context5.t0 = _context5['catch'](9);
+                            _context6.prev = 13;
+                            _context6.t0 = _context6['catch'](9);
                             _didIteratorError2 = true;
-                            _iteratorError2 = _context5.t0;
+                            _iteratorError2 = _context6.t0;
 
                         case 17:
-                            _context5.prev = 17;
-                            _context5.prev = 18;
+                            _context6.prev = 17;
+                            _context6.prev = 18;
 
                             if (!_iteratorNormalCompletion2 && _iterator2.return) {
                                 _iterator2.return();
                             }
 
                         case 20:
-                            _context5.prev = 20;
+                            _context6.prev = 20;
 
                             if (!_didIteratorError2) {
-                                _context5.next = 23;
+                                _context6.next = 23;
                                 break;
                             }
 
                             throw _iteratorError2;
 
                         case 23:
-                            return _context5.finish(20);
+                            return _context6.finish(20);
 
                         case 24:
-                            return _context5.finish(17);
+                            return _context6.finish(17);
 
                         case 25:
                             this.data1 = data;
 
                             this.lf();
 
-                            _context5.next = 33;
+                            _context6.next = 33;
                             break;
 
                         case 29:
-                            _context5.prev = 29;
-                            _context5.t1 = _context5['catch'](1);
+                            _context6.prev = 29;
+                            _context6.t1 = _context6['catch'](1);
 
                             this.e('Oops!', 'Something went wrong, please try again!');
                             this.le();
 
                         case 33:
                         case 'end':
-                            return _context5.stop();
+                            return _context6.stop();
                     }
                 }
-            }, _callee5, this, [[1, 29], [9, 13, 17, 25], [18,, 20, 24]]);
+            }, _callee6, this, [[1, 29], [9, 13, 17, 25], [18,, 20, 24]]);
         }));
 
         function created() {
-            return _ref9.apply(this, arguments);
+            return _ref10.apply(this, arguments);
         }
 
         return created;
@@ -96183,6 +96273,12 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
+              _c(
+                "Button",
+                { attrs: { align: "left" }, on: { click: _vm.showPrint } },
+                [_vm._v("Print")]
+              ),
+              _vm._v(" "),
               _c("Table", {
                 attrs: { columns: _vm.columns1, data: _vm.searchData }
               })
@@ -96191,6 +96287,35 @@ var render = function() {
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "Modal",
+        {
+          staticStyle: { "margin-top": "20px" },
+          attrs: { width: "705" },
+          model: {
+            value: _vm.printModel,
+            callback: function($$v) {
+              _vm.printModel = $$v
+            },
+            expression: "printModel"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "print" },
+            [
+              _c("Table", {
+                attrs: { columns: _vm.columns1, data: _vm.searchData }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { attrs: { slot: "footer" }, slot: "footer" })
+        ]
       ),
       _vm._v(" "),
       _c(
