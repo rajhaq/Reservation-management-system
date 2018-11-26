@@ -95646,6 +95646,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
+        var _this = this;
+
         return {
             search: '',
             dateRange: [],
@@ -95697,17 +95699,46 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             }, {
                 title: 'Shift',
                 key: 'shiftName'
-            },
-            // {
-            //     title: 'Program Type',
-            //     key: 'type'
-            // },
-            {
+            }, {
+                title: 'Program Type',
+                key: 'type'
+            }, {
                 title: 'Address',
                 key: 'address'
             }, {
                 title: 'Date',
                 key: 'date'
+            }, {
+                title: 'Action',
+                key: 'action',
+                width: 150,
+                align: 'center',
+                render: function render(h, params) {
+                    return h('div', [h('Button', {
+                        props: {
+                            type: 'primary',
+                            size: 'small'
+                        },
+                        style: {
+                            marginRight: '5px'
+                        },
+                        on: {
+                            click: function click() {
+                                _this.showEdit(params.index);
+                            }
+                        }
+                    }, 'Edit'), h('Button', {
+                        props: {
+                            type: 'error',
+                            size: 'small'
+                        },
+                        on: {
+                            click: function click() {
+                                _this.showRemove(params.index);
+                            }
+                        }
+                    }, 'Delete')]);
+                }
             }],
             data1: [],
 
@@ -95744,15 +95775,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     computed: {
         searchData: function searchData() {
-            var _this = this;
+            var _this2 = this;
 
             if (this.dateRange[0] && this.dateRange[1]) {
                 return this.data1.filter(function (data) {
-                    return data.date >= _this.dateRange[0] && data.date <= _this.dateRange[1] && (data.name.toUpperCase().match(_this.search.toUpperCase()) || data.number.match(_this.search) || data.hall.toUpperCase().match(_this.search.toUpperCase()) || data.address.toUpperCase().match(_this.search.toUpperCase()));
+                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.number.match(_this2.search) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
                 });
             } else {
                 return this.data1.filter(function (data) {
-                    return data.name.toUpperCase().match(_this.search.toUpperCase()) || data.hall.toUpperCase().match(_this.search.toUpperCase()) || data.address.toUpperCase().match(_this.search.toUpperCase()) || data.number.match(_this.search);
+                    return data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()) || data.number.match(_this2.search);
                 });
             }
         },
@@ -96093,14 +96124,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             return remove;
         }(),
         handleSubmit: function handleSubmit(name, index) {
-            var _this2 = this;
+            var _this3 = this;
 
             this.$refs[name].validate(function (valid) {
                 if (valid) {
-                    _this2.$Message.success('Success!', 'Data Added');
-                    _this2.add(index);
+                    _this3.$Message.success('Success!', 'Data Added');
+                    _this3.add(index);
                 } else {
-                    _this2.$Message.error('Fail!');
+                    _this3.$Message.error('Fail!');
                 }
             });
         },
@@ -96692,6 +96723,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
 //
 //
 //

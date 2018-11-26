@@ -148,10 +148,10 @@
                         title: 'Shift',
                         key: 'shiftName'
                     },
-                    // {
-                    //     title: 'Program Type',
-                    //     key: 'type'
-                    // },
+                    {
+                        title: 'Program Type',
+                        key: 'type'
+                    },
                     {
                         title: 'Address',
                         key: 'address'
@@ -160,41 +160,41 @@
                         title: 'Date',
                         key: 'date'
                     },
-                    // {
-                    //     title: 'Action',
-                    //     key: 'action',
-                    //     width: 150,
-                    //     align: 'center',
-                    //     render: (h, params) => {
-                    //         return h('div', [
-                    //             h('Button', {
-                    //                 props: {
-                    //                     type: 'primary',
-                    //                     size: 'small'
-                    //                 },
-                    //                 style: {
-                    //                     marginRight: '5px'
-                    //                 },
-                    //                 on: {
-                    //                     click: () => {
-                    //                         this.showEdit(params.index)
-                    //                     }
-                    //                 }
-                    //             }, 'Edit'),
-                    //             h('Button', {
-                    //                 props: {
-                    //                     type: 'error',
-                    //                     size: 'small'
-                    //                 },
-                    //                 on: {
-                    //                     click: () => {
-                    //                         this.showRemove(params.index)
-                    //                     }
-                    //                 }
-                    //             }, 'Delete')
-                    //         ]);
-                    //     }
-                    // }
+                    {
+                        title: 'Action',
+                        key: 'action',
+                        width: 150,
+                        align: 'center',
+                        render: (h, params) => {
+                            return h('div', [
+                                h('Button', {
+                                    props: {
+                                        type: 'primary',
+                                        size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.showEdit(params.index)
+                                        }
+                                    }
+                                }, 'Edit'),
+                                h('Button', {
+                                    props: {
+                                        type: 'error',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.showRemove(params.index)
+                                        }
+                                    }
+                                }, 'Delete')
+                            ]);
+                        }
+                    }
                 ],
                 data1: [
 
