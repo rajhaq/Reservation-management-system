@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Payment;
 class PaymentController extends Controller
 {
     /**
@@ -13,7 +13,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $data=Payment::with('admin')
+        ->orderBy('date', 'asc')
+        ->get();
+        return $data;
     }
 
     /**
@@ -34,7 +37,21 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $admin_id=Auth::user()->id;
+        $input=$request->all();
+        $created=Booking::create(
+            [
+
+                'admin_id' => $admin_id,
+                'date' => $input['date'],
+                'booking_id' => $input['booking_id'],
+                'amount' => $input['amount'],
+                'remarks' => $input['remarks'],
+                'type' => $input['type'],
+            ]
+        );
+        $settings=Booking::where('id', $created->id)->with('admin')->first();
+        return $settings;
     }
 
     /**
