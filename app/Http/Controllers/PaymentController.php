@@ -39,7 +39,7 @@ class PaymentController extends Controller
     {
         $admin_id=Auth::user()->id;
         $input=$request->all();
-        $created=Booking::create(
+        $created=Payment::create(
             [
 
                 'admin_id' => $admin_id,
@@ -50,7 +50,7 @@ class PaymentController extends Controller
                 'type' => $input['type'],
             ]
         );
-        $settings=Booking::where('id', $created->id)->with('admin')->first();
+        $settings=Payment::where('id', $created->id)->with('admin')->first();
         return $settings;
     }
 
@@ -85,7 +85,9 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Payment::where('id',$id)->update($request->all());
+        $update=Payment::where('id',$request->id)->with('admin')->first();
+        return $update;
     }
 
     /**
@@ -96,6 +98,13 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = payment::where('id','=',$id)
+          ->first();
+          if($destroy->count()){
+            $destroy->delete();
+            return response()->json(['msg'=>'success','status'=>$id]);
+          } else {
+            return response()->json(['msg'=>'error','status'=>$id]);
+          }
     }
 }
