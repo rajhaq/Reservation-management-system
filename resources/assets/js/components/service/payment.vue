@@ -17,19 +17,34 @@
 
                     <Row :gutter="24">
                         <Col span="24">
-                            <FormItem label="Group">
-                                <Select v-model="formValue.group_id" placeholder="Select group" filterable>
-                                    <Option v-for="(group,i) in dataBooking" :value="group.id" :key="i">{{group.groupName}}</Option>
+                            <FormItem label="Client">
+                                <Select v-model="formValue.booking_id" placeholder="Select Booking" filterable>
+                                    <Option v-for="(booking,i) in dataBooking" :value="booking.id" :key="i">
+                                        <span>{{ booking.name}}</span>
+                                        <span style="float:right;color:#ccc">{{ booking.date}} | {{ booking.number}}</span>
+                                    </Option>
                                 </Select>
                             </FormItem>
-                            <FormItem  label="Category Name">
-                                <Input type="text" placeholder="Category Name" v-model="formValue.catName" @on-enter="categoryAdd">
+                            <FormItem  label="Issue Date">
+                                <br/>
+                                <DatePicker type="date" @on-change="dateConverter" placeholder="Select date"></DatePicker>
+                            </FormItem >
+                            <FormItem  label="Payment Amount">
+                                <Input type="text" placeholder="Amount" v-model="formValue.amount" @on-enter="paymentAdd">
+                                </Input>
+                            </FormItem >
+                            <FormItem  label="Remarks">
+                                <Input type="text" placeholder="Ex: cheque number" v-model="formValue.remarks" @on-enter="paymentAdd">
+                                </Input>
+                            </FormItem >
+                            <FormItem  label="Type">
+                                <Input type="text" placeholder="Ex: cheque number" v-model="formValue.type" @on-enter="paymentAdd">
                                 </Input>
                             </FormItem >
 
                         </Col>
                          <Col span="24">
-                            <Button type="success" :loading="loading" @click="categoryAdd">
+                            <Button type="success" :loading="loading" @click="paymentAdd">
                                 <span v-if="!loading">Add</span>
                                 <span v-else>Loading...</span>
                             </Button>
@@ -52,8 +67,8 @@
                         <Option v-for="(group,i) in dataBooking" :value="group.id" :key="i">{{group.groupName}}</Option>
                     </Select>
                 </FormItem>
-                <FormItem  label="Category Name">
-                    <Input type="text" placeholder="Category Name"
+                <FormItem  label="payment Name">
+                    <Input type="text" placeholder="payment Name"
                     v-model="editObj.catName" @on-enter="edit"></Input>
                 </FormItem >
             </Col>
@@ -112,12 +127,20 @@
                 },
                 columns1: [
                     {
-                        title: 'Category Name',
-                        key: 'catName'
+                        title: 'Client Name',
+                        key: 'clientName'
                     },
                     {
-                        title: 'Group Name',
-                        key: 'groupName'
+                        title: 'Contact',
+                        key: 'clientNumber'
+                    },
+                    {
+                        title: 'Shift',
+                        key: 'shift'
+                    },
+                    {
+                        title: 'Hall',
+                        key: 'hall'
                     },
                     {
                         title: 'Action',
@@ -163,20 +186,18 @@
                 dataPayment: [],
 
                 formValue: {
-                    id: '',
-                    catName:'',
-                    group_id:'',
                 },
 
             }
 
         },
         computed: {
+
             searchData()
             {
                 return this.dataPayment.filter((data)=>{
 
-                    return data.catName.toUpperCase().match(this.search.toUpperCase()) ||data.groupName.toUpperCase().match(this.search.toUpperCase());
+                    return data.clientName.toUpperCase().match(this.search.toUpperCase()) ||data.clientNumber.toUpperCase().match(this.search.toUpperCase());
                 }
                 );
             },
@@ -194,21 +215,26 @@
             }
         },
         methods: {
+            dateConverter(key)
+            {
+                this.formValue.date=key
+
+            },
             collapsedSider () {
                 this.$refs.side1.toggleCollapse();
             },
-            async categoryAdd(){
+            async paymentAdd(){
                 this.loading=true
                 try{
                     let {data} =await  axios({
                         method: 'post',
-                        url:'/app/category',
+                        url:'/app/payment',
                         data: this.formValue
                     })
                     data.groupName=data.group.groupName
                     this.dataPayment.unshift(data)
 
-                    this.s('Great!','Category has been added successfully!')
+                    this.s('Great!','payment has been added successfully!')
                     this.loading=false
                     this.formValue.catName=''
                     this.formValue.group_id=null
@@ -237,13 +263,13 @@
                 try{
                     let {data} =await  axios({
                         method: 'post',
-                        url:'/app/categoryUpdate',
+                        url:'/app/paymentUpdate',
                         data: this.editObj
                     })
                     this.dataPayment[this.UpdateValue.indexNumber].catName=data.catName
                     this.dataPayment[this.UpdateValue.indexNumber].group_id=data.group_id
                     this.dataPayment[this.UpdateValue.indexNumber].groupName=data.group.groupName
-                    this.s('Great!','Category information has been updated successfully!')
+                    this.s('Great!','payment information has been updated successfully!')
 
                     this.sending=false
                     this.editModal=false
@@ -258,10 +284,10 @@
                 try{
                     let {data} =await  axios({
                         method: 'delete',
-                        url:`/app/category/${this.UpdateValue.id}`,
+                        url:`/app/payment/${this.UpdateValue.id}`,
                     })
                     this.dataPayment.splice( this.UpdateValue.indexNumber, 1)
-                    this.s('Great!','Category information has been removed successfully!')
+                    this.s('Great!','payment information has been removed successfully!')
 
                     this.sending=false
                     this.deleteModal=false
@@ -296,7 +322,14 @@
                     url:'/app/payment'
                 })
                 for(let d of data){
-                    d.groupName=d.group.groupName
+                    d.clientName=d.booking.name
+                    d.clientNumber=d.booking.number
+                    if(d.booking.shift==1)
+                    d.shift='Day'
+                    else if(d.booking.shift==2)
+                    d.shift='Night'
+
+                    d.hall=d.booking.hall
                 }
 
                 this.dataPayment=data;

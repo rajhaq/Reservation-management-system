@@ -90606,7 +90606,7 @@ var render = function() {
                             {
                               attrs: {
                                 name: "2-1",
-                                to: _vm.handleGoToMenu("/newbooking")
+                                to: _vm.handleGoToMenu("/payment")
                               }
                             },
                             [_vm._v("Payment")]
@@ -90730,6 +90730,10 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_booking_bookinglist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_booking_bookinglist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue__);
+
+
 
 
 
@@ -90760,6 +90764,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 		path: '/calender',
 		name: 'calender',
 		component: __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue___default.a
+	}, {
+		path: '/payment',
+		name: 'payment',
+		component: __WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue___default.a
 	}]
 }));
 
@@ -97423,6 +97431,1019 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 80 */,
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(82)
+/* template */
+var __vue_template__ = __webpack_require__(83)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\service\\payment.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-43b48b50", Component.options)
+  } else {
+    hotAPI.reload("data-v-43b48b50", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        var _this = this;
+
+        return {
+            search: '',
+            editModal: false,
+            deleteModal: false,
+            loading: false,
+            sending: false,
+            isCollapsed: false,
+            editObj: {
+                id: null,
+                catName: '',
+                group_id: ''
+
+            },
+            UpdateValue: {
+                indexNumber: null,
+                id: null,
+                catName: '',
+                group_id: '',
+                groupName: ''
+
+            },
+            columns1: [{
+                title: 'Client Name',
+                key: 'clientName'
+            }, {
+                title: 'Contact',
+                key: 'clientNumber'
+            }, {
+                title: 'Shift',
+                key: 'shift'
+            }, {
+                title: 'Hall',
+                key: 'hall'
+            }, {
+                title: 'Action',
+                key: 'action',
+                width: 150,
+                align: 'center',
+                render: function render(h, params) {
+                    return h('div', [h('Button', {
+                        props: {
+                            type: 'primary',
+                            size: 'small'
+                        },
+                        style: {
+                            marginRight: '5px'
+                        },
+                        on: {
+                            click: function click() {
+                                _this.showEdit(params.index);
+                            }
+                        }
+                    }, 'Edit'), h('Button', {
+                        props: {
+                            type: 'error',
+                            size: 'small'
+                        },
+                        on: {
+                            click: function click() {
+                                _this.showRemove(params.index);
+                            }
+                        }
+                    }, 'Delete')]);
+                }
+            }],
+            dataBooking: [],
+            dataPayment: [],
+
+            formValue: {}
+
+        };
+    },
+
+    computed: {
+        searchData: function searchData() {
+            var _this2 = this;
+
+            return this.dataPayment.filter(function (data) {
+
+                return data.clientName.toUpperCase().match(_this2.search.toUpperCase()) || data.clientNumber.toUpperCase().match(_this2.search.toUpperCase());
+            });
+        },
+        rotateIcon: function rotateIcon() {
+            return ['menu-icon', this.isCollapsed ? 'rotate-icon' : ''];
+        },
+        menuitemClasses: function menuitemClasses() {
+            return ['menu-item', this.isCollapsed ? 'collapsed-menu' : ''];
+        }
+    },
+    methods: {
+        dateConverter: function dateConverter(key) {
+            this.formValue.date = key;
+        },
+        collapsedSider: function collapsedSider() {
+            this.$refs.side1.toggleCollapse();
+        },
+        paymentAdd: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _ref2, data;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                this.loading = true;
+                                _context.prev = 1;
+                                _context.next = 4;
+                                return axios({
+                                    method: 'post',
+                                    url: '/app/payment',
+                                    data: this.formValue
+                                });
+
+                            case 4:
+                                _ref2 = _context.sent;
+                                data = _ref2.data;
+
+                                data.groupName = data.group.groupName;
+                                this.dataPayment.unshift(data);
+
+                                this.s('Great!', 'payment has been added successfully!');
+                                this.loading = false;
+                                this.formValue.catName = '';
+                                this.formValue.group_id = null;
+                                _context.next = 18;
+                                break;
+
+                            case 14:
+                                _context.prev = 14;
+                                _context.t0 = _context['catch'](1);
+
+                                this.loading = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 18:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[1, 14]]);
+            }));
+
+            function paymentAdd() {
+                return _ref.apply(this, arguments);
+            }
+
+            return paymentAdd;
+        }(),
+        showEdit: function showEdit(index) {
+            this.editObj.id = this.dataPayment[index].id;
+            this.editObj.catName = this.dataPayment[index].catName;
+            this.editObj.group_id = this.dataPayment[index].group_id;
+            this.UpdateValue.group_id = this.dataPayment[index].group_id;
+            this.UpdateValue.catName = this.dataPayment[index].catName;
+            this.UpdateValue.indexNumber = index;
+            this.editModal = true;
+        },
+        showRemove: function showRemove(index) {
+            this.UpdateValue.catName = this.dataPayment[index].catName;
+            this.UpdateValue.id = this.dataPayment[index].id;
+            this.UpdateValue.indexNumber = index;
+            this.deleteModal = true;
+        },
+        edit: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var _ref4, data;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                this.sending = true;
+                                _context2.prev = 1;
+                                _context2.next = 4;
+                                return axios({
+                                    method: 'post',
+                                    url: '/app/paymentUpdate',
+                                    data: this.editObj
+                                });
+
+                            case 4:
+                                _ref4 = _context2.sent;
+                                data = _ref4.data;
+
+                                this.dataPayment[this.UpdateValue.indexNumber].catName = data.catName;
+                                this.dataPayment[this.UpdateValue.indexNumber].group_id = data.group_id;
+                                this.dataPayment[this.UpdateValue.indexNumber].groupName = data.group.groupName;
+                                this.s('Great!', 'payment information has been updated successfully!');
+
+                                this.sending = false;
+                                this.editModal = false;
+                                _context2.next = 19;
+                                break;
+
+                            case 14:
+                                _context2.prev = 14;
+                                _context2.t0 = _context2['catch'](1);
+
+                                this.sending = false;
+                                this.editModal = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 19:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[1, 14]]);
+            }));
+
+            function edit() {
+                return _ref3.apply(this, arguments);
+            }
+
+            return edit;
+        }(),
+        remove: function () {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+                var _ref6, data;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                this.sending = true;
+                                _context3.prev = 1;
+                                _context3.next = 4;
+                                return axios({
+                                    method: 'delete',
+                                    url: '/app/payment/' + this.UpdateValue.id
+                                });
+
+                            case 4:
+                                _ref6 = _context3.sent;
+                                data = _ref6.data;
+
+                                this.dataPayment.splice(this.UpdateValue.indexNumber, 1);
+                                this.s('Great!', 'payment information has been removed successfully!');
+
+                                this.sending = false;
+                                this.deleteModal = false;
+                                _context3.next = 17;
+                                break;
+
+                            case 12:
+                                _context3.prev = 12;
+                                _context3.t0 = _context3['catch'](1);
+
+                                this.sending = false;
+                                this.deleteModal = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 17:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this, [[1, 12]]);
+            }));
+
+            function remove() {
+                return _ref5.apply(this, arguments);
+            }
+
+            return remove;
+        }()
+    },
+
+    created: function () {
+        var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+            var _ref8, data, _ref9, _data, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, d;
+
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                while (1) {
+                    switch (_context4.prev = _context4.next) {
+                        case 0:
+                            this.ls();
+                            _context4.prev = 1;
+                            _context4.next = 4;
+                            return axios({
+                                method: 'get',
+                                url: '/app/booking'
+                            });
+
+                        case 4:
+                            _ref8 = _context4.sent;
+                            data = _ref8.data;
+
+                            this.dataBooking = data;
+                            this.lf();
+
+                            _context4.next = 14;
+                            break;
+
+                        case 10:
+                            _context4.prev = 10;
+                            _context4.t0 = _context4['catch'](1);
+
+                            this.e('Oops!', 'Something went wrong, please try again!');
+                            this.le();
+
+                        case 14:
+                            _context4.prev = 14;
+                            _context4.next = 17;
+                            return axios({
+                                method: 'get',
+                                url: '/app/payment'
+                            });
+
+                        case 17:
+                            _ref9 = _context4.sent;
+                            _data = _ref9.data;
+                            _iteratorNormalCompletion = true;
+                            _didIteratorError = false;
+                            _iteratorError = undefined;
+                            _context4.prev = 22;
+
+                            for (_iterator = _data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                                d = _step.value;
+
+                                d.clientName = d.booking.name;
+                                d.clientNumber = d.booking.number;
+                                if (d.booking.shift == 1) d.shift = 'Day';else if (d.booking.shift == 2) d.shift = 'Night';
+
+                                d.hall = d.booking.hall;
+                            }
+
+                            _context4.next = 30;
+                            break;
+
+                        case 26:
+                            _context4.prev = 26;
+                            _context4.t1 = _context4['catch'](22);
+                            _didIteratorError = true;
+                            _iteratorError = _context4.t1;
+
+                        case 30:
+                            _context4.prev = 30;
+                            _context4.prev = 31;
+
+                            if (!_iteratorNormalCompletion && _iterator.return) {
+                                _iterator.return();
+                            }
+
+                        case 33:
+                            _context4.prev = 33;
+
+                            if (!_didIteratorError) {
+                                _context4.next = 36;
+                                break;
+                            }
+
+                            throw _iteratorError;
+
+                        case 36:
+                            return _context4.finish(33);
+
+                        case 37:
+                            return _context4.finish(30);
+
+                        case 38:
+                            this.dataPayment = _data;
+                            this.lf();
+
+                            _context4.next = 46;
+                            break;
+
+                        case 42:
+                            _context4.prev = 42;
+                            _context4.t2 = _context4['catch'](14);
+
+                            this.e('Oops!', 'Something went wrong, please try again!');
+                            this.le();
+
+                        case 46:
+                        case 'end':
+                            return _context4.stop();
+                    }
+                }
+            }, _callee4, this, [[1, 10], [14, 42], [22, 26, 30, 38], [31,, 33, 37]]);
+        }));
+
+        function created() {
+            return _ref7.apply(this, arguments);
+        }
+
+        return created;
+    }()
+});
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "Row",
+        [
+          _c(
+            "Col",
+            {
+              staticClass: "dream-input-main",
+              attrs: { span: "13", offset: "1" }
+            },
+            [
+              _c(
+                "Form",
+                { ref: "formInline", attrs: { inline: "" } },
+                [
+                  _c(
+                    "FormItem",
+                    { attrs: { prop: "user" } },
+                    [
+                      _c(
+                        "Input",
+                        {
+                          attrs: { type: "text", placeholder: "Search" },
+                          model: {
+                            value: _vm.search,
+                            callback: function($$v) {
+                              _vm.search = $$v
+                            },
+                            expression: "search"
+                          }
+                        },
+                        [
+                          _c("Icon", {
+                            attrs: { slot: "prepend", type: "ios-search" },
+                            slot: "prepend"
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("Table", {
+                attrs: { columns: _vm.columns1, data: _vm.searchData }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "Col",
+            {
+              staticClass: "dream-input-main",
+              attrs: { span: "8", offset: "1" }
+            },
+            [
+              _c(
+                "Form",
+                [
+                  _c(
+                    "Row",
+                    { attrs: { gutter: 24 } },
+                    [
+                      _c(
+                        "Col",
+                        { attrs: { span: "24" } },
+                        [
+                          _c(
+                            "FormItem",
+                            { attrs: { label: "Client" } },
+                            [
+                              _c(
+                                "Select",
+                                {
+                                  attrs: {
+                                    placeholder: "Select Booking",
+                                    filterable: ""
+                                  },
+                                  model: {
+                                    value: _vm.formValue.booking_id,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.formValue, "booking_id", $$v)
+                                    },
+                                    expression: "formValue.booking_id"
+                                  }
+                                },
+                                _vm._l(_vm.dataBooking, function(booking, i) {
+                                  return _c(
+                                    "Option",
+                                    { key: i, attrs: { value: booking.id } },
+                                    [
+                                      _c("span", [
+                                        _vm._v(_vm._s(booking.name))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticStyle: {
+                                            float: "right",
+                                            color: "#ccc"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(booking.date) +
+                                              " | " +
+                                              _vm._s(booking.number)
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                })
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "FormItem",
+                            { attrs: { label: "Issue Date" } },
+                            [
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("DatePicker", {
+                                attrs: {
+                                  type: "date",
+                                  placeholder: "Select date"
+                                },
+                                on: { "on-change": _vm.dateConverter }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "FormItem",
+                            { attrs: { label: "Payment Amount" } },
+                            [
+                              _c("Input", {
+                                attrs: { type: "text", placeholder: "Amount" },
+                                on: { "on-enter": _vm.paymentAdd },
+                                model: {
+                                  value: _vm.formValue.amount,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.formValue, "amount", $$v)
+                                  },
+                                  expression: "formValue.amount"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "FormItem",
+                            { attrs: { label: "Remarks" } },
+                            [
+                              _c("Input", {
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Ex: cheque number"
+                                },
+                                on: { "on-enter": _vm.paymentAdd },
+                                model: {
+                                  value: _vm.formValue.remarks,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.formValue, "remarks", $$v)
+                                  },
+                                  expression: "formValue.remarks"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "FormItem",
+                            { attrs: { label: "Type" } },
+                            [
+                              _c("Input", {
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Ex: cheque number"
+                                },
+                                on: { "on-enter": _vm.paymentAdd },
+                                model: {
+                                  value: _vm.formValue.type,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.formValue, "type", $$v)
+                                  },
+                                  expression: "formValue.type"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "Col",
+                        { attrs: { span: "24" } },
+                        [
+                          _c(
+                            "Button",
+                            {
+                              attrs: { type: "success", loading: _vm.loading },
+                              on: { click: _vm.paymentAdd }
+                            },
+                            [
+                              !_vm.loading
+                                ? _c("span", [_vm._v("Add")])
+                                : _c("span", [_vm._v("Loading...")])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "Modal",
+        {
+          attrs: { width: "360" },
+          model: {
+            value: _vm.editModal,
+            callback: function($$v) {
+              _vm.editModal = $$v
+            },
+            expression: "editModal"
+          }
+        },
+        [
+          _c(
+            "p",
+            {
+              staticStyle: { color: "#369", "text-align": "center" },
+              attrs: { slot: "header" },
+              slot: "header"
+            },
+            [
+              _c("Icon", { attrs: { type: "edit" } }),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  " Edit " +
+                    _vm._s(_vm.UpdateValue.catName) +
+                    " " +
+                    _vm._s(_vm.editObj.group_id)
+                )
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c(
+                "Form",
+                [
+                  _c(
+                    "Col",
+                    { attrs: { span: "24" } },
+                    [
+                      _c(
+                        "FormItem",
+                        { attrs: { label: "Group" } },
+                        [
+                          _c(
+                            "Select",
+                            {
+                              attrs: { placeholder: "Select group" },
+                              model: {
+                                value: _vm.editObj.group_id,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.editObj, "group_id", $$v)
+                                },
+                                expression: "editObj.group_id"
+                              }
+                            },
+                            _vm._l(_vm.dataBooking, function(group, i) {
+                              return _c(
+                                "Option",
+                                { key: i, attrs: { value: group.id } },
+                                [_vm._v(_vm._s(group.groupName))]
+                              )
+                            })
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "FormItem",
+                        { attrs: { label: "payment Name" } },
+                        [
+                          _c("Input", {
+                            attrs: {
+                              type: "text",
+                              placeholder: "payment Name"
+                            },
+                            on: { "on-enter": _vm.edit },
+                            model: {
+                              value: _vm.editObj.catName,
+                              callback: function($$v) {
+                                _vm.$set(_vm.editObj, "catName", $$v)
+                              },
+                              expression: "editObj.catName"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { attrs: { slot: "footer" }, slot: "footer" },
+            [
+              _c(
+                "Button",
+                {
+                  attrs: {
+                    type: "primary",
+                    size: "large",
+                    long: "",
+                    loading: _vm.sending
+                  },
+                  on: { click: _vm.edit }
+                },
+                [
+                  !_vm.loading
+                    ? _c("span", [_vm._v("Update")])
+                    : _c("span", [_vm._v("Updating...")])
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "Modal",
+        {
+          attrs: { width: "360" },
+          model: {
+            value: _vm.deleteModal,
+            callback: function($$v) {
+              _vm.deleteModal = $$v
+            },
+            expression: "deleteModal"
+          }
+        },
+        [
+          _c(
+            "p",
+            {
+              staticStyle: { color: "#f60", "text-align": "center" },
+              attrs: { slot: "header" },
+              slot: "header"
+            },
+            [
+              _c("Icon", { attrs: { type: "close" } }),
+              _vm._v(" "),
+              _c("span", [_vm._v(" Delete " + _vm._s(_vm.UpdateValue.catName))])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticStyle: { "text-align": "center" } }, [
+            _vm._v(
+              "\n        Are you sure you want delete " +
+                _vm._s(_vm.UpdateValue.catName) +
+                "\n\n    "
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { attrs: { slot: "footer" }, slot: "footer" },
+            [
+              _c(
+                "Button",
+                {
+                  attrs: {
+                    type: "error",
+                    size: "large",
+                    long: "",
+                    loading: _vm.sending
+                  },
+                  on: { click: _vm.remove }
+                },
+                [
+                  !_vm.loading
+                    ? _c("span", [_vm._v("Delete")])
+                    : _c("span", [_vm._v("Deleting...")])
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-43b48b50", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

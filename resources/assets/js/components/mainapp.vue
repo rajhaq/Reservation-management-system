@@ -115,7 +115,7 @@ display: none;
                                 <Icon type="ios-paper"></Icon>
                                 Service
                             </template>
-                            <MenuItem name="2-1" :to="handleGoToMenu('/newbooking')">Payment</MenuItem>
+                            <MenuItem name="2-1" :to="handleGoToMenu('/payment')">Payment</MenuItem>
                             <MenuItem name="2-2" :to="handleGoToMenu('/bookinglist')">Product Rent</MenuItem>
                             <MenuItem name="2-3" :to="handleGoToMenu('/calender')" >Products</MenuItem>
                             <!-- <MenuItem name="1-4">Compleated Events</MenuItem> -->

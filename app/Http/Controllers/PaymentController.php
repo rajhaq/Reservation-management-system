@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Payment;
+use Auth;
 class PaymentController extends Controller
 {
     /**
@@ -14,6 +15,7 @@ class PaymentController extends Controller
     public function index()
     {
         $data=Payment::with('admin')
+        ->with('booking')
         ->orderBy('date', 'asc')
         ->get();
         return $data;

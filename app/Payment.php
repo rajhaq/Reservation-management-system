@@ -14,4 +14,8 @@ class Payment extends Model
     {
        return $this->belongsTo('App\User','admin_id');
     }
+    public function booking()
+    {
+       return $this->belongsTo('App\Booking','booking_id');
+    }
 }
