@@ -18,33 +18,41 @@
             </p> -->
             <div>
                 <Form ref="editObj" :model="editObj" :rules="ruleValidate" label-position="top">
-                        <FormItem label="Name" prop="name">
-                            <Input v-model="editObj.name" placeholder="Enter name"></Input>
-                        </FormItem>
-                        <FormItem label="Number" prop="number">
-                            <Input v-model="editObj.number" placeholder="Enter phone number"></Input>
-                        </FormItem>
-                        <FormItem label="E-mail" prop="mail">
-                            <Input v-model="editObj.mail" placeholder="Enter e-mail"></Input>
-                        </FormItem>
-                        <FormItem label="Shift">
-                            <Input v-model="editObj.shift" ></Input>
-                        </FormItem>
-                        <FormItem label="Hall" prop="hall">
-                            <Select v-model="editObj.hall" placeholder="Select hall">
-                                <Option value="both">Both</Option>
-                                <Option value="small">Top (Small)</Option>
-                                <Option value="large">Ground (Small)</Option>
-                            </Select>
-                        </FormItem>
-                        <FormItem label="Event Type" prop="type">
-                            <Select v-model="editObj.type" placeholder="Select type">
-                                <Option v-for="item in type" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                            </Select>
-                        </FormItem>
-                        <FormItem label="Address" prop="address" >
-                            <Input v-model="editObj.address" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter address..."></Input>
-                        </FormItem>
+                        <p>
+                            <b>Name: </b>
+                            {{ editObj.name }}
+                        </p>
+                        <p>
+                            <b>Number: </b>
+                            {{ editObj.number }}
+                        </p>
+                        <p>
+                            <b>E-mail: </b><br/>
+                            {{ editObj.mail }}
+                        </p>
+                        <p></p>
+                            <b>Shift: </b>
+                            <span v-if="editObj.shift=1">
+                                Day
+                            </span>
+                            <span v-else-if="editObj.shift=2">
+                                Night
+                            </span>
+
+                        </p>
+                        <p>
+                            <b>Hall: </b>
+                            {{ editObj.hall }}
+                        </p>
+                        <p>
+                            <b>Type: </b>
+                            {{ editObj.type }}
+                        </p>
+                        <p>
+                            <b>Address: </b>
+                            {{ editObj.address }}
+                        </p>
+
 
                     </Form>
 

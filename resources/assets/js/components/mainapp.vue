@@ -127,6 +127,8 @@ display: none;
                             </template>
                             <!-- <MenuItem name="2-1">Booking Off Day</MenuItem> -->
                         </Submenu>
+                        <MenuItem name="2-1" href="/calender"><Icon type="ios-calendar"></Icon><a href="/calender">Calender</a></MenuItem>
+
                     </Menu>
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px'}">
