@@ -18,6 +18,8 @@ Vue.mixin(common);
 
 
 Vue.component('mainapp', require('./components/mainapp.vue'));
+Vue.component('calender', require('./components/calender.vue'));
+
 import router from './router'
 const app = new Vue({
     el: '#app',

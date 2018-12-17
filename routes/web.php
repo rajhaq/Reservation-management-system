@@ -22,6 +22,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('app/calender', 'BookingController@calender')->name('calender');
+
+Route::get('/calender/full','HomeController@calender');
+
+Route::get('/logout', function () {
+	Auth::logout();
+    Session::flush();
+	Session::forget('url.intented');
+	return redirect("/login");
+
+});
 Route::any('{slug}', [
     'uses' => 'HomeController@index',
  ])->where('slug', '([A-z\d-\/_.]+)?');

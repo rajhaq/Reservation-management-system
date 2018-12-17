@@ -26777,7 +26777,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(19);
-module.exports = __webpack_require__(82);
+module.exports = __webpack_require__(83);
 
 
 /***/ }),
@@ -26817,6 +26817,8 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('full-calendar', __WEBPACK
 __WEBPACK_IMPORTED_MODULE_2_vue___default.a.mixin(__WEBPACK_IMPORTED_MODULE_5__common__["a" /* default */]);
 
 __WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('mainapp', __webpack_require__(16));
+__WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('calender', __webpack_require__(79));
+
 
 var app = new __WEBPACK_IMPORTED_MODULE_2_vue___default.a({
     el: '#app',
@@ -90660,10 +90662,10 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "MenuItem",
-                        { attrs: { name: "2-1", href: "/calender" } },
+                        { attrs: { name: "2-1", href: "/calender/full" } },
                         [
                           _c("Icon", { attrs: { type: "ios-calendar" } }),
-                          _c("a", { attrs: { href: "/calender" } }, [
+                          _c("a", { attrs: { href: "/calender/full" } }, [
                             _vm._v("Calender")
                           ])
                         ],
@@ -90744,8 +90746,11 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_booking_bookinglist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_booking_bookinglist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_calender_vue__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_calender_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_calender_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_service_payment_vue__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_service_payment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_service_payment_vue__);
+
 
 
 
@@ -90757,32 +90762,36 @@ if (false) {
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-	mode: 'history',
-	routes: [{
-		path: '/mainapp',
-		name: 'mainapp',
-		component: __WEBPACK_IMPORTED_MODULE_2__components_mainapp_vue___default.a
-	}, {
-		path: '/home',
-		name: 'home',
-		component: __WEBPACK_IMPORTED_MODULE_3__components_home_vue___default.a
-	}, {
-		path: '/newbooking',
-		name: 'newbooking',
-		component: __WEBPACK_IMPORTED_MODULE_4__components_booking_newbooking_vue___default.a
-	}, {
-		path: '/bookinglist',
-		name: 'bookinglist',
-		component: __WEBPACK_IMPORTED_MODULE_5__components_booking_bookinglist_vue___default.a
-	}, {
-		path: '/calender',
-		name: 'calender',
-		component: __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue___default.a
-	}, {
-		path: '/payment',
-		name: 'payment',
-		component: __WEBPACK_IMPORTED_MODULE_7__components_service_payment_vue___default.a
-	}]
+					mode: 'history',
+					routes: [{
+										path: '/mainapp',
+										name: 'mainapp',
+										component: __WEBPACK_IMPORTED_MODULE_2__components_mainapp_vue___default.a
+					}, {
+										path: '/home',
+										name: 'home',
+										component: __WEBPACK_IMPORTED_MODULE_3__components_home_vue___default.a
+					}, {
+										path: '/newbooking',
+										name: 'newbooking',
+										component: __WEBPACK_IMPORTED_MODULE_4__components_booking_newbooking_vue___default.a
+					}, {
+										path: '/bookinglist',
+										name: 'bookinglist',
+										component: __WEBPACK_IMPORTED_MODULE_5__components_booking_bookinglist_vue___default.a
+					}, {
+										path: '/calender',
+										name: 'calender',
+										component: __WEBPACK_IMPORTED_MODULE_6__components_booking_calender_vue___default.a
+					}, {
+										path: '/calenderfull',
+										name: 'calenderfull',
+										component: __WEBPACK_IMPORTED_MODULE_7__components_calender_vue___default.a
+					}, {
+										path: '/payment',
+										name: 'payment',
+										component: __WEBPACK_IMPORTED_MODULE_8__components_service_payment_vue___default.a
+					}]
 }));
 
 /***/ }),
@@ -97373,9 +97382,56 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(80)
+var __vue_script__ = __webpack_require__(85)
 /* template */
-var __vue_template__ = __webpack_require__(81)
+var __vue_template__ = __webpack_require__(86)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\calender.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-46a93dde", Component.options)
+  } else {
+    hotAPI.reload("data-v-46a93dde", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(81)
+/* template */
+var __vue_template__ = __webpack_require__(82)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97414,7 +97470,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97924,7 +97980,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -98379,10 +98435,644 @@ if (false) {
 }
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 84 */,
+/* 85 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        var _this = this;
+
+        return {
+            search: '',
+            dateRange: [],
+            editModal: false,
+            deleteModal: false,
+            loading: false,
+            sending: false,
+            isCollapsed: false,
+            UpdateValue: {
+                indexNumber: null,
+                zoneName: '',
+                id: null
+
+            },
+            fcEvents: [{
+                title: 'Sunny Out of Office',
+                start: '2018-09-25',
+                end: '2018-10-27'
+            }, {
+                title: 'event2',
+                start: '2018-09-02',
+                end: '2018-09-03',
+                cssClass: ['family', 'career']
+            }],
+            editObj: {
+                id: null,
+                name: '',
+                mail: '',
+                number: '',
+                hall: '',
+                type: '',
+                address: '',
+                date: '',
+                shift: null
+            },
+            columns1: [{
+                title: 'Client Name',
+                key: 'name'
+            }, {
+                title: 'Email',
+                key: 'mail'
+            }, {
+                title: 'Contact',
+                key: 'number'
+            }, {
+                title: 'Hall',
+                key: 'hall'
+            }, {
+                title: 'Shift',
+                key: 'shift'
+            }, {
+                title: 'Program Type',
+                key: 'type'
+            }, {
+                title: 'Address',
+                key: 'address'
+            }, {
+                title: 'Date',
+                key: 'date'
+            }, {
+                title: 'Action',
+                key: 'action',
+                width: 150,
+                align: 'center',
+                render: function render(h, params) {
+                    return h('div', [h('Button', {
+                        props: {
+                            type: 'primary',
+                            size: 'small'
+                        },
+                        style: {
+                            marginRight: '5px'
+                        },
+                        on: {
+                            click: function click() {
+                                _this.showEdit(params.index);
+                            }
+                        }
+                    }, 'Edit'), h('Button', {
+                        props: {
+                            type: 'error',
+                            size: 'small'
+                        },
+                        on: {
+                            click: function click() {
+                                _this.showRemove(params.index);
+                            }
+                        }
+                    }, 'Delete')]);
+                }
+            }],
+            data1: [],
+
+            type: [{
+                value: 'wedding',
+                label: 'Wedding'
+            }, {
+                value: 'reciption',
+                label: 'Reciption'
+            }, {
+                value: 'holdu',
+                label: 'Holdu'
+            }, {
+                value: 'birthday',
+                label: 'Birthday'
+            }, {
+                value: 'corporate',
+                label: 'Corporate'
+            }, {
+                value: 'others',
+                label: 'Others'
+            }],
+            ruleValidate: {
+                name: [{ required: true, message: 'The name cannot be empty', trigger: 'blur' }],
+                mail: [{ required: false }],
+                address: [{ required: false }],
+                type: [{ required: false }],
+                number: [{ required: true, message: 'The number cannot be empty', trigger: 'blur' }],
+                hall: [{ required: true, message: 'Please select the hall', trigger: 'change' }]
+            }
+
+        };
+    },
+
+    computed: {
+        searchData: function searchData() {
+            var _this2 = this;
+
+            if (this.dateRange[0] && this.dateRange[1]) {
+                return this.data1.filter(function (data) {
+                    return data.date >= _this2.dateRange[0] && data.date <= _this2.dateRange[1] && (data.type.toUpperCase().match(_this2.search.toUpperCase()) || data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase()));
+                });
+            } else {
+                return this.data1.filter(function (data) {
+                    return data.type.toUpperCase().match(_this2.search.toUpperCase()) || data.name.toUpperCase().match(_this2.search.toUpperCase()) || data.mail.toString().match(_this2.search.toString()) || data.number.toUpperCase().match(_this2.search.toUpperCase()) || data.hall.toUpperCase().match(_this2.search.toUpperCase()) || data.address.toUpperCase().match(_this2.search.toUpperCase());
+                });
+            }
+        },
+        rotateIcon: function rotateIcon() {
+            return ['menu-icon', this.isCollapsed ? 'rotate-icon' : ''];
+        },
+        menuitemClasses: function menuitemClasses() {
+            return ['menu-item', this.isCollapsed ? 'collapsed-menu' : ''];
+        }
+    },
+    methods: {
+        dateRangeConverter: function dateRangeConverter(key) {
+            this.dateRange = key;
+        },
+        collapsedSider: function collapsedSider() {
+            this.$refs.side1.toggleCollapse();
+        },
+        zoneAdd: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _ref2, data;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                this.loading = true;
+                                _context.prev = 1;
+                                _context.next = 4;
+                                return axios({
+                                    method: 'post',
+                                    url: '/app/zone',
+                                    data: this.formValue
+                                });
+
+                            case 4:
+                                _ref2 = _context.sent;
+                                data = _ref2.data;
+
+                                this.data1.unshift(data.status);
+                                this.formValue.zoneName = '';
+                                this.s('Great!', 'Zone has been added successfully!');
+
+                                this.loading = false;
+                                _context.next = 16;
+                                break;
+
+                            case 12:
+                                _context.prev = 12;
+                                _context.t0 = _context['catch'](1);
+
+                                this.loading = false;
+                                this.e('Oops!', 'Something went wrong, please try again!');
+
+                            case 16:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[1, 12]]);
+            }));
+
+            function zoneAdd() {
+                return _ref.apply(this, arguments);
+            }
+
+            return zoneAdd;
+        }(),
+        showEdit: function showEdit(index) {
+            this.editObj.id = this.data1[index].id;
+            this.editObj.name = this.data1[index].name;
+            this.editObj.mail = this.data1[index].mail;
+            this.editObj.number = this.data1[index].number;
+            this.editObj.hall = this.data1[index].hall;
+            this.editObj.type = this.data1[index].type;
+            this.editObj.address = this.data1[index].address;
+            this.editObj.date = this.data1[index].date;
+            this.UpdateValue.name = this.data1[index].name;
+            this.UpdateValue.indexNumber = index;
+            this.editModal = true;
+        },
+        showRemove: function showRemove(index) {
+            this.UpdateValue.zoneName = this.data1[index].zoneName;
+            this.UpdateValue.id = this.data1[index].id;
+            this.UpdateValue.indexNumber = index;
+            this.deleteModal = true;
+        },
+        goDate: function goDate() {},
+        showEditCal: function showEditCal(data) {
+
+            this.editObj.id = data.id;
+            this.editObj.name = data.name;
+            this.editObj.mail = data.mail;
+            this.editObj.number = data.number;
+            this.editObj.hall = data.hall;
+            this.editObj.type = data.type;
+            this.editObj.address = data.address;
+            this.editObj.date = data.date;
+            this.editObj.shift = data.shift;
+            this.UpdateValue.name = data.name;
+            this.editModal = true;
+        },
+        handleSubmit: function handleSubmit(name, index) {
+            var _this3 = this;
+
+            this.$refs[name].validate(function (valid) {
+                if (valid) {
+                    _this3.$Message.success('Success!', 'Data Added');
+                    _this3.add(index);
+                } else {
+                    _this3.$Message.error('Fail!');
+                }
+            });
+        },
+        handleReset: function handleReset(name) {
+
+            this.$refs[name].resetFields();
+        },
+        'eventClick': function eventClick(event, jsEvent, pos) {
+            this.showEditCal(event);
+            //console.log('eventClick', event, jsEvent, pos)
+        },
+        'dayClick': function dayClick(day, jsEvent) {
+            //console.log('dayClick', day, jsEvent)
+            this.deleteModal = true;
+        },
+        'moreClick': function moreClick(day, events, jsEvent) {
+            //console.log('moreCLick', day, events, jsEvent)
+        }
+    },
+    components: {
+        'full-calendar': __webpack_require__(15)
+    },
+
+    created: function () {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+            var _ref4, data;
+
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                while (1) {
+                    switch (_context2.prev = _context2.next) {
+                        case 0:
+                            this.ls();
+                            _context2.prev = 1;
+                            _context2.next = 4;
+                            return axios({
+                                method: 'get',
+                                url: '/app/calender'
+                            });
+
+                        case 4:
+                            _ref4 = _context2.sent;
+                            data = _ref4.data;
+
+                            this.data1 = data;
+
+                            this.lf();
+
+                            _context2.next = 14;
+                            break;
+
+                        case 10:
+                            _context2.prev = 10;
+                            _context2.t0 = _context2['catch'](1);
+
+                            this.e('Oops!', 'Something went wrong, please try again!');
+                            this.le();
+
+                        case 14:
+                        case 'end':
+                            return _context2.stop();
+                    }
+                }
+            }, _callee2, this, [[1, 10]]);
+        }));
+
+        function created() {
+            return _ref3.apply(this, arguments);
+        }
+
+        return created;
+    }()
+});
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "Row",
+        [
+          _c(
+            "Col",
+            { staticClass: "dream-input-main", attrs: { span: "24" } },
+            [
+              _c("full-calendar", {
+                attrs: { events: _vm.data1, locale: "en" },
+                on: {
+                  eventClick: _vm.eventClick,
+                  dayClick: _vm.dayClick,
+                  moreClick: _vm.moreClick
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "Modal",
+        {
+          attrs: { width: "360" },
+          model: {
+            value: _vm.editModal,
+            callback: function($$v) {
+              _vm.editModal = $$v
+            },
+            expression: "editModal"
+          }
+        },
+        [
+          _c(
+            "div",
+            [
+              _c(
+                "Form",
+                {
+                  ref: "editObj",
+                  attrs: {
+                    model: _vm.editObj,
+                    rules: _vm.ruleValidate,
+                    "label-position": "top"
+                  }
+                },
+                [
+                  _c("p", [
+                    _c("b", [_vm._v("Name: ")]),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.editObj.name) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Number: ")]),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.editObj.number) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("E-mail: ")]),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.editObj.mail) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p"),
+                  _vm._v(" "),
+                  _c("b", [_vm._v("Shift: ")]),
+                  _vm._v(" "),
+                  (_vm.editObj.shift = 1)
+                    ? _c("span", [
+                        _vm._v(
+                          "\n                            Day\n                        "
+                        )
+                      ])
+                    : (_vm.editObj.shift = 2)
+                      ? _c("span", [
+                          _vm._v(
+                            "\n                            Night\n                        "
+                          )
+                        ])
+                      : _vm._e(),
+                  _vm._v(" "),
+                  _c("p"),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Hall: ")]),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.editObj.hall) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Type: ")]),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.editObj.type) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Address: ")]),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.editObj.address) +
+                        "\n                    "
+                    )
+                  ])
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "Modal",
+        {
+          attrs: { width: "360" },
+          model: {
+            value: _vm.deleteModal,
+            callback: function($$v) {
+              _vm.deleteModal = $$v
+            },
+            expression: "deleteModal"
+          }
+        },
+        [
+          _c(
+            "p",
+            {
+              staticStyle: { color: "#f60", "text-align": "center" },
+              attrs: { slot: "header" },
+              slot: "header"
+            },
+            [
+              _c("Icon", { attrs: { type: "close" } }),
+              _vm._v(" "),
+              _c("span", [_vm._v(" Start Booking")])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticStyle: { "text-align": "center" } }, [
+            _vm._v(
+              "\n            This date is open for booking, Want to Start new booking\n\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { attrs: { slot: "footer" }, slot: "footer" },
+            [
+              _c(
+                "Button",
+                {
+                  attrs: {
+                    type: "error",
+                    size: "large",
+                    long: "",
+                    loading: _vm.sending
+                  },
+                  on: { click: _vm.goDate }
+                },
+                [
+                  !_vm.loading
+                    ? _c("span", [_vm._v("Go")])
+                    : _c("span", [_vm._v("Deleting...")])
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-46a93dde", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
