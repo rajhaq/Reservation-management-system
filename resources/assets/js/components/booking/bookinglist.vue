@@ -125,7 +125,6 @@
                     type: '',
                     address: '',
                     date:'',
-                    shift:1,
                     },
                 columns1: [
                     {

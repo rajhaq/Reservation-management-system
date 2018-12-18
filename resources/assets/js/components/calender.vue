@@ -32,10 +32,10 @@
                         </p>
                         <p></p>
                             <b>Shift: </b>
-                            <span v-if="editObj.shift=1">
+                            <span v-if="editObj.shift==1">
                                 Day
                             </span>
-                            <span v-else-if="editObj.shift=2">
+                            <span v-else-if="editObj.shift==2">
                                 Night
                             </span>
 
@@ -382,7 +382,7 @@
             },
             'dayClick' (day, jsEvent) {
             //console.log('dayClick', day, jsEvent)
-                        this.deleteModal=true
+                        // this.deleteModal=true
                 },
             'moreClick' (day, events, jsEvent) {
             //console.log('moreCLick', day, events, jsEvent)
