@@ -127,6 +127,11 @@
                 },
                 columns1: [
                     {
+                        title: 'Date',
+                        key: 'date'
+                    },
+
+                    {
                         title: 'Client Name',
                         key: 'clientName'
                     },
@@ -141,6 +146,14 @@
                     {
                         title: 'Hall',
                         key: 'hall'
+                    },
+                    {
+                        title: 'Amount',
+                        key: 'amount'
+                    },
+                    {
+                        title: 'Remarks',
+                        key: 'remarks'
                     },
                     {
                         title: 'Action',

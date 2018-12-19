@@ -98243,6 +98243,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             },
             columns1: [{
+                title: 'Date',
+                key: 'date'
+            }, {
                 title: 'Client Name',
                 key: 'clientName'
             }, {
@@ -98254,6 +98257,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             }, {
                 title: 'Hall',
                 key: 'hall'
+            }, {
+                title: 'Amount',
+                key: 'amount'
+            }, {
+                title: 'Remarks',
+                key: 'remarks'
             }, {
                 title: 'Action',
                 key: 'action',
