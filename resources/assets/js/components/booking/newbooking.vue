@@ -307,6 +307,7 @@
             async add(index){
                 this.loading=true
                 console.log(index)
+                console.log("start")
                 if(index==0)
                 {
                     try{
@@ -316,7 +317,6 @@
                             data: this.formValueDay
                         })
                         this.s('Great!','Booking has been added successfully!')
-                        this.bookingList.push(this.formValueDay);
                         this.day=true
                         this.loading=false
                         this.addProductModal=false
@@ -331,11 +331,10 @@
                     try{
                         let {data} =await  axios({
                             method: 'post',
-                            url:'/app/booking/',
+                            url:'/app/booking',
                             data: this.formValueNight
                         })
                         this.s('Great!','Booking has been added successfully!')
-                        this.bookingList.push(this.formValueNight);
                         this.night=true
                         this.loading=false
                         this.addProductModal=false
@@ -344,7 +343,10 @@
                         this.loading=false
                         this.e('Oops!','Something went wrong, please try again!')
                     }
+
                 }
+                                console.log("end")
+
             },
         }
     }

@@ -20,23 +20,7 @@ class BookingController extends Controller
 
         return $data;
     }
-    public function calender()
-    {
-        $data=Booking::with('admin')
-        ->orderBy('date', 'desc')
-        ->select('*','date AS start','name as title')
-        ->get();
 
-        return $data;
-    }
-public function bookingFinder($date)
-    {
-        $data=Booking::where('date', $date)
-        ->with('admin')
-        ->get();
-
-        return $data;
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -45,6 +29,23 @@ public function bookingFinder($date)
      */
     public function create()
     {
+        $admin_id=Auth::user()->id;
+        $input=$request->all();
+        $created=Booking::create(
+            [
+                'admin_id' => $admin_id,
+                'date' => $input['date'],
+                'shift' => $input['shift'],
+                'name' => $input['name'],
+                'mail' => $input['mail'],
+                'number' => $input['number'],
+                'hall' => $input['hall'],
+                'type' => $input['type'],
+                'address' => $input['address'],
+            ]
+        );
+        $settings=Booking::where('id', $created->id)->with('admin')->first();
+        return $settings;
 
     }
 
@@ -71,8 +72,8 @@ public function bookingFinder($date)
                 'address' => $input['address'],
             ]
         );
-        $settings=Booking::where('id', $created->id)->with('admin')->first();
-        return $settings;
+        $settings=Booking::where('id', 1)->with('admin')->first();
+        return $created;
     }
 
     /**
@@ -133,5 +134,22 @@ public function bookingFinder($date)
           } else {
             return response()->json(['msg'=>'error','status'=>$id]);
           }
+    }
+    public function calender()
+    {
+        $data=Booking::with('admin')
+        ->orderBy('date', 'desc')
+        ->select('*','date AS start','name as title')
+        ->get();
+
+        return $data;
+    }
+public function bookingFinder($date)
+    {
+        $data=Booking::where('date', $date)
+        ->with('admin')
+        ->get();
+
+        return $data;
     }
 }

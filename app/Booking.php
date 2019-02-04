@@ -10,6 +10,7 @@ class Booking extends Model
         'admin_id','date', 'shift','name', 'mail','number', 'hall','type','address'
     ];
 
+
     public function admin()
     {
        return $this->belongsTo('App\User','admin_id');
