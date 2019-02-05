@@ -57,7 +57,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $admin_id=Auth::user()->id;
+        $admin_id=1;
         $input=$request->all();
         $created=Booking::create(
             [
@@ -75,6 +75,27 @@ class BookingController extends Controller
         $settings=Booking::where('id', 1)->with('admin')->first();
         return $created;
     }
+    public function postBookingAdd(Request $request)
+    {
+        $admin_id=1;
+        $input=$request->all();
+        $created=Booking::create(
+            [
+                'admin_id' => $admin_id,
+                'date' => $input['date'],
+                'shift' => $input['shift'],
+                'name' => $input['name'],
+                'mail' => $input['mail'],
+                'number' => $input['number'],
+                'hall' => $input['hall'],
+                'type' => $input['type'],
+                'address' => $input['address'],
+            ]
+        );
+        $settings=Booking::where('id', 1)->with('admin')->first();
+        return $created;
+    }
+    
 
     /**
      * Display the specified resource.

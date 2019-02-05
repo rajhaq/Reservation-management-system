@@ -313,7 +313,7 @@
                     try{
                         let {data} =await  axios({
                             method: 'post',
-                            url:'/app/booking/',
+                            url:'/app/post/booking',
                             data: this.formValueDay
                         })
                         this.s('Great!','Booking has been added successfully!')
@@ -331,7 +331,7 @@
                     try{
                         let {data} =await  axios({
                             method: 'post',
-                            url:'/app/booking',
+                            url:'/app/post/booking',
                             data: this.formValueNight
                         })
                         this.s('Great!','Booking has been added successfully!')
