@@ -20,6 +20,11 @@ class BookingController extends Controller
 
         return $data;
     }
+    
+    public function newBookingAdmin()
+    {
+        return view('newbooking');
+    }
 
 
     /**
@@ -45,7 +50,7 @@ class BookingController extends Controller
             ]
         );
         $settings=Booking::where('id', $created->id)->with('admin')->first();
-        return $settings;
+        return view('newbooking')->with(['response'=> $settings] );
 
     }
 
@@ -75,6 +80,27 @@ class BookingController extends Controller
         $settings=Booking::where('id', 1)->with('admin')->first();
         return $created;
     }
+    public function postBookingAddJS(Request $request)
+    {
+        $admin_id=Auth::user()->id;
+        $input=$request->all();
+        $created=Booking::create(
+            [
+                'admin_id' => $admin_id,
+                'date' => $input['date'],
+                'shift' => $input['shift'],
+                'name' => $input['name'],
+                'mail' => $input['mail'],
+                'number' => $input['number'],
+                'hall' => $input['hall'],
+                'type' => $input['type'],
+                'address' => $input['address'],
+            ]
+        );
+        $settings=Booking::where('id', 1)->with('admin')->first();
+        return $created;
+    }
+    
     public function postBookingAdd(Request $request)
     {
         $admin_id=1;
@@ -92,8 +118,8 @@ class BookingController extends Controller
                 'address' => $input['address'],
             ]
         );
-        $settings=Booking::where('id', 1)->with('admin')->first();
-        return $created;
+        $settings=Booking::where('id', $created->id)->with('admin')->first();
+        return view('newbooking')->with(['response'=> $settings] );
     }
     
 

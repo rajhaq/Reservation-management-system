@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resource('/app/booking','BookingController');
-Route::post('/app/post/booking','BookingController@postBookingAdd');
+Route::get('/newbookingadmin', 'BookingController@newBookingAdmin');
+Route::post('/app/post/bookingJS','BookingController@postBookingAddJS');
+Route::post('/app/post/booking','BookingController@postBookingAdd')->route('newbooking');
 Route::resource('/app/payment','PaymentController');
 Route::get('/app/bookingFinder/{date}', 'BookingController@bookingFinder');
 Auth::routes();
