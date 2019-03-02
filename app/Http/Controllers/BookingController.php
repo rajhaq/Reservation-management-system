@@ -62,7 +62,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $admin_id=1;
+        $admin_id=Auth::user()->id;
         $input=$request->all();
         $created=Booking::create(
             [
